@@ -358,6 +358,12 @@ body.calm .act-saute,body.calm .act-court,body.calm .act-danse,body.calm .act-ma
 .tech div{background:var(--bg);border-radius:14px;padding:10px 12px}
 .tech strong{display:block}
 @media (max-width:400px){.rate{grid-template-columns:repeat(2,1fr)}}
+/* version 7 */
+.big.session{width:100%;flex-direction:row;gap:16px;min-height:96px;background:var(--sky-tint);border-color:var(--sky);font-size:1.35rem;text-align:left;justify-content:center}
+.big.session .bigart{width:64px}
+.ring{animation:ringing .5s ease-in-out infinite}
+@keyframes ringing{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+body.calm .ring{animation:none}
 /* version 6 */
 .page{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:14px 18px;font-family:var(--display);font-size:1.3rem;line-height:1.45;box-shadow:0 5px 0 var(--shade)}
 .page .pnum{display:block;font-family:var(--body);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--honey-deep);margin-bottom:4px}
@@ -372,6 +378,8 @@ body.calm .act-saute,body.calm .act-court,body.calm .act-danse,body.calm .act-ma
 .phprev:empty{display:none}.phprev img{max-height:160px;border-radius:14px}
 .vrow,.phitem{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:14px;padding:8px 10px}
 .vrow>span,.phitem>span{flex:1;min-width:0}
+.vrow>span.pic,.phitem>span.pic{flex:none}
+.vrow .pic svg.art{width:80%}
 .phitem .pic{width:56px;height:56px;flex:none}
 .vrow .icon-btn,.phitem .icon-btn{width:40px;height:40px}
 .rec-on{background:var(--rose)!important;color:#2B1212!important}
@@ -463,6 +471,7 @@ body.calm .act-saute,body.calm .act-court,body.calm .act-danse,body.calm .act-ma
         <button class="milo-btn" id="homeMilo" aria-label="Dire coucou à Milo"></button>
       </div>
       <p class="soft hint-line" id="homeHint">Touche Milo, fais un son ou un geste : il te répond.</p>
+      <button class="big session" id="goSession"><span class="bigart" id="sessArt"></span><span>La séance du jour<br><span class="note" style="font-family:var(--body);font-weight:600">3 jeux, 10 minutes</span></span></button>
       <div class="big-actions">
         <button class="big play" id="goMap"><span class="bigart" id="playArt"></span>On joue</button>
         <button class="big board" id="goBoard"><span class="bigart" id="boardArt"></span>Mes images</button>
@@ -536,6 +545,11 @@ body.calm .act-saute,body.calm .act-court,body.calm .act-danse,body.calm .act-ma
       <div><p class="eyebrow" id="parEyebrow">Mode parents</p><h1>Mes petites victoires</h1></div>
       <div class="panel" id="nextPanel"></div>
       <div class="panel" id="missionPanel"></div>
+      <div class="panel">
+        <h2>Les objectifs de l'orthophoniste</h2>
+        <p class="note">Coche ce que l'orthophoniste travaille avec elle. La séance du jour choisira d'abord ces jeux-là.</p>
+        <div class="vlist" id="objList"></div>
+      </div>
       <div class="panel" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap">
         <div style="min-width:0;flex:1 1 220px"><h2>Bilan de la semaine</h2><p class="note">Un résumé clair, à copier et envoyer à l'orthophoniste.</p></div>
         <button class="btn" id="weekBtn">Voir le bilan</button>
@@ -554,6 +568,7 @@ body.calm .act-saute,body.calm .act-court,body.calm .act-danse,body.calm .act-ma
         <h2>Ses phrases</h2>
         <p class="note">Écris exactement ce qu'elle dit, même si ce n'est pas correct. L'appli compte les mots. Les orthophonistes suivent cette « longueur moyenne des phrases ». C'est un repère pour toi, pas une note.</p>
         <div class="wordsum" id="lmeSum"></div>
+        <div id="lmeChart"></div>
         <div class="row"><input type="text" id="lmeTxt" placeholder="Ex. : moi veux gâteau chocolat" style="flex:3;min-width:0"><button class="btn small" id="lmeAdd" style="flex:1">Noter</button></div>
         <p class="note" id="lmeGames"></p>
         <div class="vlist" id="lmeList"></div>
@@ -953,13 +968,15 @@ const UNIV = [
  {id:'u2',n:'Mes premiers mots',goal:'Découvrir des mots utiles, avec une image et une phrase.',t:'sky',ic:'<path d="M32 16c-6-4-14-5-22-4v36c8-1 16 0 22 4 6-4 14-5 22-4V12c-8-1-16 0-22 4z"/><path d="M32 16v36"/>',games:['imagier']},
  {id:'u3',n:'Je construis mes phrases',goal:'Mettre des mots ensemble : « encore gâteau », « je veux boire du jus ».',t:'sage',ic:'<rect x="6" y="24" width="14" height="16" rx="3"/><rect x="25" y="24" width="14" height="16" rx="3"/><rect x="44" y="24" width="14" height="16" rx="3"/><circle cx="13" cy="46" r="3"/><circle cx="32" cy="46" r="3"/><circle cx="51" cy="46" r="3"/>',games:['phrases']},
  {id:'u4',n:'Je demande ce que je veux',goal:'Demander, choisir, dire non, dans des situations du quotidien.',t:'honey',ic:SV.aide,games:['path','choix']},
- {id:'u5',n:'J\'écoute et je comprends',goal:'Comprendre un mot, une consigne, puis des consignes plus longues.',t:'sky',ic:'<path d="M22 44c0-12 4-26 16-26 8 0 12 6 12 12 0 8-8 10-8 18 0 4-3 8-8 8"/><path d="M30 32a4 4 0 0 1 8 0"/>',games:['comprendre']},
+ {id:'u5',n:'J\'écoute et je comprends',goal:'Comprendre un mot, une consigne, puis des consignes plus longues.',t:'sky',ic:'<path d="M22 44c0-12 4-26 16-26 8 0 12 6 12 12 0 8-8 10-8 18 0 4-3 8-8 8"/><path d="M30 32a4 4 0 0 1 8 0"/>',games:['comprendre','consignes']},
  {id:'u6',n:'Les sons de ma bouche',goal:'Écouter les sons et regarder la bouche, avec les sons choisis par l\'orthophoniste.',t:'rose',ic:'<path d="M10 32c8-10 36-10 44 0-8 12-36 12-44 0z"/><path d="M10 32h44"/>',games:['paires','sondujour']},
  {id:'u7',n:'Mes émotions',goal:'Reconnaître les émotions et dire ce que je ressens.',t:'rose',ic:'<path d="M32 52S10 38 10 24a11 11 0 0 1 22-3 11 11 0 0 1 22 3c0 14-22 28-22 28z"/>',games:['emomilo','emomoi']},
  {id:'u8',n:'Je fais des phrases',goal:'Construire des phrases : qui fait quoi, où, il ou elle, et raconter une petite histoire. Comme chez l\'orthophoniste.',t:'sage',ic:'',games:['dit','ou','pronom','longues','regles']},
  {id:'u9',n:'Les histoires',goal:'Écouter des histoires, répondre aux questions, raconter à son tour.',t:'sky',ic:'',games:['histoires','questions','recit']},
  {id:'u10',n:'Comptines et rimes',goal:'Finir les comptines, trouver les rimes, taper les syllabes.',t:'honey',ic:'',games:['comptines','rimes']},
- {id:'u11',n:'On fait semblant',goal:'Jouer au magasin et parler de ses propres photos.',t:'rose',ic:'',games:['magasin','photos']}
+ {id:'u11',n:'On fait semblant',goal:'Jouer au magasin et parler de ses propres photos.',t:'rose',ic:'',games:['magasin','photos']},
+ {id:'u12',n:'Les mots pour décrire',goal:'Couleurs, tailles, contraires, devinettes et familles de mots : des mots pour des phrases plus riches.',t:'sage',ic:'',games:['decrire','devinettes','categories']},
+ {id:'u13',n:'On discute',goal:'Parler de sa journée au téléphone avec Milo, et décrire une grande image.',t:'sky',ic:'',games:['telephone','scene']}
 ];
 const GAMES = {
  sons:{n:'Fais comme les animaux',sub:'Imiter et faire chacun son tour',max:3},
@@ -983,9 +1000,15 @@ const GAMES = {
  magasin:{n:'Le magasin de Milo',sub:'Demander poliment',max:3},
  comptines:{n:'Les comptines',sub:'Finir la phrase qui rime'},
  rimes:{n:'Rimes et syllabes',sub:'Ça rime ? On tape les syllabes',max:3},
- photos:{n:'Parle de ta photo',sub:'Tes photos à toi'}
+ photos:{n:'Parle de ta photo',sub:'Tes photos à toi'},
+ decrire:{n:'Les mots pour décrire',sub:'Couleurs, grand ou petit, contraires',max:3},
+ devinettes:{n:'Les devinettes de Milo',sub:'Deviner, puis faire deviner',max:3},
+ categories:{n:'Les familles de mots',sub:'Animaux, fruits, jouets…',max:3},
+ consignes:{n:'Fais comme je dis',sub:'Consignes en 2 ou 3 étapes',max:3},
+ telephone:{n:'Le téléphone de Milo',sub:'Raconter sa journée'},
+ scene:{n:'La grande image',sub:'Décrire ce qu\'on voit'}
 };
-const REC = {A:['u4','u1','u7'],B:['u2','u8','u9'],C:['u8','u9','u11'],D:['u6','u10','u8']};
+const REC = {A:['u4','u1','u7'],B:['u2','u8','u12'],C:['u8','u9','u13'],D:['u6','u10','u8']};
 const START = {A:{},B:{phrases:1},C:{phrases:2,comprendre:2},D:{}};
 const PROFILES = [
  ['A','Ne parle pas encore','Communique par gestes, regards ou sons.'],
@@ -1029,7 +1052,7 @@ function show(name,opts={}){
   if(name==='path')renderPath();
   if(name==='parent')renderParent();
   if(name==='board')renderBoard();
-  if(name==='home')renderStickBtn();
+  if(name==='home'){renderStickBtn();SESSION=null}
   if(name==='home')$('homeHint').textContent=S.name?`Touche Milo, ${S.name} ! Il te répond.`:'Touche Milo, fais un son ou un geste : il te répond.';
 }
 $('homeBtn').onclick=()=>show('home');
@@ -1070,8 +1093,8 @@ $('homeMilo').onclick=async()=>{
 };
 
 /* ================= CARTE DES UNIVERS ================= */
-const UART={u9:'lire',u10:'chanter',u11:'glace',u8:'copain',u1:'vache',u2:'livre',u3:'train',u4:'stp',u5:'oreilles',u6:'bouche',u7:'content'};
-const GART={longues:'chien',regles:'hier',questions:'sc_q',histoires:'livre',magasin:'glace',comptines:'oiseau',rimes:'souris',photos:'moi',dit:'lapin',ou:'boite',pronom:'maman',recit:'cubes',sons:'canard',imagier:'livre',phrases:'train',path:'bulles',choix:'pomme',comprendre:'singe',paires:'bateau',sondujour:'chanter',emomilo:'triste',emomoi:'calin'};
+const UART={u12:'fleur',u13:'telephone',u9:'lire',u10:'chanter',u11:'glace',u8:'copain',u1:'vache',u2:'livre',u3:'train',u4:'stp',u5:'oreilles',u6:'bouche',u7:'content'};
+const GART={decrire:'banane',devinettes:'sc_q',categories:'mouton',consignes:'doigt',telephone:'telephone',scene:'sortir',longues:'chien',regles:'hier',questions:'sc_q',histoires:'livre',magasin:'glace',comptines:'oiseau',rimes:'souris',photos:'moi',dit:'lapin',ou:'boite',pronom:'maman',recit:'cubes',sons:'canard',imagier:'livre',phrases:'train',path:'bulles',choix:'pomme',comprendre:'singe',paires:'bateau',sondujour:'chanter',emomilo:'triste',emomoi:'calin'};
 const starSVG=on=>`<svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z" fill="${on?'var(--honey)':'none'}" stroke="var(--honey)" stroke-width="2" stroke-linejoin="round"/></svg>`;
 function renderMap(){
   const rec=REC[S.profile]||[];
@@ -1093,7 +1116,7 @@ function renderUniv(){
 function launch(g){
   if(!sessionStart){sessionStart=Date.now();sessionWarned=false}
   if(g==='path')return show('path',{back:'univ'});
-  ({sons:gSons,imagier:gImagier,phrases:gPhrases,choix:gChoix,comprendre:gComprendre,paires:gPaires,sondujour:gSonDuJour,emomilo:gEmoMilo,emomoi:gEmoMoi,dit:gDit,ou:gOu,pronom:gPronom,recit:gRecit,longues:gLongues,regles:gRegles,questions:gQuestions,histoires:gHistoires,magasin:gMagasin,comptines:gComptines,rimes:gRimes,photos:gPhotos})[g]();
+  ({sons:gSons,imagier:gImagier,phrases:gPhrases,choix:gChoix,comprendre:gComprendre,paires:gPaires,sondujour:gSonDuJour,emomilo:gEmoMilo,emomoi:gEmoMoi,dit:gDit,ou:gOu,pronom:gPronom,recit:gRecit,longues:gLongues,regles:gRegles,questions:gQuestions,histoires:gHistoires,magasin:gMagasin,comptines:gComptines,rimes:gRimes,photos:gPhotos,decrire:gDecrire,devinettes:gDevinettes,categories:gCategories,consignes:gConsignes,telephone:gTelephone,scene:gScene})[g]();
 }
 
 /* ================= FÊTE ET AUTOCOLLANTS ================= */
@@ -1153,6 +1176,9 @@ document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{
 $('stage').addEventListener('click',e=>{if(e.target.closest('.obj'))comm({k:'mode',v:'geste'})});
 async function endGame(alive,{title='Bien joué !',text='',mission='',again,next,rec}){
   if(!alive())return;
+  if(SESSION&&SESSION.list[SESSION.i]===curGame){const i=SESSION.i,n=SESSION.list.length;
+    next=i+1<n?{label:`Jeu suivant (${i+2}/${n})`,go:()=>{SESSION.i++;const g=SESSION.list[SESSION.i];curUniv=UNIV.find(u=>u.games.includes(g))||curUniv;launch(g)}}
+      :{label:'Séance finie !',go:()=>{SESSION=null;show('home');confetti();toast('Bravo ! La séance du jour est finie.')}};}
   setPhase('Bravo'); mood(null);
   await Msay('On a bien joué ensemble !'); if(!alive())return;
   const tooLong=sessionStart&&!sessionWarned&&(Date.now()-sessionStart)>S.settings.sess*60000;
@@ -2365,6 +2391,295 @@ async function initV6(){
   if(cur==='board')renderBoard();
 }
 
+/* =====================================================================
+   VERSION 7 : décrire, devinettes, catégories, consignes, téléphone,
+   grande image, séance du jour, objectifs de l'orthophoniste, courbe
+   ===================================================================== */
+ART.verre_vide=`<path d="M16 8h32l-4 48H20z" fill="${C.b}" fill-opacity=".08" stroke="${C.b}" stroke-width="3"/>`;
+ART.verre_plein=`<path d="M16 8h32l-4 48H20z" fill="${C.b}" fill-opacity=".15" stroke="${C.b}" stroke-width="3"/><path d="M17 14h30l-3.5 42H20.5z" fill="${C.o}"/>`;
+EXTRA.verre_vide={l:'Verre vide',e:''}; EXTRA.verre_plein={l:'Verre plein',e:''};
+
+/* ---------- Les mots pour décrire : couleurs, grand / petit, contraires ---------- */
+const COLORS=[['banane','la banane','jaune'],['pomme','la pomme','rouge'],['voiture','la voiture','rouge'],['pull','le pull','vert'],['pantalon','le pantalon','bleu'],['poisson','le poisson','bleu'],
+  ['carotte','la carotte','orange'],['fleur','la fleur','rose'],['chat','le chat','orange'],['canard','le canard','jaune'],['sac','le sac','violet'],['livre','le livre','vert'],['soleil','le soleil','jaune'],['oiseau',"l'oiseau",'bleu']];
+const SIZED=[['chien','le chien','il'],['chat','le chat','il'],['ballon','le ballon','il'],['maison','la maison','elle'],['pomme','la pomme','elle'],['voiture','la voiture','elle'],['lapin','le lapin','il'],['poule','la poule','elle']];
+const CONTR=[[['glace','feu'],'La glace est froide.','Et le feu ?','Le feu est…','Le feu est chaud.'],
+ [['verre_plein','verre_vide'],'Ce verre est plein.',"Et l'autre verre ?",'Ce verre est…','Ce verre est vide.'],
+ [['soleil','sc_lune'],"Le jour, il y a le soleil.",'Et la nuit ?','La nuit, il y a…','La nuit, il y a la lune.'],
+ [['content','triste'],'Ici, Milo est content.','Et là ?','Là, Milo est…','Là, Milo est triste.'],
+ [['ouvrir','boite'],'Cette boîte est ouverte.',"Et l'autre boîte ?",'Cette boîte est…','Cette boîte est fermée.'],
+ [['lapin','escargot'],'Le lapin court vite.',"Et l'escargot ?",'L\'escargot va…','L\'escargot va lentement.']];
+ART.escargot=`<path d="M8 52h44c4 0 6-4 4-6" stroke="${C.dg}" stroke-width="2" fill="none"/><path d="M10 52c-2-6 2-10 6-10h6" fill="${C.lb}"/><circle cx="36" cy="36" r="16" fill="${C.o}"/><path d="M36 36m-9 0a9 9 0 1 0 9-9a5 5 0 1 0 5 5" stroke="${C.br}" stroke-width="3" fill="none"/><path d="M12 44l-4-12M16 43l0-12" stroke="${C.lb}" stroke-width="3" stroke-linecap="round"/><circle cx="8" cy="31" r="2.5" fill="${C.k}"/><circle cx="16" cy="30" r="2.5" fill="${C.k}"/><path d="M10 50h40" stroke="${C.lb}" stroke-width="4" stroke-linecap="round"/>`;
+ART.maison=ART.toit; EXTRA.escargot={l:'Escargot',e:''}; EXTRA.maison={l:'Maison',e:''};
+const fem=(adj,g)=>g==='elle'?({bleu:'bleue',vert:'verte',violet:'violette',grand:'grande',petit:'petite'}[adj]||adj):adj;
+async function gDecrire(){
+  const lv=lvOf('decrire');
+  const alive=setupAct('decrire',{turns:5,phase:`Niveau ${lv}`,adult:false});
+  fiche('Les mots pour décrire',{voit:lv===1?"Un objet ou un animal d'une couleur bien nette.":lv===2?"Un objet très grand ou très petit.":"Deux images contraires : froid et chaud, plein et vide…",
+    entend:lv===1?"« De quelle couleur est la banane ? »":lv===2?"« Il est comment, le chien ? »":"« La glace est froide. Et le feu ? »",
+    fait:"Répondre avec une phrase : « La banane est jaune. »",adulte:"Si elle dit juste « jaune », c'est 1 mot : Milo redira la phrase entière. Dans la journée, décrire les choses avec elle.",
+    app:"Milo redit la phrase avec le mot qui décrit. Ces mots (couleurs, tailles, contraires) rendent les phrases plus riches.",
+    hors:"Jouer à « Je vois quelque chose de rouge… ». Ranger les chaussures de la plus petite à la plus grande. Toucher l'eau froide et l'eau tiède.",
+    progres:"Les mots qui décrivent qu'elle utilise seule dans ses phrases."});
+  const items=lv===1?pickN(COLORS,5):lv===2?pickN(SIZED,5):pickN(CONTR,5);
+  for(let t=0;t<5;t++){ if(!alive())return; let res; const it=items[t];
+    if(lv===1){ const [id,def,adj]=it; const g=def.startsWith('la')?'elle':'il';
+      scene(bigA(id));
+      res=await phraseTurn(alive,{g:'decrire',q:`De quelle couleur est ${def} ?`,eb:cap(def)+' est…',full:cap(`${def} est ${fem(adj,g)}`)+'.',exp:null,
+        parts:[{t:def,art:id},{t:'est',art:null},{t:fem(adj,g),art:null}],hint:"si elle dit juste la couleur, c'est 1 mot."});
+    } else if(lv===2){ const [id,def,g]=it; const big_=Math.random()<.5; const adj=fem(big_?'grand':'petit',g);
+      scene(`<span style="display:inline-block;transform:scale(${big_?1.35:.55});transform-origin:bottom">${bigA(id)}</span>`);
+      res=await phraseTurn(alive,{g:'decrire',q:`Regarde ${def} ! ${cap(g)} est comment ?`,eb:cap(def)+' est…',full:cap(`${def} est ${big_?'très ':'tout '}${adj}`)+' !',exp:`${cap(g)} est ${adj}.`,
+        parts:[{t:def,art:id},{t:'est',art:null},{t:(big_?'très ':'tout ')+adj,art:null}],hint:"aide-la avec tes mains : grand, ou tout petit."});
+    } else { const [arts,s1,q,eb,full]=it;
+      scene(bigA(arts[0])+bigA(arts[1]));
+      await Msay(s1); if(!alive())return;
+      res=await phraseTurn(alive,{g:'decrire',q,eb,full,exp:`${s1} ${full}`,parts:partsOf(full,3,[null,null,arts[1]]),hint:"c'est le jeu des contraires. Laisse-la chercher le mot."});
+    }
+    if(res===null)return; setTurns(5,t+1); await wait(400);
+  }
+  endGame(alive,{mission:"Joue à « Je vois quelque chose de… » : « Je vois quelque chose de rouge ! » Puis c'est à elle. Redis sa réponse en phrase : « Oui, la voiture est rouge. »",again:gDecrire});
+}
+
+/* ---------- Les devinettes de Milo ---------- */
+const DEV=[['chat',["C'est un animal.",'Il fait miaou.','Il aime le lait.'],'le chat'],['chien',["C'est un animal.",'Il fait ouaf.','Il aime les os.'],'le chien'],
+ ['vache',["C'est un animal.",'Elle fait meuh.','Elle nous donne du lait.'],'la vache'],['canard',["C'est un animal.",'Il nage dans l\'eau.','Il fait coin coin.'],'le canard'],
+ ['banane',["Ça se mange.","C'est un fruit.",'Il est jaune et long.'],'la banane'],['pomme',["Ça se mange.","C'est un fruit.",'Elle est rouge et ronde.'],'la pomme'],
+ ['ballon',["C'est un jouet.","C'est rond.",'On joue avec au parc.'],'le ballon'],['lit',["C'est dans la maison.",'On se couche dedans.','On dort dedans.'],'le lit'],
+ ['glace',["Ça se mange.","C'est très froid.","On la mange l'été."],'la glace'],['chaussures',["Ça se met.",'On les met aux pieds.','On les met pour sortir.'],'les chaussures'],
+ ['soleil',["C'est dans le ciel.",'Il est jaune.',"Il nous chauffe le jour."],'le soleil'],['livre',["Il a des pages.",'Il a des images.','On le lit le soir.'],'le livre'],
+ ['voiture',["Ça roule.",'Elle a quatre roues.','On monte dedans pour partir.'],'la voiture'],['poisson',["C'est un animal.",'Il vit dans l\'eau.','Il nage.'],'le poisson']];
+async function gDevinettes(){
+  const lv=lvOf('devinettes');
+  const alive=setupAct('devinettes',{turns:4,phase:`Niveau ${lv}`,adult:false});
+  fiche('Les devinettes de Milo',{voit:lv<3?"Des images. Milo donne des indices.":"Une image. Cette fois, c'est elle qui donne les indices à Milo.",
+    entend:lv<3?"« C'est un animal. Il fait miaou. Il aime le lait. »":"« Je ne regarde pas ! Dis-moi des indices. »",
+    fait:lv<3?"Trouver l'image qui va avec les indices.":"Décrire l'image sans dire son nom : « C'est un animal, il fait ouaf. »",
+    adulte:lv<3?"Laisser écouter tous les indices.":"L'aider avec des questions : « Il fait quel bruit ? Il vit où ? » Toucher ce qu'elle a dit.",
+    app:"Milo redit la description complète : c'est un très bon modèle de phrases.",
+    hors:"Jouer aux devinettes à table ou en voiture. Chacun son tour fait deviner.",
+    progres:"Si elle comprend les indices, puis si elle sait décrire à son tour. Décrire, c'est déjà faire plusieurs phrases."});
+  const items=pickN(DEV,4);
+  for(let t=0;t<4;t++){ if(!alive())return; const [id,cl,def]=items[t]; let o;
+    if(lv<3){
+      const others=pickN(DEV.filter(x=>x[0]!==id).map(x=>x[0]),lv===1?2:3);
+      scene(bigA('sc_q')); $('actZone').innerHTML=choiceBtns(shuffle([id,...others])); bindChoices();
+      await Msay('Devine ce que c\'est !'); if(!alive())return;
+      for(const c of cl){await Msay(c); if(!alive())return; await wait(300)}
+      await Msay("Qu'est-ce que c'est ?"); if(!alive())return;
+      o=await errorless(alive,id,cl.join(' ')); if(!alive())return;
+      record('devinettes',o); if(o!=='ensemble')joy();
+      scene(bigA(id)); await Msay(`C'est ${def} ! ${cl.slice(1).join(' ')}`);
+    } else {
+      scene(bigA(id));
+      $('actZone').innerHTML=`<div class="page"><p>Elle voit : <strong>${lbl(id)}</strong></p><p class="note">Elle donne des indices à Milo, sans dire le nom.</p></div>`+RATE("aide-la avec des questions : c'est un animal ? il fait quoi ? il est de quelle couleur ?");
+      bindRate();
+      await Msay('Je ferme les yeux ! Dis-moi des indices, et je devine.'); if(!alive())return;
+      const r=await waitComm(S.settings.wait*3); if(!alive())return;
+      const said=r==='timeout'?'rien':r.v; o=said==='phrase'?'seul':said==='court'?'aide':'ensemble';
+      record('devinettes',o,{rate:said}); if(said!=='rien')joy();
+      await Msay(said==='rien'?`On le fait ensemble : ${cl.join(' ')}`:`Hmm… ${cl[0]} Je sais ! C'est ${def} !`); if(!alive())return;
+    }
+    setTurns(4,t+1); await wait(500);
+  }
+  endGame(alive,{mission:"À table, jouez aux devinettes : « C'est un fruit, il est jaune… » Puis laisse-la faire deviner. Aide-la avec des questions : « Il fait quel bruit ? »",again:gDevinettes});
+}
+
+/* ---------- Les familles de mots (catégories) ---------- */
+const CATG={animal:[['chat','chien','vache','canard','lapin','poule','cheval','mouton','oiseau','poisson'],'un animal','des animaux'],
+  fruit:[['pomme','banane','orange','ananas'],'un fruit','des fruits'],
+  habit:[['pull','pantalon','manteau','chaussettes','chaussures'],'un vêtement','des vêtements'],
+  jouet:[['ballon','poupee','cubes','doudou','bulles'],'un jouet','des jouets'],
+  vehicule:[['voiture','train','bateau','avion'],'un véhicule','des véhicules']};
+async function gCategories(){
+  const lv=lvOf('categories');
+  const alive=setupAct('categories',{turns:4,phase:`Niveau ${lv}`,adult:false});
+  fiche('Les familles de mots',{voit:lv===1?"Quatre images. Une n'est pas de la même famille.":lv===2?"Trois images de la même famille.":"Une image, et Milo demande d'autres mots de la même famille.",
+    entend:lv===1?"« Lequel n'est pas un animal ? »":lv===2?"« Qu'est-ce que c'est, tous ensemble ? »":"« Le chat, c'est un animal. Tu connais d'autres animaux ? »",
+    fait:lv===1?"Toucher l'intrus.":"Répondre avec une phrase, ou dire plusieurs mots.",
+    adulte:"Ranger les mots par familles aide à les retrouver plus vite pour parler. Toucher ce qu'elle a dit.",
+    app:"Milo dit la famille et redit les mots ensemble.",hors:"Ranger les courses ensemble : les fruits ici, les légumes là. Jouer à « Dis-moi tous les animaux que tu connais ».",
+    progres:"Les familles qu'elle connaît, et combien de mots elle trouve."});
+  const keys=pickN(Object.keys(CATG),4);
+  for(let t=0;t<4;t++){ if(!alive())return; const k=keys[t]; const [ids,un,des]=CATG[k]; let o;
+    if(lv===1){
+      const in3=pickN(ids,3), other=one(CATG[one(Object.keys(CATG).filter(x=>x!==k))][0]);
+      scene(bigA('sc_q')); $('actZone').innerHTML=choiceBtns(shuffle([...in3,other])); bindChoices();
+      const q=`Lequel n'est pas ${un} ?`; await Msay(q); if(!alive())return;
+      o=await errorless(alive,other,q); if(!alive())return;
+      record('categories',o); if(o!=='ensemble')joy();
+      await Msay(`${in3.map(x=>lbl(x)).join(', ')} : ce sont ${des}. ${lbl(other)}, ce n'est pas ${un} !`);
+    } else if(lv===2){
+      const in3=pickN(ids,3); scene(in3.map(x=>bigA(x)).join(''));
+      const res=await phraseTurn(alive,{g:'categories',q:"Qu'est-ce que c'est, tous ensemble ?",eb:'Ce sont des…',full:`Ce sont ${des}.`,exp:`${in3.map(x=>lbl(x)).join(', ')} : ce sont ${des}.`,
+        parts:[{t:'Ce sont',art:null},{t:des,art:in3[0]}],hint:"si elle nomme chaque image, c'est très bien aussi : touche « 2-3 mots »."}); if(res===null)return;
+    } else {
+      const ex=one(ids); scene(bigA(ex));
+      $('actZone').innerHTML=`<div class="adult"><p class="hint"><strong>Adulte :</strong> compte les mots de la famille qu'elle trouve.</p><div class="rate">${[['0','Aucun'],['1','1'],['2','2'],['3','3 ou plus']].map(([v,t])=>`<button class="mode" data-n="${v}">${t}</button>`).join('')}</div></div>`;
+      $('actZone').querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>comm({k:'n',v:+b.dataset.n}));
+      await Msay(`${cap(lbl(ex).toLowerCase())}, c'est ${un}. Tu connais d'autres ${des.replace('des ','')} ?`); if(!alive())return;
+      const r=await waitComm(S.settings.wait*3); if(!alive())return; const n=r==='timeout'?0:r.v;
+      o=n>=3?'seul':n>=1?'aide':'ensemble'; record('categories',o,{n}); if(n)joy();
+      await Msay(`${n>=3?'Bravo ! ':''}Moi, je connais aussi : ${pickN(ids.filter(x=>x!==ex),3).map(x=>lbl(x).toLowerCase()).join(', ')}.`);
+    }
+    if(!alive())return; setTurns(4,t+1); await wait(500);
+  }
+  endGame(alive,{mission:"En rangeant les courses, demande-lui de t'aider : « Les fruits, on les met où ? » Et jouez à dire le plus d'animaux possible, chacun son tour.",again:gCategories});
+}
+
+/* ---------- Fais comme je dis (consignes, avant / après) ---------- */
+async function gConsignes(){
+  const lv=lvOf('consignes');
+  const alive=setupAct('consignes',{turns:4,phase:`Niveau ${lv}`,adult:false});
+  fiche('Fais comme je dis',{voit:"Six images.",entend:lv===1?"« Touche le chat, puis la pomme. »":lv===2?"« Avant de toucher la pomme, touche le chat. »":"« Touche le chat, puis la pomme, puis le ballon. »",
+    fait:"Toucher les images dans le bon ordre.",adulte:"Ne pas répéter la consigne tout de suite : elle doit la garder en tête. Milo aidera si besoin.",
+    app:"Si elle se trompe, Milo montre la bonne image et redit la consigne.",hors:"Donner des consignes en deux étapes : « Prends ton manteau, puis mets tes chaussures. » « Avant de manger, lave tes mains. »",
+    progres:"Les consignes longues qu'elle suit seule. C'est très utile à l'école."});
+  const pool=['chat','chien','pomme','banane','ballon','voiture','lapin','livre','doudou','canard','glace','lit'];
+  for(let t=0;t<4;t++){ if(!alive())return;
+    const six=pickN(pool,6); const seq=lv===3?six.slice(0,3):six.slice(0,2);
+    const d=x=>{const a=art(x);return a.replace(/^une /,'la ').replace(/^un /,'le ').replace(/^du /,'le ').replace(/^de l'/,"l'")};
+    const instr=lv===1?`Touche ${d(seq[0])}, puis ${d(seq[1])}.`:lv===2?(Math.random()<.5?`Avant de toucher ${d(seq[1])}, touche ${d(seq[0])}.`:`Touche ${d(seq[1])} après ${d(seq[0])}.`):`Touche ${d(seq[0])}, puis ${d(seq[1])}, puis ${d(seq[2])}.`;
+    scene(bigA('oreilles')); $('actZone').innerHTML=choiceBtns(shuffle(six)); bindChoices();
+    await Msay('Écoute bien !'); if(!alive())return; await Msay(instr); if(!alive())return;
+    let o='seul';
+    for(let k=0;k<seq.length;k++){ const r=await errorless(alive,seq[k],instr); if(!alive())return;
+      if(r==='aide'&&o==='seul')o='aide'; if(r==='ensemble')o='ensemble'; }
+    record('consignes',o); if(o!=='ensemble')joy();
+    await Msay(o==='seul'?'Bravo, tu as tout fait dans le bon ordre !':`Voilà : ${instr}`); if(!alive())return;
+    setTurns(4,t+1); await wait(500);
+  }
+  endGame(alive,{mission:"Aujourd'hui, donne-lui des consignes en deux étapes : « Prends ton doudou, puis va dans ta chambre. » Dis-la une seule fois, et attends.",again:gConsignes});
+}
+
+/* ---------- Le téléphone de Milo (conversation) ---------- */
+const PHONE=[["Qu'est-ce que tu as mangé aujourd'hui ?","Moi, j'ai mangé du miel et une pomme. Miam !"],
+ ["Avec qui tu as joué aujourd'hui ?","Moi, j'ai joué au ballon avec mon copain le lapin."],
+ ["Qu'est-ce que tu aimes faire ?","Moi, j'aime faire des bulles et sauter dans les flaques."],
+ ["C'est quoi, ton jouet préféré ? Pourquoi ?","Moi, mon jouet préféré, c'est mon petit train, parce qu'il fait tchou tchou."],
+ ["Qu'est-ce que tu vas faire demain ?","Moi, demain, je vais aller au parc avec Maman."],
+ ["Qu'est-ce que tu as fait à l'école ?","Moi, à l'école, j'ai fait un dessin et j'ai chanté."],
+ ["Qu'est-ce que tu as vu dehors ?","Moi, dehors, j'ai vu un gros chien et un oiseau."]];
+async function gTelephone(){
+  const alive=setupAct('telephone',{turns:4,phase:'Le téléphone de Milo',adult:false});
+  fiche('Le téléphone de Milo',{voit:"Un téléphone qui sonne. Milo appelle pour discuter.",entend:"Des vraies questions sur sa journée : « Qu'est-ce que tu as mangé ? »",
+    fait:"Décrocher et parler avec Milo, comme au téléphone.",adulte:"Rester à côté. Si elle bloque, l'aider à se souvenir : « Tu te rappelles, ce midi ? » Toucher ce qu'elle a dit.",
+    app:"Si elle répond par une phrase, Milo demande d'en dire plus. Sinon, il raconte sa propre journée en phrases.",
+    hors:"Appeler Mamie ou Papy en visio, et la laisser raconter sa journée. Le soir : « Raconte-moi un moment de ta journée. »",
+    progres:"Ce qu'elle raconte de sa vie, sans images pour l'aider. C'est le plus difficile, et le plus important."});
+  scene(`<span class="bigart ring">${artSVG('telephone')}</span>`);
+  $('actZone').innerHTML=`<button class="btn sage" id="pickUp" style="min-height:90px;font-size:1.5rem">Décrocher</button>`;
+  $('pickUp').onclick=()=>comm({k:'up'});
+  for(let i=0;i<4&&alive();i++){tone([880,988],.08,.06,'sine',.07);await wait(700)}
+  const r0=await waitComm(S.settings.wait*2); if(!alive())return;
+  scene(bigA('telephone'));
+  await Msay(`Allô ? C'est Milo ! Coucou${S.name?' '+S.name:''} !`); if(!alive())return;
+  const qs=pickN(PHONE,4);
+  for(let t=0;t<4;t++){ if(!alive())return; const [q,mine]=qs[t];
+    $('actZone').innerHTML=RATE("elle répond comme au téléphone. Toucher ce qu'elle a dit.")+`<button class="btn ghost" id="hang">Raccrocher</button>`;
+    bindRate(); $('hang').onclick=()=>comm({k:'hang'});
+    await Msay(q); if(!alive())return;
+    let r=await waitComm(S.settings.wait*2.5); if(!alive())return;
+    if(r!=='timeout'&&r.k==='hang')break;
+    const said=r==='timeout'?'rien':r.v;
+    record('telephone',said==='phrase'?'seul':said==='court'?'aide':'ensemble',{rate:said});
+    if(said==='phrase'||said==='court'){joy(); await Msay('Oh, super ! Raconte-moi encore !'); if(!alive())return; r=await waitComm(S.settings.wait*2); if(!alive())return; await Msay('Merci de me raconter !'); if(!alive())return}
+    await Msay(mine); if(!alive())return;
+    setTurns(4,t+1); await wait(400);
+  }
+  if(!alive())return;
+  await Msay('Bon, je dois y aller. Au revoir ! Gros bisous !');
+  endGame(alive,{mission:"Ce soir, appelle quelqu'un de la famille en visio, et laisse-la raconter sa journée. Aide-la avec des questions : « Et après, tu as fait quoi ? »",again:gTelephone,rec:'Au téléphone avec Milo'});
+}
+
+/* ---------- La grande image (décrire une scène) ---------- */
+const SCENES=[
+ {t:'Au parc',items:[['soleil',300,6,56],['sortir',8,30,120],['oiseau',220,24,40],['moi',70,120,84],['chien',165,128,72,'act-court'],['ballon',245,160,40],['canard',318,160,50]],
+  desc:"Je vois un chien qui court après un ballon. Je vois une petite fille à côté de l'arbre. Il y a un oiseau dans le ciel, et un canard.",
+  qs:[["Qu'est-ce qu'il fait, le chien ?",'Le chien…','Le chien court après le ballon.'],["Où est l'oiseau ?",'L\'oiseau est…',"L'oiseau est dans le ciel."],['Qui est à côté de l\'arbre ?','C\'est…','La petite fille est à côté de l\'arbre.']]},
+ {t:'Dans la cuisine',items:[['lumiere',170,0,46],['maman',20,70,110],['gateau',140,140,62],['chaise',240,96,90],['chat',252,58,56],['lait',330,150,44]],
+  desc:"Je vois Maman qui fait un gâteau. Le chat est sur la chaise. Il regarde le lait.",
+  qs:[["Qu'est-ce qu'elle fait, Maman ?",'Maman…','Maman fait un gâteau.'],['Où est le chat ?','Le chat est…','Le chat est sur la chaise.'],["Qu'est-ce que le chat veut ?",'Le chat veut…','Le chat veut du lait.']]},
+ {t:'Dans la chambre',items:[['sc_lune',300,4,58],['lit',10,96,150],['bebe',50,70,64],['papa',200,74,100],['livre',290,150,46],['doudou',150,160,44]],
+  desc:"C'est la nuit. Le bébé dort dans son lit. Papa lit un livre. Le doudou est par terre.",
+  qs:[["Qu'est-ce qu'il fait, le bébé ?",'Le bébé…','Le bébé dort dans son lit.'],["Qu'est-ce que Papa fait ?",'Papa…','Papa lit un livre.'],["C'est le jour ou la nuit ?","C'est…","C'est la nuit. Il y a la lune."]]}
+];
+function sceneSVG(sc){return `<svg viewBox="0 0 380 220" style="width:min(100%,460px);height:auto" aria-hidden="true"><rect x="0" y="196" width="380" height="24" rx="6" fill="var(--hill1)"/>${sc.items.map(([id,x,y,w,cls])=>`<svg x="${x}" y="${y}" width="${w}" height="${w}" viewBox="0 0 64 64" overflow="visible"><g class="${cls||''}" style="transform-box:fill-box;transform-origin:center">${ART[id]}</g></svg>`).join('')}</svg>`}
+async function gScene(){
+  const alive=setupAct('scene',{turns:4,phase:'La grande image',adult:false});
+  fiche('La grande image',{voit:"Une grande image avec plusieurs personnages et objets.",entend:"« Qu'est-ce que tu vois ? » puis des questions plus précises.",
+    fait:"Décrire l'image avec ses mots, puis répondre aux questions.",adulte:"Laisser décrire librement d'abord, sans aider. Toucher ce qu'elle a dit. Puis montrer du doigt pour les questions.",
+    app:"Milo décrit l'image en phrases, puis pose 3 questions.",hors:"Regarder des grandes images dans les livres (comme les livres « cherche et trouve ») et décrire chacun son tour.",
+    progres:"Combien de choses elle décrit, et si elle fait des phrases sans qu'on lui pose de question."});
+  const sc=one(SCENES); setPhase(sc.t);
+  $('stage').innerHTML=`<div class="obj" style="justify-content:center">${sceneSVG(sc)}</div>`; actMilo=null;
+  $('actZone').innerHTML=RATE("laisse-la décrire toute seule d'abord. Puis touche ce qu'elle a dit.");
+  bindRate();
+  await say('Regarde bien cette image ! Qu\'est-ce que tu vois ?',null,sp()); if(!alive())return;
+  const r=await waitComm(S.settings.wait*3); if(!alive())return;
+  const said=r==='timeout'?'rien':r.v;
+  record('scene',said==='phrase'?'seul':said==='court'?'aide':'ensemble',{rate:said,libre:true});
+  if(said!=='rien')confetti();
+  await say((said==='phrase'?'Bravo ! ':'')+'Moi, je vois… '+sc.desc,null,sp()); if(!alive())return;
+  setTurns(4,1);
+  for(let i=0;i<sc.qs.length;i++){ if(!alive())return; const [q,eb,full]=sc.qs[i];
+    const res=await phraseTurn(alive,{g:'scene',q,eb,full,exp:null,parts:partsOf(full,3),hint:"montre la partie de l'image du doigt si besoin."});
+    if(res===null)return; setTurns(4,i+2); await wait(300);
+  }
+  endGame(alive,{mission:"Avec un livre d'images, choisis une grande page et demande : « Qu'est-ce que tu vois ? » Puis décris à ton tour, en phrases.",again:gScene,rec:`Je décris : ${sc.t}`});
+}
+
+/* =================== SÉANCE DU JOUR ET OBJECTIFS =================== */
+const OBJECTIFS=[['dit','Faire des phrases : qui fait quoi',['dit']],['ou','Les petits mots de place (sur, sous…)',['ou']],['pronom','Je, tu, il, elle',['pronom']],
+ ['longues','Phrases longues : et, mais, parce que',['longues']],['regles','Pluriel, « ne… pas », passé',['regles']],['comprendre','Comprendre les questions et consignes',['questions','consignes','comprendre']],
+ ['raconter','Raconter',['recit','histoires','scene']],['vocab','Vocabulaire et description',['decrire','devinettes','categories']],['conv','Conversation',['telephone']],['sons','Sons, rimes et syllabes',['rimes','comptines','paires']]];
+let SESSION=null;
+function lastPlayed(g){const t=S.trials.filter(x=>x.g===g);return t.length?t.at(-1).t:0}
+function planSession(){
+  const objs=(S.objectifs||[]).flatMap(k=>(OBJECTIFS.find(o=>o[0]===k)||[,,[]])[2]);
+  const byProfile={A:['path','sons','choix','emomoi'],B:['dit','imagier','phrases','histoires','choix'],C:['dit','longues','pronom','regles','questions','histoires','decrire','recit','telephone','scene'],D:['paires','sondujour','rimes','dit','histoires']}[S.profile]||['dit'];
+  const main=(objs.length?objs:byProfile).filter(g=>GAMES[g]);
+  const oldest=a=>a.slice().sort((x,y)=>lastPlayed(x)-lastPlayed(y))[0];
+  const g1=oldest(main);
+  const listen=['histoires','telephone','scene','recit'].filter(g=>g!==g1);
+  const g2=oldest(S.profile==='A'?['histoires','choix'].filter(g=>g!==g1):listen);
+  const fun=['comptines','rimes','magasin','photos','devinettes'].filter(g=>g!==g1&&g!==g2&&(g!=='photos'||PHOTOS.length));
+  const g3=oldest(fun);
+  return [g1,g2,g3].filter(Boolean);
+}
+function startSession(){
+  const list=planSession(); SESSION={list,i:0}; sessionStart=Date.now(); sessionWarned=true;
+  openOverlay(`<h2>La séance du jour</h2><p class="soft">Trois jeux, environ 10 minutes, choisis pour ${S.name?esc(S.name):'elle'}.</p>
+    <div class="vlist">${list.map((g,i)=>`<div class="vrow"><span class="pic" style="width:48px;height:48px">${artSVG(GART[g]||'jouer')}</span><span><strong>${i+1}. ${GAMES[g].n}</strong><br><span class="note">${GAMES[g].sub}</span></span></div>`).join('')}</div>
+    <div class="row"><button class="btn ghost" id="oNo">Plus tard</button><button class="btn" id="oGo">C'est parti !</button></div>`);
+  $('oNo').onclick=()=>{SESSION=null;closeOverlay()};
+  $('oGo').onclick=()=>{closeOverlay();curUniv=UNIV.find(u=>u.games.includes(list[0]))||curUniv;launch(list[0])};
+}
+function renderObjectifs(){
+  S.objectifs=S.objectifs||[];
+  $('objList').innerHTML=OBJECTIFS.map(([k,t])=>`<label class="check"><input type="checkbox" data-obj="${k}" ${S.objectifs.includes(k)?'checked':''}> ${t}</label>`).join('');
+  $('objList').querySelectorAll('[data-obj]').forEach(c=>c.onchange=()=>{const k=c.dataset.obj;S.objectifs=c.checked?[...new Set([...S.objectifs,k])]:S.objectifs.filter(x=>x!==k);save()});
+}
+
+/* =================== COURBE DE LA LONGUEUR DES PHRASES =================== */
+function lmeChart(){
+  const ph=S.phrases||[]; if(ph.length<2)return '';
+  const wk=t=>Math.floor((t-ph[0].t)/(7*864e5));
+  const g={}; ph.forEach(p=>{const k=wk(p.t);(g[k]=g[k]||[]).push(p.n)});
+  const pts=Object.keys(g).map(Number).sort((a,b)=>a-b).map(k=>[k,g[k].reduce((a,b)=>a+b,0)/g[k].length]);
+  if(pts.length<2)return '<p class="note">La courbe apparaîtra quand il y aura des phrases sur au moins deux semaines.</p>';
+  const W=320,H=150,L=34,B=24,T=12,R=12,maxY=Math.max(6,Math.ceil(Math.max(...pts.map(p=>p[1])))),maxX=Math.max(1,pts.at(-1)[0]);
+  const X=k=>L+(W-L-R)*k/maxX, Y=v=>T+(H-T-B)*(1-v/maxY);
+  const ticks=Array.from({length:maxY/2+1},(_,i)=>i*2);
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:460px;height:auto" role="img" aria-label="Longueur moyenne des phrases par semaine">
+    ${ticks.map(v=>`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="var(--soft)">${v}</text>`).join('')}
+    <path d="${pts.map((p,i)=>`${i?'L':'M'}${X(p[0])} ${Y(p[1])}`).join('')}" fill="none" stroke="var(--sage)" stroke-width="2.5"/>
+    ${pts.map((p,i)=>`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="${i===pts.length-1?5:3.5}" fill="${i===pts.length-1?'var(--honey)':'var(--sage)'}"/>`).join('')}
+    <text x="${X(pts.at(-1)[0])}" y="${Y(pts.at(-1)[1])-10}" text-anchor="end" font-size="11" font-weight="700" fill="var(--ink)">${pts.at(-1)[1].toFixed(1)} mots</text>
+    ${pts.map(p=>`<text x="${X(p[0])}" y="${H-6}" text-anchor="middle" font-size="10" fill="var(--soft)">S${p[0]+1}</text>`).join('')}
+  </svg><p class="note">Nombre moyen de mots par phrase, semaine après semaine (S1 = la première semaine notée).</p>`;
+}
+
 /* ================= TABLEAU DE COMMUNICATION ================= */
 let strip=[], boardCat='mine';
 function renderBoard(){
@@ -2404,6 +2719,7 @@ const ML={regard:'Regard',geste:'Geste',son:'Son',picto:'Image',mot:'Mot',phrase
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function nextStep(){
   const rec=REC[S.profile]||REC.A;
+  if(S.trials.length>10&&S.profile!=='A')return "Faire « La séance du jour » depuis l'accueil : 3 jeux choisis pour elle, environ 10 minutes. Et noter quelques-unes de ses phrases.";
   if(S.profile==='C'&&!S.trials.some(t=>t.g==='dit'))return "Commencer par « Qu'est-ce qu'il fait ? » dans l'univers « Je fais des phrases ».";
   if(S.profile==='A'){const w=ORDER.find(w=>!S.done[w].disc);if(w)return `Découvrir « ${lbl(w)} » dans Mes 5 premiers messages (univers 4).`;
     const w2=ORDER.find(w=>!S.events.some(e=>e.w===w&&!e.prompted));if(w2)return `Rejouer « ${lbl(w2)} » : l'enfant ne l'a pas encore demandé seul.`;}
@@ -2429,7 +2745,7 @@ function renderParent(){
    <label class="check"><input type="checkbox" id="mDone" ${S.done[nextW].mission?'checked':''}> On l'a fait aujourd'hui</label>`;
   $('mDone').onchange=e=>{S.done[nextW].mission=e.target.checked;save();renderParent()};
   }
-  renderPhrasesPanel(); renderParentV6();
+  renderPhrasesPanel(); renderParentV6(); renderObjectifs(); $('lmeChart').innerHTML=lmeChart();
   $('techList').innerHTML=TECHNIQUES.map(([a,b])=>`<div><strong>${a}</strong><span class="note">${b}</span></div>`).join('');
   $('statTable').innerHTML=`<thead><tr><th>Message</th>${MODES.map(m=>`<th class="n">${ML[m]}</th>`).join('')}<th class="n">Seul</th><th class="n">Vraie vie</th></tr></thead><tbody>`+
    ORDER.map(w=>{const e=S.events.filter(x=>x.w===w);const vv=S.victories.filter(v=>v.w===w).length;
@@ -2456,7 +2772,7 @@ function renderParent(){
   $('boardPicker').innerHTML=RAW.map(r=>`<label><input type="checkbox" data-b="${r[0]}" ${S.settings.board.includes(r[0])?'checked':''}> ${r[1]}</label>`).join('');
   $('boardPicker').querySelectorAll('[data-b]').forEach(c=>c.onchange=()=>{const k=c.dataset.b;S.settings.board=c.checked?[...S.settings.board,k]:S.settings.board.filter(x=>x!==k);save()});
 }
-$('lmeAdd').onclick=()=>{const v=$('lmeTxt').value.trim();if(!v)return;S.phrases=S.phrases||[];S.phrases.push({txt:v,n:wordCount(v),t:Date.now()});$('lmeTxt').value='';save();renderPhrasesPanel()};
+$('lmeAdd').onclick=()=>{const v=$('lmeTxt').value.trim();if(!v)return;S.phrases=S.phrases||[];S.phrases.push({txt:v,n:wordCount(v),t:Date.now()});$('lmeTxt').value='';save();renderPhrasesPanel();$('lmeChart').innerHTML=lmeChart()};
 $('pName').onchange=e=>{S.name=e.target.value.trim();save();renderParent()};
 $('calmToggle').onchange=e=>{S.settings.calm=e.target.checked;save();syncCalm()};
 $('waitSel').onchange=e=>{S.settings.wait=+e.target.value;save()};
@@ -2485,7 +2801,7 @@ $('wipeBtn').onclick=()=>{
 };
 
 /* ================= DÉMARRAGE ================= */
-$('playArt').innerHTML=artSVG('jouer'); $('boardArt').innerHTML=artSVG('stp');
+$('playArt').innerHTML=artSVG('jouer'); $('sessArt').innerHTML=artSVG('soleil'); $('goSession').onclick=startSession; $('boardArt').innerHTML=artSVG('stp');
 if(document.documentElement.requestFullscreen&&!window.AndroidTTS){$('fsBtn').hidden=false;
   $('fsBtn').onclick=()=>{try{(document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()).catch(()=>{})}catch(e){}}}
 try{speechSynthesis.getVoices()}catch(e){}
