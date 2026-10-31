@@ -1,0 +1,1601 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgcng9IjQ0IiBmaWxsPSIjRkJFQkQwIi8+PGNpcmNsZSBjeD0iNTgiIGN5PSI1OCIgcj0iMjQiIGZpbGw9IiNCNDdGNEUiLz48Y2lyY2xlIGN4PSIxNDIiIGN5PSI1OCIgcj0iMjQiIGZpbGw9IiNCNDdGNEUiLz48Y2lyY2xlIGN4PSI1OCIgY3k9IjU4IiByPSIxMiIgZmlsbD0iI0U2QzhBMiIvPjxjaXJjbGUgY3g9IjE0MiIgY3k9IjU4IiByPSIxMiIgZmlsbD0iI0U2QzhBMiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwOCIgcj0iNjQiIGZpbGw9IiNCNDdGNEUiLz48ZWxsaXBzZSBjeD0iMTAwIiBjeT0iMTMyIiByeD0iMzIiIHJ5PSIyNCIgZmlsbD0iI0U2QzhBMiIvPjxlbGxpcHNlIGN4PSI3NiIgY3k9IjEwMCIgcng9IjciIHJ5PSI4IiBmaWxsPSIjM0EyQTFFIi8+PGVsbGlwc2UgY3g9IjEyNCIgY3k9IjEwMCIgcng9IjciIHJ5PSI4IiBmaWxsPSIjM0EyQTFFIi8+PGVsbGlwc2UgY3g9IjEwMCIgY3k9IjEyMCIgcng9IjEwIiByeT0iNyIgZmlsbD0iIzNBMkExRSIvPjxwYXRoIGQ9Ik04OSAxMzdxMTEgOSAyMiAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzQTJBMUUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box;height:100%}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Ma Petite Voix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Layout : une seule colonne, un écran à la fois, grandes zones tactiles, peu d'éléments par écran */
+:root{
+  --bg:#EDF3F6; --surface:#FFFFFF; --ink:#26313B; --soft:#5B6A77; --line:#D3DEE5;
+  --honey:#E9A23B; --honey-deep:#A9670F; --honey-tint:#FBEBD0;
+  --sage:#6FA98C; --sage-tint:#DCEEE4; --rose:#D9817F; --rose-tint:#F7DEDD;
+  --sky:#6E9FC2; --sky-tint:#DCEBF4;
+  --milo:#B47F4E; --milo-light:#E6C8A2; --milo-ink:#3A2A1E; --scarf:#E9A23B;
+  --sky1:#BFE1F6; --sky2:#E8F4FB; --hill1:#A9D99A; --hill2:#8CC97E; --sun:#F8D25C; --cloud:#FFFFFF; --shade:#C6D3DC;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito","Segoe UI",system-ui,sans-serif;
+  --r:22px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#162029; --surface:#202C37; --ink:#EAF0F4; --soft:#A7B5C1; --line:#344350;
+  --honey:#F0B255; --honey-deep:#F5C77E; --honey-tint:#3B3123;
+  --sage:#86C0A3; --sage-tint:#24372E; --rose:#E59A98; --rose-tint:#3D2A2C; --sky:#8DB8D8; --sky-tint:#22323F;
+  --sky1:#1F3B57; --sky2:#203243; --hill1:#2F5A3E; --hill2:#27503A; --sun:#E9C46A; --cloud:#3A4C5E; --shade:#0E151B;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#162029; --surface:#202C37; --ink:#EAF0F4; --soft:#A7B5C1; --line:#344350;
+  --honey:#F0B255; --honey-deep:#F5C77E; --honey-tint:#3B3123;
+  --sage:#86C0A3; --sage-tint:#24372E; --rose:#E59A98; --rose-tint:#3D2A2C; --sky:#8DB8D8; --sky-tint:#22323F;
+  --sky1:#1F3B57; --sky2:#203243; --hill1:#2F5A3E; --hill2:#27503A; --sun:#E9C46A; --cloud:#3A4C5E; --shade:#0E151B;
+  color-scheme:dark}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:linear-gradient(var(--sky2),var(--bg) 280px) var(--bg);background-color:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;-webkit-tap-highlight-color:transparent}
+button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--honey);outline-offset:3px}
+.app{height:100%;max-width:680px;margin:0 auto;display:flex;flex-direction:column;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;align-items:center;gap:8px;padding-block:12px}
+header .brand{font-family:var(--display);font-weight:600;font-size:1.2rem;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.icon-btn{width:48px;height:48px;flex:none;border-radius:16px;background:var(--surface);border:1.5px solid var(--line);display:grid;place-items:center}
+.icon-btn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn[aria-pressed="true"]{background:var(--honey-tint);border-color:var(--honey)}
+main{flex:1;overflow-y:auto;padding-bottom:24px}
+.screen{display:flex;flex-direction:column;gap:16px}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance;line-height:1.2}
+h1{font-size:1.8rem}h2{font-size:1.3rem}h3{font-size:1.08rem}
+p{margin:0}
+.soft{color:var(--soft)}
+.note{font-size:.9rem;color:var(--soft)}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--honey-deep)}
+
+/* Milo */
+.milo{display:block}
+.milo .eye{transform-origin:center;transform-box:fill-box;animation:blink 5s infinite}
+.milo .open{display:none}
+.milo.talking .open{display:inline;animation:talk .28s infinite alternate}
+.milo.talking .mouth{display:none!important}
+.milo .mouth,.milo .brow{display:none}
+.milo[data-mood="happy"] .m-happy,.milo:not([data-mood]) .m-happy{display:inline}
+.milo[data-mood="sad"] .m-sad,.milo[data-mood="sad"] .b-sad{display:inline}
+.milo[data-mood="fear"] .m-o,.milo[data-mood="fear"] .b-up{display:inline}
+.milo[data-mood="angry"] .m-flat,.milo[data-mood="angry"] .b-angry{display:inline}
+.milo[data-mood="tired"] .m-flat,.milo[data-mood="tired"] .lid{display:inline}
+.milo .lid{display:none}
+.milo.happy{animation:hop .5s ease 2}
+.milo .arm{transform-origin:150px 175px;transform-box:view-box}
+.milo.wave .arm{animation:wave .45s ease-in-out 4 alternate}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes talk{from{transform:scaleY(.5)}to{transform:scaleY(1.1)}}
+@keyframes hop{50%{transform:translateY(-12px)}}
+@keyframes wave{from{transform:rotate(0)}to{transform:rotate(-28deg)}}
+
+.speech{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:10px 16px;font-family:var(--display);font-size:1.25rem;min-height:56px;display:flex;align-items:center}
+.speech:empty::before{content:"…";color:var(--soft)}
+
+/* Accueil */
+.hero{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding-top:4px}
+.hero .milo-btn{border-radius:50%;padding:6px}
+.hero .milo{width:min(210px,56vw);height:auto}
+.big-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.big{border-radius:var(--r);padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--display);font-size:1.25rem;font-weight:600;border:2px solid transparent;min-height:136px;justify-content:center}
+.big svg{width:56px;height:56px;stroke:currentColor;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.big.play{background:var(--honey-tint);border-color:var(--honey)}
+.big.board{background:var(--sage-tint);border-color:var(--sage)}
+
+/* Listes de cartes (univers, jeux, parcours) */
+.list{display:flex;flex-direction:column;gap:12px}
+.step{display:flex;align-items:center;gap:14px;background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:12px 14px;text-align:left;width:100%}
+.step .pic,.step .uicon{width:68px;height:68px;flex:none}
+.step .txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.step .word{font-family:var(--display);font-size:1.3rem;font-weight:600;line-height:1.2}
+.step .sub{font-size:.9rem;color:var(--soft)}
+.step .chev{width:26px;height:26px;flex:none;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round}
+.badge{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--honey-tint);color:var(--honey-deep)}
+.uicon{border-radius:20px;display:grid;place-items:center}
+.uicon svg{width:58%;height:58%;stroke:currentColor;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.t-honey{background:var(--honey-tint)}.t-sage{background:var(--sage-tint)}.t-rose{background:var(--rose-tint)}.t-sky{background:var(--sky-tint)}
+.dots{display:flex;gap:6px;margin-top:2px}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);display:inline-block}
+.dot.on{background:var(--sage);border-color:var(--sage)}
+.dot.mid{background:var(--honey);border-color:var(--honey)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--soft)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* Pictogrammes */
+.pic{border-radius:18px;display:grid;place-items:center;background:var(--sky-tint);color:var(--ink);overflow:hidden}
+.pic svg{width:62%;height:62%;stroke:currentColor;fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.pic svg .f{fill:currentColor;stroke:none}
+.pic .emo{font-size:2.6em;line-height:1}
+.pic svg.art,.bigart svg{stroke:none;fill:none;stroke-width:1}
+.pic svg.art{width:80%;height:80%}
+.bigart{display:inline-block;width:clamp(76px,22vw,116px);transition:transform .3s}
+.bigart svg{display:block;width:100%;height:auto}
+.bigart.bounce{animation:hop .45s ease 2}
+.pic.c-base,.pic.c-action{background:var(--honey-tint)}
+.pic.c-lien,.pic.c-gens{background:var(--sage-tint)}
+.pic.c-emo{background:var(--rose-tint)}
+
+/* Activité */
+.act-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.phase{font-family:var(--display);font-weight:600;padding:6px 14px;border-radius:999px;background:var(--sky-tint)}
+.turns{display:flex;gap:6px}
+.stage{position:relative;background:var(--sky-tint);border-radius:var(--r);height:min(250px,34vh);overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 12px 0;gap:8px}
+.stage .milo{width:min(130px,32%);height:auto;flex:none;position:relative;z-index:2}
+.obj{flex:1;height:100%;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;min-width:0}
+.obj svg{overflow:visible}
+.ground{position:absolute;left:0;right:0;bottom:0;height:16px;background:var(--sage-tint)}
+.bigemo{font-size:clamp(64px,18vw,104px);line-height:1;transition:transform .3s}
+.bigemo.bounce{animation:hop .45s ease 2}
+.fly{animation:fly 1s ease-in forwards}
+@keyframes fly{to{transform:translate(-120px,-20px) scale(.4);opacity:0}}
+.bub{position:absolute;bottom:40%;width:34px;height:34px;border-radius:50%;border:3px solid var(--honey);background:color-mix(in srgb,var(--surface) 55%,transparent);animation:rise 2.6s ease-out forwards}
+@keyframes rise{from{transform:translateY(0) scale(.4);opacity:1}to{transform:translateY(-190px) scale(1.1);opacity:0}}
+.box .lid{transform-origin:12px 40px;transform-box:view-box;transition:transform .5s}
+.box.open .lid{transform:rotate(-70deg)}
+.box .toy{transition:transform .5s .2s;transform:translateY(30px)}
+.box.open .toy{transform:translateY(-30px)}
+.shake{animation:shake .35s 3}
+@keyframes shake{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+.car{animation:drive 2.6s ease-in-out infinite alternate;animation-play-state:paused}
+.car.go{animation-play-state:running}
+@keyframes drive{from{transform:translateX(-45%)}to{transform:translateX(45%)}}
+.cup{transition:transform .8s}
+.cup .juice{transition:transform 1.2s .6s;transform-origin:50% 100%;transform-box:fill-box}
+.cup.drink{transform:translate(-70px,-40px) rotate(-35deg)}
+.cup.drink .juice{transform:scaleY(.25)}
+.ball.throw{animation:throw 1.6s ease-in-out}
+@keyframes throw{0%{transform:translate(0,0)}40%{transform:translate(-60px,-120px)}70%{transform:translate(-110px,0)}85%{transform:translate(-130px,-30px)}100%{transform:translate(0,0)}}
+
+.main-picto{align-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--display);font-size:1.5rem;font-weight:600}
+.main-picto .pic{width:128px;height:128px;border:3px solid var(--honey)}
+.pulse .pic,.pic.pulse{animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 0 10px color-mix(in srgb,var(--honey) 30%,transparent)}}
+.choices{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.choice{display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:700;font-family:var(--display);font-size:1.05rem;width:calc(33.33% - 8px);max-width:150px;min-width:92px}
+.choice .pic{width:100%;aspect-ratio:1;border:3px solid transparent}
+.choice.hl .pic{border-color:var(--honey);animation:pulse 1.1s ease-in-out infinite}
+.choice.picked .pic{border-color:var(--sage)}
+.choice.dim{opacity:.45}
+.slots{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
+.slot{width:88px;height:96px;border:2.5px dashed var(--line);border-radius:18px;display:grid;place-items:center;background:var(--surface);font-size:.8rem;font-weight:700;padding:4px}
+.slot .pic{width:62px;height:62px;border-radius:12px}
+.slot.full{border-style:solid;border-color:var(--honey)}
+.slotlbl{display:flex;flex-direction:column;align-items:center;gap:2px}
+
+.adult{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
+.adult .hint{font-size:.95rem}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mode{border:1.5px solid var(--line);border-radius:14px;padding:10px 4px;font-weight:700;font-size:.9rem;background:var(--bg)}
+.mode:active{background:var(--sage-tint)}
+details.fiche{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:12px 14px}
+details.fiche summary{font-family:var(--display);font-weight:600;font-size:1.05rem;cursor:pointer}
+.fiche dl{display:grid;gap:10px;margin:12px 0 0}
+.fiche dt{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--honey-deep)}
+.fiche dd{margin:2px 0 0}
+
+/* Imagier */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.tab{flex:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);font-weight:700;font-size:.92rem}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.wordcard{background:var(--surface);border:2px solid var(--line);border-radius:26px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.wordcard .pic{width:min(200px,52vw);height:min(200px,52vw);font-size:1.6em}
+.wordcard .pic .emo{font-size:4.2em}
+.wordcard .w{font-family:var(--display);font-size:2rem;font-weight:600}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.navrow .count{font-variant-numeric:tabular-nums;color:var(--soft);font-weight:700}
+.marks{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mark{border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:700;font-size:.9rem;background:var(--bg)}
+.mark[aria-pressed="true"]{background:var(--sage-tint);border-color:var(--sage)}
+
+/* Bouche */
+.mouthcard{display:flex;gap:16px;align-items:center;background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:14px}
+.mouthcard svg{width:120px;height:96px;flex:none}
+.sound-pick{display:flex;flex-wrap:wrap;gap:8px}
+
+.overlay{position:fixed;inset:0;background:color-mix(in srgb,var(--bg) 86%,transparent);display:grid;place-items:center;z-index:20;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:26px;padding:20px;max-width:460px;width:100%;display:flex;flex-direction:column;gap:12px;max-height:100%;overflow-y:auto}
+.btn{border-radius:16px;padding:14px 18px;font-weight:700;background:var(--honey);color:#2A1C08;min-height:52px}
+.btn.ghost{background:var(--bg);color:var(--ink);border:1.5px solid var(--line)}
+.btn.sage{background:var(--sage);color:#10261B}
+.btn.danger{background:var(--rose);color:#2B1212}
+.btn.small{min-height:40px;padding:8px 14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row .btn{flex:1}
+
+/* Tableau CAA */
+.strip{display:flex;align-items:center;gap:8px;background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:8px;min-height:84px}
+.strip .chips{flex:1;display:flex;gap:6px;overflow-x:auto;min-width:0}
+.strip .chip{flex:none;width:64px;display:flex;flex-direction:column;align-items:center;font-size:.72rem;font-weight:700;text-align:center}
+.strip .chip .pic{width:56px;height:56px;border-radius:12px;font-size:.6em}
+.strip .empty{color:var(--soft);padding-left:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid.g4{grid-template-columns:repeat(4,1fr)}
+.tile{display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:700;font-size:.92rem;padding:2px 0;text-align:center;line-height:1.2}
+.tile .pic{width:100%;aspect-ratio:1;border:2px solid transparent}
+.grid.g4 .tile .pic .emo{font-size:2em}
+.tile:active .pic{border-color:var(--ink)}
+
+/* Profils */
+.profiles{display:grid;gap:10px}
+.prof{text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.prof .letter{width:40px;height:40px;flex:none;border-radius:12px;background:var(--honey-tint);display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:1.2rem}
+.prof[aria-pressed="true"]{border-color:var(--honey);background:var(--honey-tint)}
+.prof[aria-pressed="true"] .letter{background:var(--honey)}
+
+/* Parents */
+.panel{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+td.n,th.n{text-align:center}
+.tbl{overflow-x:auto}
+.check{display:flex;align-items:center;gap:8px}
+.check input{width:22px;height:22px;accent-color:var(--sage)}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.9rem}
+select,input[type=text],textarea{font:inherit;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:120px;font-size:.8rem;font-family:ui-monospace,Menlo,monospace}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form .wide{grid-column:1/-1}
+ol.steps{margin:0;padding-left:1.3em;display:grid;gap:4px}
+.vlist{display:flex;flex-direction:column;gap:8px}
+.vitem{padding:10px 12px;border-radius:14px;background:var(--bg);font-size:.95rem}
+.vitem small{color:var(--soft);display:block}
+.hold{position:relative;overflow:hidden}
+.hold .fill{position:absolute;inset:0;background:var(--sage);transform-origin:left;transform:scaleX(0)}
+.hold.holding .fill{transform:scaleX(1);transition:transform 2s linear}
+.hold span{position:relative}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.outs{display:flex;gap:4px}
+.out{width:12px;height:12px;border-radius:3px;background:var(--line)}
+.out.seul{background:var(--sage)}.out.aide{background:var(--honey)}.out.ensemble{background:var(--rose)}
+.next{background:var(--honey-tint);border-radius:16px;padding:12px 14px}
+.picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px;max-height:280px;overflow-y:auto}
+.picker label{display:flex;align-items:center;gap:6px;font-size:.88rem;padding:6px;border-radius:10px;background:var(--bg)}
+.wordsum{display:flex;gap:16px;flex-wrap:wrap}
+.wordsum div{font-variant-numeric:tabular-nums}
+.wordsum strong{font-family:var(--display);font-size:1.6rem;display:block}
+
+body.calm .bub{animation-duration:4s}
+body.calm .car{animation-duration:5s}
+body.calm .milo .eye,body.calm .pulse .pic,body.calm .pic.pulse,body.calm .choice.hl .pic{animation:none}
+body.calm .choice.hl .pic{border-width:5px}
+body.calm .milo.happy,body.calm .milo.wave .arm,body.calm .bigart.bounce{animation:none}
+body.calm .ball.throw{animation-duration:3s}
+body.calm{--sky1:var(--surface);--sky2:var(--surface);--hill1:var(--line);--sage-tint:var(--bg);--rose-tint:var(--bg);--sky-tint:var(--surface)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+/* ===== Version 4 : plus belle, pensée pour la tablette ===== */
+.scene{position:relative;border-radius:30px;overflow:hidden;min-height:clamp(300px,52vh,470px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:16px 16px 8px;
+  background:linear-gradient(var(--sky1),var(--sky2) 70%)}
+.scene .bg{position:absolute;left:0;right:0;bottom:0;width:100%;height:42%}
+.scene .sky-l{position:absolute;left:3%;top:4%;width:clamp(150px,30%,300px)}
+.scene .sky-r{position:absolute;right:3%;top:5%;width:clamp(78px,13%,130px)}
+.scene .cl{animation:drift 26s linear infinite alternate}
+.scene .cl2{animation-duration:34s;animation-direction:alternate-reverse}
+@keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(40px)}}
+.scene .sunray{transform-origin:center;transform-box:fill-box;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bubble{position:relative;z-index:2;background:var(--surface);border:0;border-radius:24px;padding:12px 20px;font-family:var(--display);font-size:clamp(1.2rem,3vw,1.6rem);box-shadow:0 5px 0 var(--shade);max-width:92%;text-align:center}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-12px;margin-left:-12px;border:12px solid transparent;border-bottom:0;border-top-color:var(--surface)}
+.scene .milo-btn{position:relative;z-index:2;margin-top:14px;border-radius:50%}
+.scene .milo{width:clamp(170px,30vw,270px);height:auto}
+.hint-line{text-align:center}
+.stickers-btn{align-self:center;display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:6px 16px 6px 6px;font-weight:700;box-shadow:0 4px 0 var(--shade)}
+.stickers-btn .mini{width:40px;height:40px;border-radius:50%;background:var(--honey-tint);display:grid;place-items:center}
+.stickers-btn .mini svg{width:30px;height:30px}
+.big{box-shadow:0 6px 0 var(--shade);transition:transform .1s,box-shadow .1s}
+.big:active,.ucard:active{transform:translateY(4px);box-shadow:0 2px 0 var(--shade)}
+.big .bigart{width:72px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ucard{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:10px 10px 14px;border-radius:26px;background:var(--surface);border:2px solid var(--line);box-shadow:0 6px 0 var(--shade);text-align:left;transition:transform .1s,box-shadow .1s;min-width:0}
+.ucard .ill{border-radius:20px;aspect-ratio:4/3;display:grid;place-items:center}
+.ucard .ill svg{width:58%;height:auto;max-height:86%}
+.ucard .nm{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.2;padding:0 4px}
+.ucard .sb{font-size:.85rem;color:var(--soft);padding:0 4px}
+.ucard .num{position:absolute;top:16px;left:16px;width:32px;height:32px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--display);font-weight:600}
+.ucard .star{position:absolute;top:14px;right:14px;background:var(--honey);color:#2A1C08;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+.lvstars{display:flex;gap:3px;padding:0 4px}
+.lvstars svg{width:20px;height:20px}
+.stage{background:linear-gradient(var(--sky1),var(--sky2));}
+.stage::before{content:"";position:absolute;right:7%;top:12%;width:46px;height:46px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 10px color-mix(in srgb,var(--sun) 30%,transparent)}
+.stage::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-40px;height:96px;border-radius:50%;background:var(--hill1);z-index:0}
+.stage .ground{display:none}
+.stage .obj{z-index:1}
+.choice .pic,.tile .pic,.main-picto .pic{box-shadow:0 5px 0 var(--shade);transition:transform .1s,box-shadow .1s}
+.choice:active .pic,.tile:active .pic{transform:translateY(3px);box-shadow:0 2px 0 var(--shade)}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:12px;height:16px;border-radius:3px;animation:fall 1.8s ease-in forwards}
+.confetti i.r{border-radius:50%;width:12px;height:12px}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg)}}
+.sticker-big{align-self:center;width:150px;height:150px;border-radius:50%;background:var(--honey-tint);display:grid;place-items:center;border:4px dashed var(--honey);animation:pop .5s ease}
+.sticker-big svg{width:70%}
+@keyframes pop{0%{transform:scale(.3) rotate(-20deg)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+.sticker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:10px}
+.sticker-grid span{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--honey-tint)}
+.sticker-grid span svg{width:70%}
+.sticker-grid span.empty{background:var(--bg);border:2px dashed var(--line)}
+body.calm .scene .cl,body.calm .scene .sunray{animation:none}
+@media (min-width:760px){
+  .app{max-width:1080px}
+  h1{font-size:2.2rem}
+  .big-actions{gap:20px}.big{min-height:170px;font-size:1.6rem}.big .bigart{width:96px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  #mapCards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ucard .nm{font-size:1.3rem}
+  .stage{height:min(380px,42vh)}
+  .stage .milo{width:min(190px,28%)}
+  .bigart{width:clamp(110px,15vw,160px)}
+  .choice{width:auto;flex:1 1 150px;max-width:230px}
+  .grid{grid-template-columns:repeat(4,1fr);gap:16px}
+  .grid.g4{grid-template-columns:repeat(6,1fr)}
+  .main-picto .pic{width:170px;height:170px}
+  .speech{font-size:1.5rem}
+  .wordcard .pic{width:260px;height:260px}
+  .slot{width:120px;height:130px}.slot .pic{width:90px;height:90px}
+  #s-act{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+  #s-act>.act-top,#s-act>.speech,#s-act>.stage{grid-column:1}
+  #s-act>#actZone{grid-column:2;grid-row:1/4}
+  #s-act>.adult,#s-act>.fiche{grid-column:1/-1}
+}
+@media (min-width:760px) and (orientation:portrait){
+  #s-act{display:flex}
+}
+@media (max-width:400px){.modes{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr}.grid.g4{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+
+<div class="app">
+  <header>
+    <button class="icon-btn" id="backBtn" aria-label="Retour" hidden><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="icon-btn" id="homeBtn" aria-label="Accueil" hidden><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></button>
+    <div class="brand" id="brand">Ma Petite Voix</div>
+    <button class="icon-btn" id="pauseBtn" aria-label="Pause" hidden><svg viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg></button>
+    <button class="icon-btn" id="fsBtn" aria-label="Plein écran" hidden><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    <button class="icon-btn" id="soundBtn" aria-label="Son" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="soundWave" d="M17 9a4 4 0 0 1 0 6"/></svg></button>
+    <button class="icon-btn" id="parentBtn" aria-label="Espace parents"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button>
+  </header>
+
+  <main id="main">
+    <!-- PREMIER LANCEMENT -->
+    <section class="screen" id="s-setup" hidden>
+      <div>
+        <p class="eyebrow">Pour l'adulte · 1 minute</p>
+        <h1>Bienvenue dans Ma Petite Voix</h1>
+      </div>
+      <p>Ici, l'enfant joue avec Milo pour communiquer : avec un regard, un geste, un son, une image ou un mot. Tout compte.</p>
+      <label class="f">Prénom ou surnom de l'enfant (facultatif)
+        <input type="text" id="setName" placeholder="Ex. : Léo" maxlength="20"></label>
+      <div class="f" style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:.9rem">Aujourd'hui, l'enfant…</strong>
+        <div class="profiles" id="setProfiles"></div></div>
+      <div class="panel">
+        <p class="note">L'appli complète le travail avec un ou une orthophoniste. Elle ne le remplace pas, ne fait pas de diagnostic et ne promet pas que l'enfant parlera.</p>
+        <p class="note">Pas de micro, pas d'enregistrement, pas de publicité. Les notes restent sur ce téléphone.</p>
+        <label class="check"><input type="checkbox" id="setOk"> J'ai compris et je suis d'accord</label>
+      </div>
+      <button class="btn" id="setGo" disabled>Commencer</button>
+    </section>
+
+    <!-- ACCUEIL / MIROIR MAGIQUE -->
+    <section class="screen" id="s-home" hidden>
+      <div class="scene">
+        <svg class="sky-l" viewBox="0 0 260 110" aria-hidden="true">
+          <g class="cl" fill="var(--cloud)"><ellipse cx="70" cy="62" rx="38" ry="16"/><circle cx="56" cy="54" r="16"/><circle cx="82" cy="50" r="20"/></g>
+          <g class="cl cl2" fill="var(--cloud)" opacity=".85"><ellipse cx="200" cy="36" rx="28" ry="11"/><circle cx="192" cy="30" r="11"/><circle cx="210" cy="28" r="14"/></g>
+        </svg>
+        <svg class="sky-r" viewBox="-70 -70 140 140" aria-hidden="true">
+          <g><g class="sunray" stroke="var(--sun)" stroke-width="6" stroke-linecap="round"><path d="M0-44v-12M0 44v12M-44 0h-12M44 0h12M-31-31l-8-8M31 31l8 8M-31 31l-8 8M31-31l8-8"/></g><circle r="30" fill="var(--sun)"/></g>
+        </svg>
+        <svg class="bg" viewBox="0 200 400 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 300V230c60-40 150-50 210-20 70-40 170-30 230 10v80z" fill="var(--hill2)"/>
+          <path d="M-20 300V262c90-30 230-40 440-6v44z" fill="var(--hill1)"/>
+          <g fill="var(--rose)"><circle cx="40" cy="270" r="5"/><circle cx="362" cy="276" r="5"/></g><g fill="var(--sun)"><circle cx="40" cy="270" r="2"/><circle cx="362" cy="276" r="2"/><circle cx="318" cy="262" r="4"/><circle cx="76" cy="284" r="4"/></g>
+        </svg>
+        <div class="bubble" id="homeSpeech">Coucou ! Touche-moi !</div>
+        <button class="milo-btn" id="homeMilo" aria-label="Dire coucou à Milo"></button>
+      </div>
+      <p class="soft hint-line" id="homeHint">Touche Milo, fais un son ou un geste : il te répond.</p>
+      <div class="big-actions">
+        <button class="big play" id="goMap"><span class="bigart" id="playArt"></span>On joue</button>
+        <button class="big board" id="goBoard"><span class="bigart" id="boardArt"></span>Mes images</button>
+      </div>
+      <button class="stickers-btn" id="stickBtn"><span class="mini" id="stickMini"></span><span id="stickTxt">Mes autocollants</span></button>
+    </section>
+
+    <!-- LES 7 UNIVERS -->
+    <section class="screen" id="s-map" hidden>
+      <div><p class="eyebrow" id="mapEyebrow">Les univers de Milo</p><h1>On joue à quoi ?</h1></div>
+      <div class="cards" id="mapCards"></div>
+    </section>
+
+    <!-- UN UNIVERS : LISTE DES JEUX -->
+    <section class="screen" id="s-univ" hidden>
+      <div><p class="eyebrow" id="univEyebrow"></p><h1 id="univTitle"></h1></div>
+      <p class="soft" id="univGoal"></p>
+      <div class="cards" id="univList"></div>
+    </section>
+
+    <!-- PARCOURS 5 MESSAGES -->
+    <section class="screen" id="s-path" hidden>
+      <div><p class="eyebrow">Parcours 1 · enfant qui ne parle pas encore</p><h1>Mes 5 premiers messages</h1></div>
+      <div class="list" id="pathList"></div>
+      <div class="legend">
+        <span><i class="dot on"></i>découvert</span><span><i class="dot on"></i>a demandé seul</span><span><i class="dot on"></i>utilisé dans la vraie vie</span>
+      </div>
+    </section>
+
+    <!-- ACTIVITÉ (tous les jeux) -->
+    <section class="screen" id="s-act" hidden>
+      <div class="act-top"><span class="phase" id="phase">Découvrir</span><div class="turns" id="turns"></div></div>
+      <div class="speech" id="actSpeech"></div>
+      <div class="stage" id="stage"></div>
+      <div id="actZone" style="display:flex;flex-direction:column;gap:14px"></div>
+      <div class="adult" id="adultBox">
+        <p class="hint"><strong>Adulte :</strong> <span id="adultHint"></span></p>
+        <p class="note">L'enfant a communiqué autrement ? Touche ce qu'il a fait :</p>
+        <div class="modes">
+          <button class="mode" data-mode="regard">Regard</button>
+          <button class="mode" data-mode="geste">Geste</button>
+          <button class="mode" data-mode="son">Son</button>
+          <button class="mode" data-mode="mot">Mot</button>
+        </div>
+      </div>
+      <details class="fiche" id="fiche"></details>
+    </section>
+
+    <!-- TABLEAU DE COMMUNICATION -->
+    <section class="screen" id="s-board" hidden>
+      <div class="strip">
+        <div class="chips" id="chips"></div>
+        <button class="icon-btn" id="sayStrip" aria-label="Dire le message"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg></button>
+        <button class="icon-btn" id="clearStrip" aria-label="Effacer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="tabs" id="boardTabs" role="tablist"></div>
+      <div class="grid" id="boardGrid"></div>
+    </section>
+
+    <!-- PORTE PARENTS -->
+    <section class="screen" id="s-gate" hidden>
+      <div class="panel" style="text-align:center;align-items:center">
+        <h2>Espace parents</h2>
+        <p class="soft">Garde le doigt appuyé 2 secondes.</p>
+        <button class="btn hold" id="holdBtn" style="width:100%"><i class="fill"></i><span>Appuyer longtemps</span></button>
+      </div>
+    </section>
+
+    <!-- MES PETITES VICTOIRES -->
+    <section class="screen" id="s-parent" hidden>
+      <div><p class="eyebrow" id="parEyebrow">Mode parents</p><h1>Mes petites victoires</h1></div>
+      <div class="panel" id="nextPanel"></div>
+      <div class="panel" id="missionPanel"></div>
+      <div class="panel">
+        <h2>Les 5 messages</h2>
+        <p class="note">Toutes les façons de communiquer comptent. « Seul » = avant que Milo redonne le modèle.</p>
+        <div class="tbl"><table id="statTable"></table></div>
+      </div>
+      <div class="panel">
+        <h2>Les jeux</h2>
+        <p class="note">Niveau actuel et 5 derniers essais : <span class="out seul" style="display:inline-block"></span> seul · <span class="out aide" style="display:inline-block"></span> avec modèle · <span class="out ensemble" style="display:inline-block"></span> ensemble. Le niveau change tout seul ; tu peux aussi le choisir.</p>
+        <div class="tbl"><table id="gameTable"></table></div>
+      </div>
+      <div class="panel">
+        <h2>Les mots</h2>
+        <div class="wordsum" id="wordSum"></div>
+        <p class="note">Coche « comprend » ou « utilise » dans l'imagier (univers 2), sous chaque mot.</p>
+        <div id="wordUsed" class="note"></div>
+      </div>
+      <div class="panel">
+        <h2>Noter une victoire de la vraie vie</h2>
+        <div class="form">
+          <label class="f">Message<select id="vWord"></select></label>
+          <label class="f">Comment<select id="vMode"><option value="regard">Regard</option><option value="geste">Geste</option><option value="son">Son</option><option value="picto">Image</option><option value="mot">Mot</option><option value="phrase">Plusieurs mots</option></select></label>
+          <label class="f">Où<select id="vWhere"><option>Repas</option><option>Jeu</option><option>Bain</option><option>Habillage</option><option>Dehors</option><option>Coucher</option><option>Autre</option></select></label>
+          <label class="f">Seul ?<select id="vAlone"><option value="1">Oui, tout seul</option><option value="0">Avec un modèle</option></select></label>
+          <label class="f wide">Ce qu'il a fait ou dit (facultatif)<input type="text" id="vText" placeholder="Ex. : a tendu le verre en disant « ba »"></label>
+          <button class="btn wide" id="vAdd">Ajouter</button>
+        </div>
+        <div class="vlist" id="vList"></div>
+      </div>
+      <div class="panel">
+        <h2>Émotions exprimées</h2>
+        <div class="vlist" id="emoList"></div>
+      </div>
+      <div class="panel">
+        <h2>Réglages</h2>
+        <label class="f">Prénom ou surnom<input type="text" id="pName" maxlength="20"></label>
+        <div class="f" style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:.9rem">Profil</strong><div class="profiles" id="parProfiles"></div></div>
+        <div class="f" style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:.9rem">Sons travaillés avec l'orthophoniste (univers 6)</strong><div class="sound-pick" id="soundPick"></div></div>
+        <div class="toggle"><div><strong>Mode calme</strong><p class="note">Moins de couleurs, moins de mouvements.</p></div><input type="checkbox" id="calmToggle" style="width:26px;height:26px;accent-color:var(--sage)"></div>
+        <div class="toggle"><div><strong>Attente avant que Milo aide</strong><p class="note">Le temps laissé à l'enfant pour répondre.</p></div>
+          <select id="waitSel" style="width:auto"><option value="5000">5 s</option><option value="8000">8 s</option><option value="12000">12 s</option></select></div>
+        <div class="toggle"><div><strong>La voix de Milo</strong><p class="note">Une voix d'ourson réglée pour lui.</p></div>
+          <select id="styleSel" style="width:auto"><option value="doux">Douce</option><option value="rigolo">Rigolote</option><option value="calme">Calme et lente</option></select></div>
+        <label class="f">Voix du téléphone utilisée<select id="voiceSel"></select></label>
+        <button class="btn ghost" id="testVoice">Écouter Milo</button>
+        <div class="toggle"><div><strong>Pause conseillée après</strong><p class="note">Milo propose une pause et une activité hors écran.</p></div>
+          <select id="sessSel" style="width:auto"><option value="4">4 min</option><option value="6">6 min</option><option value="10">10 min</option><option value="15">15 min</option></select></div>
+        <div class="f" style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:.9rem">« Mes images » dans le tableau</strong>
+          <p class="note">Choisis les images toujours visibles pour l'enfant. Elles restent à la même place.</p>
+          <div class="picker" id="boardPicker"></div></div>
+      </div>
+      <div class="panel">
+        <h2>Mes données</h2>
+        <p class="note">Tout est sur ce téléphone. Tu peux copier les données pour les montrer à l'orthophoniste, ou tout effacer.</p>
+        <div class="row"><button class="btn ghost" id="exportBtn">Voir et copier</button><button class="btn danger" id="wipeBtn">Tout effacer</button></div>
+      </div>
+      <div class="panel">
+        <h2>À savoir</h2>
+        <p class="note">Ma Petite Voix accompagne le travail avec un ou une orthophoniste. Elle ne le remplace pas et ne fait aucun diagnostic. Elle ne promet pas que l'enfant parlera.</p>
+        <p class="note">Les gestes proposés sont des exemples simples : demande à l'orthophoniste lesquels utiliser. Les dessins sont faits pour cette appli. Milo parle avec la voix du téléphone, réglée en voix d'ourson.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="overlay" id="overlay" hidden><div class="card" id="overlayCard"></div></div>
+
+<script>
+/* ================= PICTOGRAMMES DESSINÉS ================= */
+const SV = {
+  encore:'<path d="M48 24a18 18 0 1 0 3 14"/><path d="M50 10v14H36"/>',
+  aide:'<path d="M20 34V22a4 4 0 0 1 8 0v8V14a4 4 0 0 1 8 0v16V18a4 4 0 0 1 8 0v20c0 10-6 16-14 16s-12-4-16-10l-6-10a4 4 0 0 1 7-4l5 6"/>',
+  stop:'<path d="M24 8h16l16 16v16L40 56H24L8 40V24z"/><path d="M20 32h24"/>',
+  boire:'<path d="M18 22h28l-4 32H22z"/><path d="M36 22l6-12h8"/><path d="M21 34h22"/>',
+  jouer:'<circle cx="32" cy="32" r="21"/><path d="M11 32h42M32 11c9 6 9 36 0 42M32 11c-9 6-9 36 0 42"/>',
+  jeveux:'<path d="M8 32h28"/><path d="M27 22l10 10-10 10"/><path d="M46 16c6 4 8 10 8 16s-2 12-8 16"/>',
+  oui:'<path d="M14 34l12 12 24-26"/>',
+  non:'<path d="M18 18l28 28M46 18L18 46"/>',
+  manger:'<path d="M20 10v16a4 4 0 0 0 8 0V10M24 26v28"/><ellipse cx="42" cy="19" rx="6" ry="9"/><path d="M42 28v26"/>',
+  mal:'<rect x="8" y="24" width="48" height="16" rx="8" transform="rotate(-35 32 32)"/><circle class="f" cx="28" cy="31" r="2"/><circle class="f" cx="36" cy="33" r="2"/><circle class="f" cx="31" cy="38" r="2"/>',
+  content:'<circle cx="32" cy="32" r="22"/><circle class="f" cx="24" cy="27" r="3"/><circle class="f" cx="40" cy="27" r="3"/><path d="M22 37c4 8 16 8 20 0"/>',
+  triste:'<circle cx="32" cy="32" r="22"/><circle class="f" cx="24" cy="27" r="3"/><circle class="f" cx="40" cy="27" r="3"/><path d="M22 45c4-8 16-8 20 0"/>'
+};
+
+/* ================= DESSINS DE L'APPLI (faits main, 64 x 64) ================= */
+const C={r:'#E5574F',o:'#F29E38',y:'#F6C944',g:'#6DBA6A',dg:'#3E8E4A',b:'#5A9BD8',db:'#2F6EA8',p:'#B07CD6',pk:'#F2A0B5',br:'#A0683F',lb:'#D9A877',w:'#FFFFFF',k:'#3A2A1E',gr:'#A9B3BB',dgr:'#6B7680',sk:'#A86B45',skl:'#C98E5E',hair:'#2B1D14',cream:'#FFF4DC'};
+const e2=(x1,x2,y,r=2.6,f=C.k)=>`<circle cx="${x1}" cy="${y}" r="${r}" fill="${f}"/><circle cx="${x2}" cy="${y}" r="${r}" fill="${f}"/>`;
+const smile=(x,y,w=8)=>`<path d="M${x} ${y}q${w} ${w*.8} ${w*2} 0" fill="none" stroke="${C.k}" stroke-width="2.6" stroke-linecap="round"/>`;
+const head=(cx,cy,r,s)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${s}"/>${e2(cx-r*.38,cx+r*.38,cy-r*.05,r*.13)}${smile(cx-r*.3,cy+r*.32,r*.3)}<circle cx="${cx-r*.62}" cy="${cy+r*.28}" r="${r*.15}" fill="${C.pk}" opacity=".7"/><circle cx="${cx+r*.62}" cy="${cy+r*.28}" r="${r*.15}" fill="${C.pk}" opacity=".7"/>`;
+const shoulders=(col,y=46)=>`<path d="M10 64c0-12 10-${64-y} 22-${64-y}s22 ${64-y-12} 22 ${64-y}z" fill="${col}"/>`;
+const rays=(cx,cy,r1,r2,col)=>Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return `<path d="M${(cx+Math.cos(a)*r1).toFixed(1)} ${(cy+Math.sin(a)*r1).toFixed(1)}L${(cx+Math.cos(a)*r2).toFixed(1)} ${(cy+Math.sin(a)*r2).toFixed(1)}" stroke="${col}" stroke-width="4" stroke-linecap="round"/>`}).join('');
+const glasses=`<g fill="none" stroke="${C.k}" stroke-width="1.8"><circle cx="26" cy="29" r="5"/><circle cx="38" cy="29" r="5"/><path d="M31 29h2"/></g>`;
+const fig=(arms,legs,shirt)=>`<g stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="${legs}" stroke="${C.db}" stroke-width="6"/><path d="${arms}" stroke="${C.sk}" stroke-width="5"/><path d="M32 23v15" stroke="${shirt}" stroke-width="12"/></g><circle cx="24" cy="8" r="5" fill="${C.hair}"/><circle cx="40" cy="8" r="5" fill="${C.hair}"/><circle cx="32" cy="13" r="8" fill="${C.sk}"/>`;
+const yface=(inner,col=C.y)=>`<circle cx="32" cy="32" r="24" fill="${col}"/>${inner}`;
+const MOI=`<circle cx="15" cy="16" r="9" fill="${C.hair}"/><circle cx="49" cy="16" r="9" fill="${C.hair}"/>${shoulders(C.pk)}<path d="M17 28c1-10 8-15 15-15s14 5 15 15c-5-5-10-7-15-7s-10 2-15 7z" fill="${C.hair}"/>${head(32,32,15,C.sk)}<path d="M17 28c1-10 8-15 15-15s14 5 15 15c-5-6-10-8-15-8s-10 2-15 8z" fill="${C.hair}"/><circle cx="22" cy="17" r="3" fill="${C.y}"/>`;
+const SUN=`${rays(32,32,20,28,C.o)}<circle cx="32" cy="32" r="16" fill="${C.y}"/>`;
+const HAND=`<g fill="${C.sk}"><rect x="18" y="28" width="28" height="26" rx="12"/><rect x="18" y="12" width="6" height="24" rx="3"/><rect x="25" y="8" width="6" height="26" rx="3"/><rect x="32" y="9" width="6" height="25" rx="3"/><rect x="39" y="13" width="6" height="23" rx="3"/><rect x="38" y="31" width="18" height="7" rx="3.5" transform="rotate(-40 44 34)"/></g>`;
+const BOX=`<rect x="10" y="26" width="44" height="30" rx="3" fill="${C.lb}"/><rect x="8" y="20" width="48" height="10" rx="3" fill="${C.o}"/><path d="M22 36h20" stroke="${C.br}" stroke-width="3" stroke-linecap="round"/>`;
+const BALL=(cx,cy,r)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${C.w}"/><path d="M${cx} ${cy-r}a${r} ${r} 0 0 1 ${r*.92} ${r*.58}L${cx} ${cy}z" fill="${C.r}"/><path d="M${cx+r} ${cy+r*.33}a${r} ${r} 0 0 1 -${r*.67} ${r*.62}L${cx} ${cy}z" fill="${C.b}"/><path d="M${cx-r*.5} ${cy+r*.87}A${r} ${r} 0 0 1 ${cx-r*.96} ${cy-r*.25}L${cx} ${cy}z" fill="${C.y}"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${C.gr}" stroke-width="2"/>`;
+const ART={
+ /* petits mots */
+ fini:`<rect x="14" y="8" width="4" height="50" rx="2" fill="${C.dgr}"/><rect x="18" y="10" width="32" height="22" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><g fill="${C.k}"><rect x="18" y="10" width="8" height="11"/><rect x="34" y="10" width="8" height="11"/><rect x="26" y="21" width="8" height="11"/><rect x="42" y="21" width="8" height="11"/></g>`,
+ donne:`<rect x="10" y="26" width="44" height="30" rx="3" fill="${C.r}"/><rect x="8" y="18" width="48" height="10" rx="3" fill="${C.r}"/><rect x="29" y="18" width="6" height="38" fill="${C.y}"/><path d="M32 18c-6-10-16-8-14-2 2 4 10 2 14 2zm0 0c6-10 16-8 14-2-2 4-10 2-14 2z" fill="${C.y}"/>`,
+ amoi:`${MOI}<path d="M54 46V26" stroke="${C.sk}" stroke-width="6" stroke-linecap="round"/><circle cx="54" cy="22" r="6" fill="${C.sk}"/>`,
+ atoi:`<path d="M14 26a18 18 0 0 1 30-8" fill="none" stroke="${C.g}" stroke-width="6" stroke-linecap="round"/><path d="M40 10l9 8-11 4z" fill="${C.g}"/><path d="M50 38a18 18 0 0 1-30 8" fill="none" stroke="${C.b}" stroke-width="6" stroke-linecap="round"/><path d="M24 54l-9-8 11-4z" fill="${C.b}"/>`,
+ regarde:`<path d="M38 38l14 14" stroke="${C.br}" stroke-width="8" stroke-linecap="round"/><circle cx="27" cy="27" r="15" fill="${C.cream}" stroke="${C.db}" stroke-width="6"/><circle cx="22" cy="22" r="4" fill="${C.w}"/>`,
+ viens:`<g fill="${C.br}"><ellipse cx="22" cy="42" rx="7" ry="11"/><circle cx="17" cy="28" r="2.4"/><circle cx="21" cy="26.5" r="2.4"/><circle cx="25.5" cy="27.5" r="2.2"/><ellipse cx="42" cy="28" rx="7" ry="11"/><circle cx="37" cy="14" r="2.4"/><circle cx="41" cy="12.5" r="2.4"/><circle cx="45.5" cy="13.5" r="2.2"/></g>`,
+ attends:`<path d="M18 12h28c0 10-10 14-10 20s10 10 10 20H18c0-10 10-14 10-20s-10-10-10-20z" fill="${C.cream}" stroke="${C.lb}" stroke-width="2"/><path d="M24 50c2-6 6-8 8-8s6 2 8 8z" fill="${C.y}"/><path d="M25 20h14l-7 8z" fill="${C.y}"/><rect x="14" y="6" width="36" height="6" rx="3" fill="${C.br}"/><rect x="14" y="52" width="36" height="6" rx="3" fill="${C.br}"/>`,
+ ouvrir:`<path d="M10 28h44v26H10z" fill="${C.lb}"/><path d="M10 28l-6-12 22-4 6 16z" fill="${C.o}"/><path d="M54 28l6-12-22-4-6 16z" fill="${C.o}"/><path d="M32 8v-2M24 10l-2-3M40 10l2-3" stroke="${C.y}" stroke-width="3" stroke-linecap="round"/>`,
+ pasca:`<rect x="18" y="20" width="28" height="28" rx="4" fill="${C.b}"/><circle cx="32" cy="34" r="24" fill="none" stroke="${C.r}" stroke-width="6"/><path d="M15 17l34 34" stroke="${C.r}" stroke-width="6" stroke-linecap="round"/>`,
+ la:`<ellipse cx="32" cy="58" rx="12" ry="3" fill="${C.gr}" opacity=".6"/><path d="M32 58S14 38 14 24a18 18 0 0 1 36 0c0 14-18 34-18 34z" fill="${C.r}"/><circle cx="32" cy="24" r="7" fill="${C.w}"/>`,
+ /* bonjour et merci */
+ bonjour:`${SUN}${e2(27,37,30,2.2)}${smile(27,35,5)}`,
+ aurevoir:`${HAND}<path d="M8 20q-4 6 0 12M56 8q5 5 4 12" stroke="${C.b}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ merci:`<path d="M32 56S8 42 8 24a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 18-24 32-24 32z" fill="${C.pk}"/><path d="M50 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="${C.y}"/><ellipse cx="20" cy="22" rx="4" ry="6" fill="${C.w}" opacity=".45"/>`,
+ stp:`<path d="M32 26s-8-5-8-10a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5-8 10-8 10z" fill="${C.r}"/><path d="M6 32c0 14 10 22 26 22V32z" fill="${C.sk}"/><path d="M58 32c0 14-10 22-26 22V32z" fill="${C.skl}"/>`,
+ calin:`<ellipse cx="22" cy="56" rx="14" ry="12" fill="${C.p}"/><ellipse cx="42" cy="58" rx="14" ry="12" fill="${C.o}"/><circle cx="23" cy="28" r="12" fill="${C.sk}"/><circle cx="41" cy="30" r="12" fill="${C.skl}"/><path d="M17 27q3 3 6 0M37 29q3 3 6 0" stroke="${C.k}" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M10 48q20 14 40 0" stroke="${C.sk}" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M32 14s-4-3-4-6a2 2 0 0 1 4-1 2 2 0 0 1 4 1c0 3-4 6-4 6z" fill="${C.r}"/>`,
+ bisou:`<path d="M8 34q12-14 24-6q12-8 24 6q-12 16-24 16T8 34z" fill="${C.r}"/><path d="M10 34q22 6 44 0" stroke="#A8322C" stroke-width="2" fill="none"/><path d="M50 12s-4-3-4-6a2 2 0 0 1 4-1 2 2 0 0 1 4 1c0 3-4 6-4 6z" fill="${C.pk}"/>`,
+ /* actions */
+ dormir:`<path d="M34 8a22 22 0 1 0 18 34A18 18 0 0 1 34 8z" fill="${C.y}"/><path d="M42 10h9l-9 9h9M50 24h6l-6 6h6" stroke="${C.db}" stroke-width="2.6" fill="none" stroke-linejoin="round" stroke-linecap="round"/>`,
+ sortir:`<rect x="6" y="54" width="52" height="5" rx="2.5" fill="${C.g}"/><rect x="28" y="36" width="8" height="20" fill="${C.br}"/><circle cx="32" cy="22" r="16" fill="${C.g}"/><circle cx="21" cy="30" r="10" fill="${C.dg}"/><circle cx="43" cy="30" r="10" fill="${C.dg}"/>`,
+ laver:`<rect x="8" y="34" width="38" height="20" rx="8" fill="${C.pk}"/><g fill="${C.w}" stroke="${C.b}" stroke-width="2"><circle cx="46" cy="22" r="7"/><circle cx="32" cy="18" r="5"/><circle cx="54" cy="38" r="4"/><circle cx="22" cy="24" r="3"/></g>`,
+ mettre:`<path d="M10 50V28a10 10 0 0 1 20 0v22z" fill="${C.r}"/><path d="M4 34a4 4 0 0 1 8-2l2 8-6 2z" fill="${C.r}"/><rect x="8" y="46" width="24" height="10" rx="3" fill="${C.w}"/><path d="M34 50V28a10 10 0 0 1 20 0v22z" fill="${C.b}"/><path d="M60 34a4 4 0 0 0-8-2l-2 8 6 2z" fill="${C.b}"/><rect x="32" y="46" width="24" height="10" rx="3" fill="${C.w}"/>`,
+ sauter:`<path d="M16 62h32" stroke="${C.gr}" stroke-width="3" stroke-linecap="round"/>${fig('M32 26L20 12M32 26L44 12','M32 38L24 46L28 54M32 38L40 46L36 54',C.o)}`,
+ courir:`<path d="M4 30h8M2 40h8" stroke="${C.gr}" stroke-width="3" stroke-linecap="round"/>${fig('M32 26L22 32L18 26M32 26L42 22L48 28','M32 38L24 48L14 46M32 38L40 46L42 58',C.g)}`,
+ danser:`<path d="M52 10v12" stroke="${C.p}" stroke-width="3"/><circle cx="49" cy="22" r="4" fill="${C.p}"/><path d="M10 30v10" stroke="${C.p}" stroke-width="3"/><circle cx="7" cy="40" r="3.5" fill="${C.p}"/>${fig('M32 26L20 16M32 26L44 32','M32 38L26 56M32 38L42 50L50 52',C.pk)}`,
+ chanter:`<path d="M18 26a14 14 0 0 0 28 0" stroke="${C.dgr}" stroke-width="4" fill="none"/><rect x="24" y="8" width="16" height="24" rx="8" fill="${C.dgr}"/><path d="M32 40v12M22 54h20" stroke="${C.dgr}" stroke-width="4" stroke-linecap="round"/><path d="M52 8v12" stroke="${C.p}" stroke-width="3"/><circle cx="49" cy="20" r="4" fill="${C.p}"/>`,
+ lire:`<path d="M32 18C24 12 14 12 6 14v34c8-2 18-2 26 4z" fill="${C.w}" stroke="${C.b}" stroke-width="3" stroke-linejoin="round"/><path d="M32 18c8-6 18-6 26-4v34c-8-2-18-2-26 4z" fill="${C.w}" stroke="${C.b}" stroke-width="3" stroke-linejoin="round"/><path d="M12 24h14M12 31h14M38 24h14M38 31h14" stroke="${C.gr}" stroke-width="2" stroke-linecap="round"/>`,
+ lancer:`${BALL(40,30,14)}<path d="M6 22h14M4 32h14M8 42h14" stroke="${C.gr}" stroke-width="3" stroke-linecap="round"/>`,
+ toilettes:`<rect x="34" y="8" width="16" height="22" rx="3" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M12 30h40c0 12-8 18-20 18S12 42 12 30z" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M22 46h20l-2 10H24z" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/>`,
+ manger:`<ellipse cx="32" cy="40" rx="26" ry="12" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><ellipse cx="32" cy="38" rx="14" ry="5" fill="${C.o}"/><path d="M10 6v14a4 4 0 0 0 8 0V6M14 20v10" stroke="${C.dgr}" stroke-width="3" stroke-linecap="round" fill="none"/><ellipse cx="52" cy="12" rx="5" ry="8" fill="${C.dgr}"/><path d="M52 20v10" stroke="${C.dgr}" stroke-width="3" stroke-linecap="round"/>`,
+ boire:`<path d="M18 16h28l-4 42H22z" fill="${C.b}" fill-opacity=".2" stroke="${C.b}" stroke-width="3"/><path d="M20 30h24l-3 28H23z" fill="${C.o}"/><path d="M36 16l6-12h8" stroke="${C.r}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ jouer:`${BALL(32,32,22)}`,
+ /* à manger */
+ eau:`<path d="M32 6S14 28 14 40a18 18 0 0 0 36 0C50 28 32 6 32 6z" fill="${C.b}"/><path d="M23 40a9 9 0 0 0 9 9" stroke="${C.w}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ lait:`<path d="M18 10h28l-4 46H22z" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M19 20h26" stroke="${C.gr}" stroke-width="1.5"/><path d="M26 34c4-4 10 2 12-2" stroke="${C.b}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ jus:`<rect x="16" y="16" width="30" height="42" rx="2" fill="${C.o}"/><path d="M16 16l6-6h30l-6 6z" fill="#F7B860"/><path d="M46 16l6-6v42l-6 6z" fill="#D9862A"/><circle cx="31" cy="38" r="8" fill="${C.y}"/><path d="M38 13V3" stroke="${C.r}" stroke-width="3" stroke-linecap="round"/>`,
+ pain:`<path d="M8 44c0-14 10-22 24-22s24 8 24 22v6H8z" fill="${C.lb}"/><path d="M8 44c0-14 10-22 24-22s24 8 24 22" fill="none" stroke="${C.br}" stroke-width="3"/><path d="M20 30l4 6M30 27l4 6M40 29l4 6" stroke="${C.br}" stroke-width="3" stroke-linecap="round"/>`,
+ gateau:`<rect x="10" y="30" width="44" height="24" rx="4" fill="${C.lb}"/><rect x="10" y="26" width="44" height="9" rx="4" fill="${C.pk}"/><path d="M10 33c4 6 8 6 11 0s7 6 11 0 7 6 11 0 7 6 11 0" fill="${C.pk}"/><path d="M10 44h44" stroke="${C.pk}" stroke-width="3"/><circle cx="32" cy="20" r="6" fill="${C.r}"/><path d="M32 14q2-6 6-6" stroke="${C.g}" stroke-width="2" fill="none"/>`,
+ pomme:`<path d="M32 18c-8-6-22-4-22 14 0 14 10 26 22 22 12 4 22-8 22-22 0-18-14-20-22-14z" fill="${C.r}"/><path d="M32 18c0-6 2-10 6-12" stroke="${C.br}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M35 13c4-6 12-6 14-2-4 4-10 4-14 2z" fill="${C.g}"/><ellipse cx="21" cy="30" rx="3" ry="6" fill="${C.w}" opacity=".45"/>`,
+ banane:`<path d="M10 18c4 22 24 34 46 26-4-4-6-4-10-4-18 0-28-12-30-24z" fill="${C.y}" stroke="#C99B1E" stroke-width="2" stroke-linejoin="round"/><path d="M11 18l-3-6" stroke="${C.br}" stroke-width="3" stroke-linecap="round"/>`,
+ yaourt:`<path d="M14 22h36l-4 34H18z" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><rect x="12" y="16" width="40" height="8" rx="3" fill="${C.pk}"/><circle cx="32" cy="40" r="7" fill="${C.pk}"/>`,
+ pates:`<ellipse cx="32" cy="44" rx="26" ry="10" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M14 40c4-16 32-16 36 0z" fill="${C.y}"/><path d="M18 38c4-8 10 4 14-6s10 4 14-2" stroke="#D9A21E" stroke-width="2" fill="none"/><circle cx="32" cy="29" r="5" fill="${C.r}"/>`,
+ riz:`<path d="M10 32c2-14 42-14 44 0z" fill="${C.w}" stroke="${C.gr}" stroke-width="1.5"/><path d="M8 32h48c0 14-10 22-24 22S8 46 8 32z" fill="${C.b}"/><path d="M22 54h20" stroke="${C.db}" stroke-width="3"/>`,
+ biscuit:`<circle cx="32" cy="32" r="22" fill="${C.lb}"/><g fill="${C.br}"><circle cx="24" cy="24" r="3"/><circle cx="38" cy="22" r="3"/><circle cx="30" cy="36" r="3"/><circle cx="42" cy="38" r="3"/><circle cx="22" cy="42" r="3"/></g>`,
+ fromage:`<path d="M6 44L50 18l8 26z" fill="${C.y}"/><path d="M6 44h52v12H6z" fill="#E8B630"/><circle cx="34" cy="36" r="4" fill="#E8B630"/><circle cx="46" cy="30" r="3" fill="#E8B630"/><circle cx="20" cy="50" r="3" fill="${C.y}"/>`,
+ /* personnes */
+ maman:`<path d="M12 52c-2-26 6-40 20-40s22 14 20 40z" fill="${C.hair}"/>${shoulders(C.p)}${head(32,30,15,C.sk)}<path d="M17 28c2-12 10-16 15-16s13 4 15 16c-6-6-18-8-30 0z" fill="${C.hair}"/><circle cx="16" cy="36" r="2.5" fill="${C.y}"/><circle cx="48" cy="36" r="2.5" fill="${C.y}"/>`,
+ papa:`${shoulders(C.b)}${head(32,30,15,C.sk)}<path d="M17 27c0-10 7-16 15-16s15 6 15 16c-4-5-8-7-15-7s-11 2-15 7z" fill="${C.hair}"/><path d="M27 37q5-2 10 0" stroke="${C.hair}" stroke-width="3" stroke-linecap="round" fill="none"/>`,
+ bebe:`${shoulders(C.y,50)}${head(32,34,14,C.skl)}<path d="M32 20c-4-6 2-10 6-6" stroke="${C.hair}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ moi:MOI,
+ toi:`${shoulders(C.g)}${head(38,32,14,C.skl)}<path d="M24 30c0-9 6-14 14-14s14 5 14 14c-4-5-9-7-14-7s-10 2-14 7z" fill="${C.hair}"/><path d="M4 34h12" stroke="${C.o}" stroke-width="5" stroke-linecap="round"/><path d="M14 27l8 7-8 7z" fill="${C.o}"/>`,
+ papy:`${shoulders(C.dgr)}${head(32,30,15,C.sk)}<path d="M17 32c-2-8 0-14 4-16M47 32c2-8 0-14-4-16" stroke="${C.gr}" stroke-width="6" fill="none" stroke-linecap="round"/>${glasses}<path d="M26 37q6-3 12 0" stroke="${C.gr}" stroke-width="3.5" stroke-linecap="round" fill="none"/>`,
+ mamie:`<circle cx="32" cy="11" r="7" fill="${C.gr}"/>${shoulders(C.r)}${head(32,31,15,C.sk)}<path d="M16 30c0-12 7-17 16-17s16 5 16 17c-4-6-10-9-16-9s-12 3-16 9z" fill="${C.gr}"/>${glasses}`,
+ copain:`<ellipse cx="20" cy="58" rx="13" ry="12" fill="${C.o}"/><ellipse cx="44" cy="58" rx="13" ry="12" fill="${C.b}"/>${head(20,32,11,C.sk)}${head(44,32,11,C.skl)}<circle cx="11" cy="22" r="6" fill="${C.hair}"/><circle cx="29" cy="22" r="6" fill="${C.hair}"/><path d="M33 29c0-7 5-11 11-11s11 4 11 11c-3-4-7-5-11-5s-8 1-11 5z" fill="${C.hair}"/>`,
+ /* animaux */
+ chat:`<path d="M14 28L16 8l14 12zM50 28L48 8 34 20z" fill="${C.o}"/><circle cx="32" cy="36" r="20" fill="${C.o}"/><ellipse cx="32" cy="44" rx="9" ry="6" fill="${C.cream}"/>${e2(25,39,33)}<path d="M30 40h4l-2 3z" fill="${C.pk}"/><path d="M12 40h10M12 46h10M42 40h10M42 46h10" stroke="${C.k}" stroke-width="1.5" stroke-linecap="round"/>`,
+ chien:`<ellipse cx="14" cy="30" rx="7" ry="14" fill="${C.br}"/><ellipse cx="50" cy="30" rx="7" ry="14" fill="${C.br}"/><circle cx="32" cy="32" r="18" fill="${C.lb}"/><ellipse cx="32" cy="42" rx="9" ry="7" fill="${C.cream}"/>${e2(25,39,29)}<ellipse cx="32" cy="39" rx="4" ry="3" fill="${C.k}"/><path d="M30 46h4v4a2 2 0 0 1-4 0z" fill="${C.r}"/>`,
+ vache:`<path d="M18 14l-4-8M46 14l4-8" stroke="${C.lb}" stroke-width="4" stroke-linecap="round"/><ellipse cx="9" cy="24" rx="7" ry="4" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><ellipse cx="55" cy="24" rx="7" ry="4" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><rect x="14" y="12" width="36" height="42" rx="16" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><path d="M18 20c6 2 8 8 4 12-4-2-6-8-4-12z" fill="${C.k}"/><ellipse cx="32" cy="46" rx="14" ry="9" fill="${C.pk}"/><circle cx="27" cy="46" r="2" fill="${C.k}"/><circle cx="37" cy="46" r="2" fill="${C.k}"/>${e2(25,39,30)}`,
+ canard:`<ellipse cx="30" cy="44" rx="22" ry="13" fill="${C.y}"/><circle cx="40" cy="24" r="12" fill="${C.y}"/><path d="M50 24l12 2-12 5z" fill="${C.o}"/><circle cx="43" cy="21" r="2.4" fill="${C.k}"/><path d="M18 42q10 8 20 0" stroke="#D9A21E" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M6 58q8-4 16 0t16 0 16 0" stroke="${C.b}" stroke-width="3" fill="none"/>`,
+ poisson:`<path d="M8 32c10-16 30-16 40 0-10 16-30 16-40 0z" fill="${C.b}"/><path d="M46 32l12-10v20z" fill="${C.db}"/><circle cx="19" cy="29" r="3" fill="${C.k}"/><path d="M28 24q4 8 0 16" stroke="${C.db}" stroke-width="2" fill="none"/><circle cx="8" cy="14" r="3" fill="none" stroke="${C.b}" stroke-width="1.5"/>`,
+ oiseau:`<path d="M26 50v8M34 50v8" stroke="${C.o}" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="32" r="18" fill="${C.b}"/><path d="M18 34q12 16 24 0" fill="${C.db}"/><path d="M46 26l11 4-11 4z" fill="${C.o}"/><circle cx="38" cy="25" r="2.6" fill="${C.k}"/>`,
+ cheval:`<path d="M34 12l2-8 4 7z" fill="${C.br}"/><path d="M20 58V30c0-14 10-22 22-20l10 20c2 6-2 10-8 8l-6-2v22z" fill="${C.br}"/><path d="M22 28c-4-6-2-16 8-20 0 8-4 14-8 20z" fill="${C.k}"/><circle cx="38" cy="22" r="2.5" fill="${C.k}"/><circle cx="49" cy="30" r="1.8" fill="${C.k}"/>`,
+ mouton:`<g fill="${C.w}" stroke="${C.gr}" stroke-width="1.5"><circle cx="20" cy="22" r="10"/><circle cx="32" cy="16" r="10"/><circle cx="44" cy="22" r="10"/><circle cx="16" cy="36" r="10"/><circle cx="48" cy="36" r="10"/><circle cx="24" cy="48" r="10"/><circle cx="40" cy="48" r="10"/></g><ellipse cx="32" cy="36" rx="11" ry="14" fill="${C.dgr}"/>${e2(28,36,33,2.4,C.w)}`,
+ lapin:`<ellipse cx="24" cy="16" rx="6" ry="14" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><ellipse cx="40" cy="16" rx="6" ry="14" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><ellipse cx="24" cy="16" rx="2.5" ry="9" fill="${C.pk}"/><ellipse cx="40" cy="16" rx="2.5" ry="9" fill="${C.pk}"/><circle cx="32" cy="40" r="18" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/>${e2(25,39,37)}<path d="M30 43h4l-2 3z" fill="${C.pk}"/>`,
+ poule:`<ellipse cx="28" cy="42" rx="20" ry="15" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><circle cx="42" cy="22" r="10" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M36 13c0-6 4-7 5-3 2-4 6-3 5 2z" fill="${C.r}"/><path d="M51 21l8 3-8 3z" fill="${C.o}"/><path d="M48 28c2 4 0 7-2 6" fill="${C.r}"/><circle cx="44" cy="20" r="2.2" fill="${C.k}"/><path d="M22 56v6M32 56v6" stroke="${C.o}" stroke-width="3" stroke-linecap="round"/>`,
+ /* jouets */
+ ballon:BALL(32,32,24),
+ bulles:`<g fill="${C.b}" fill-opacity=".18" stroke="${C.b}" stroke-width="2.5"><circle cx="24" cy="36" r="16"/><circle cx="46" cy="18" r="10"/><circle cx="48" cy="46" r="7"/></g><path d="M15 31a10 10 0 0 1 8-8" stroke="${C.w}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ voiture:`<path d="M6 44v-8l8-2 8-12h20l10 12h6v10z" fill="${C.r}"/><path d="M24 24h8v10H17zM36 24h5l8 10H36z" fill="${C.w}" fill-opacity=".7"/><circle cx="18" cy="46" r="7" fill="${C.k}"/><circle cx="46" cy="46" r="7" fill="${C.k}"/><circle cx="18" cy="46" r="3" fill="${C.gr}"/><circle cx="46" cy="46" r="3" fill="${C.gr}"/>`,
+ poupee:`<circle cx="22" cy="12" r="6" fill="${C.hair}"/><circle cx="42" cy="12" r="6" fill="${C.hair}"/><path d="M18 60l6-28h16l6 28z" fill="${C.pk}"/><path d="M24 40h16" stroke="${C.w}" stroke-width="3"/>${head(32,22,11,C.sk)}`,
+ livre:`<rect x="14" y="8" width="36" height="48" rx="3" fill="${C.g}"/><rect x="14" y="8" width="7" height="48" fill="${C.dg}"/><rect x="26" y="18" width="18" height="10" rx="2" fill="${C.w}"/><path d="M50 12v42" stroke="${C.w}" stroke-width="2"/>`,
+ cubes:`<rect x="8" y="36" width="22" height="22" rx="3" fill="${C.r}"/><rect x="34" y="36" width="22" height="22" rx="3" fill="${C.b}"/><rect x="21" y="12" width="22" height="22" rx="3" fill="${C.y}"/><g fill="${C.w}" opacity=".5"><rect x="14" y="42" width="10" height="10" rx="2"/><rect x="40" y="42" width="10" height="10" rx="2"/><rect x="27" y="18" width="10" height="10" rx="2"/></g>`,
+ train:`<g fill="${C.gr}" opacity=".7"><circle cx="14" cy="10" r="4"/><circle cx="22" cy="6" r="3"/></g><rect x="10" y="16" width="8" height="12" fill="${C.dgr}"/><rect x="6" y="26" width="34" height="20" rx="3" fill="${C.r}"/><rect x="34" y="12" width="20" height="34" rx="3" fill="${C.b}"/><rect x="38" y="16" width="12" height="10" rx="2" fill="${C.w}"/><circle cx="16" cy="50" r="6" fill="${C.k}"/><circle cx="32" cy="50" r="6" fill="${C.k}"/><circle cx="48" cy="50" r="6" fill="${C.k}"/>`,
+ doudou:`<circle cx="18" cy="16" r="7" fill="${C.lb}"/><circle cx="46" cy="16" r="7" fill="${C.lb}"/><ellipse cx="32" cy="52" rx="16" ry="12" fill="${C.lb}"/><circle cx="32" cy="28" r="16" fill="${C.lb}"/><ellipse cx="32" cy="33" rx="7" ry="5" fill="${C.cream}"/>${e2(26,38,25,2)}<circle cx="32" cy="31" r="2" fill="${C.k}"/><path d="M32 56s-5-3-5-6a2.5 2.5 0 0 1 5-1 2.5 2.5 0 0 1 5 1c0 3-5 6-5 6z" fill="${C.r}"/>`,
+ /* maison */
+ lit:`<rect x="6" y="20" width="8" height="36" rx="2" fill="${C.br}"/><rect x="50" y="30" width="8" height="26" rx="2" fill="${C.br}"/><rect x="10" y="36" width="44" height="12" fill="${C.b}"/><rect x="14" y="28" width="14" height="9" rx="4" fill="${C.w}"/><path d="M28 37c4-7 22-7 26 0z" fill="${C.db}"/>`,
+ bain:`<g fill="${C.b}" fill-opacity=".25" stroke="${C.b}" stroke-width="2"><circle cx="20" cy="22" r="6"/><circle cx="32" cy="18" r="8"/><circle cx="44" cy="23" r="5"/></g><path d="M6 30h52v6c0 10-8 16-18 16H24C14 52 6 46 6 36z" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M16 52l-2 6M48 52l2 6" stroke="${C.gr}" stroke-width="3" stroke-linecap="round"/>`,
+ verre:`<path d="M16 8h32l-4 48H20z" fill="${C.b}" fill-opacity=".15" stroke="${C.b}" stroke-width="3"/><path d="M18 26h28l-3 30H21z" fill="${C.b}" fill-opacity=".45"/>`,
+ cuillere:`<ellipse cx="32" cy="16" rx="9" ry="12" fill="${C.gr}"/><rect x="29" y="26" width="6" height="32" rx="3" fill="${C.gr}"/><ellipse cx="29" cy="13" rx="3" ry="5" fill="${C.w}" opacity=".6"/>`,
+ porte:`<rect x="14" y="6" width="36" height="54" rx="3" fill="${C.br}"/><rect x="19" y="11" width="26" height="18" rx="2" fill="${C.lb}"/><rect x="19" y="33" width="26" height="22" rx="2" fill="${C.lb}"/><circle cx="42" cy="34" r="3" fill="${C.y}"/>`,
+ chaise:`<rect x="16" y="6" width="26" height="24" rx="3" fill="${C.lb}"/><rect x="16" y="6" width="6" height="52" rx="2" fill="${C.br}"/><rect x="16" y="32" width="34" height="6" rx="2" fill="${C.br}"/><rect x="44" y="34" width="6" height="24" rx="2" fill="${C.br}"/>`,
+ telephone:`<rect x="18" y="4" width="28" height="56" rx="6" fill="${C.k}"/><rect x="21" y="10" width="22" height="40" rx="2" fill="${C.b}"/><circle cx="32" cy="55" r="2.5" fill="${C.gr}"/>`,
+ lumiere:`<path d="M10 12l5 4M54 12l-5 4M4 28h6M54 28h6" stroke="${C.o}" stroke-width="3" stroke-linecap="round"/><path d="M32 6a18 18 0 0 0-10 33c2 2 3 5 3 8h14c0-3 1-6 3-8A18 18 0 0 0 32 6z" fill="${C.y}"/><rect x="24" y="48" width="16" height="10" rx="2" fill="${C.gr}"/>`,
+ /* vêtements */
+ chaussures:`<path d="M6 42c0-10 4-20 10-20h10c2 6 8 10 14 12l14 4c4 1 6 4 6 8v2H6z" fill="${C.b}"/><rect x="5" y="46" width="56" height="8" rx="3" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><path d="M28 28l6-2M32 32l6-2" stroke="${C.w}" stroke-width="2.5" stroke-linecap="round"/>`,
+ manteau:`<path d="M22 8h20l14 10-4 12-6-4v32H18V26l-6 4-4-12z" fill="${C.r}"/><path d="M32 12v46" stroke="#A8322C" stroke-width="2"/><g fill="${C.y}"><circle cx="36" cy="24" r="2"/><circle cx="36" cy="34" r="2"/><circle cx="36" cy="44" r="2"/></g>`,
+ pantalon:`<path d="M16 8h32l4 50H38l-6-34-6 34H12z" fill="${C.db}"/><rect x="16" y="8" width="32" height="6" fill="${C.b}"/>`,
+ pull:`<path d="M22 10h20l16 10-6 12-6-4v28H18V28l-6 4-6-12z" fill="${C.g}"/><path d="M26 10c2 4 10 4 12 0" stroke="${C.dg}" stroke-width="3" fill="none"/><path d="M18 48h28" stroke="${C.dg}" stroke-width="3"/>`,
+ chaussettes:`<path d="M10 6h14v28l10 8a6 6 0 0 1-6 10H20c-6 0-10-4-10-10z" fill="${C.r}"/><rect x="10" y="6" width="14" height="6" fill="${C.w}"/><path d="M30 10h14v28l10 8a6 6 0 0 1-6 10H40c-6 0-10-4-10-10z" fill="${C.b}"/><rect x="30" y="10" width="14" height="6" fill="${C.w}"/>`,
+ /* corps */
+ main:HAND,
+ pied:`<path d="M22 20c-6 10-6 22 0 32 4 8 18 8 22 0 4-10 2-20-4-32z" fill="${C.sk}"/><g fill="${C.sk}"><circle cx="22" cy="14" r="5"/><circle cx="30" cy="11" r="4"/><circle cx="37" cy="12" r="3.5"/><circle cx="42" cy="15" r="3"/><circle cx="46" cy="19" r="2.6"/></g>`,
+ bouche:`<path d="M8 26q24 8 48 0q-4 24-24 24T8 26z" fill="#8A2E2A"/><path d="M12 28q20 6 40 0v5q-20 5-40 0z" fill="${C.w}"/><ellipse cx="32" cy="42" rx="10" ry="5" fill="${C.pk}"/><path d="M8 26q24 8 48 0" stroke="${C.r}" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M8 26q4 24 24 24t24-24" stroke="${C.r}" stroke-width="4" fill="none"/>`,
+ nez:`<path d="M30 8c-2 14-14 26-14 34 0 6 6 10 12 8 2 2 6 2 8 0 6 2 12-2 12-8 0-8-12-20-14-34z" fill="${C.skl}"/><ellipse cx="25" cy="47" rx="3" ry="2.5" fill="${C.br}"/><ellipse cx="39" cy="47" rx="3" ry="2.5" fill="${C.br}"/>`,
+ yeux:`<ellipse cx="18" cy="32" rx="13" ry="9" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><ellipse cx="46" cy="32" rx="13" ry="9" fill="${C.w}" stroke="${C.k}" stroke-width="2"/><circle cx="18" cy="32" r="5.5" fill="${C.br}"/><circle cx="46" cy="32" r="5.5" fill="${C.br}"/>${e2(18,46,32,2.6)}<path d="M8 22l-2-4M18 20v-5M28 22l2-4M36 22l-2-4M46 20v-5M56 22l2-4" stroke="${C.k}" stroke-width="2" stroke-linecap="round"/>`,
+ oreilles:`<path d="M36 6c-14 0-22 10-22 22 0 8 4 12 6 16 2 6 4 12 12 12 6 0 8-6 8-10s6-6 8-14c2-14-4-26-12-26z" fill="${C.sk}"/><path d="M28 28c0-8 4-12 10-12s8 6 6 12-6 6-6 12" stroke="${C.br}" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ /* émotions */
+ content:yface(`${e2(24,40,27,3)}<path d="M20 36q12 14 24 0z" fill="${C.k}"/><path d="M24 40q8 5 16 0" fill="${C.r}"/>`),
+ triste:yface(`${e2(24,40,28,3)}<path d="M22 46q10-10 20 0" stroke="${C.k}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M22 33q-3 6 0 8 3-2 0-8z" fill="${C.b}"/>`),
+ peur:yface(`<circle cx="24" cy="27" r="6" fill="${C.w}"/><circle cx="40" cy="27" r="6" fill="${C.w}"/>${e2(24,40,27,2.6)}<ellipse cx="32" cy="44" rx="5" ry="7" fill="${C.k}"/><path d="M52 14q-4 6 0 8 4-2 0-8z" fill="${C.b}"/>`),
+ colere:yface(`<path d="M18 22l11 5M46 22l-11 5" stroke="${C.k}" stroke-width="3" stroke-linecap="round"/>${e2(25,39,31,3)}<path d="M23 46q9-7 18 0" stroke="${C.k}" stroke-width="3" fill="none" stroke-linecap="round"/>`,C.o),
+ fatigue:yface(`<path d="M19 29q5 3 10 0M35 29q5 3 10 0" stroke="${C.k}" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="32" cy="43" rx="6" ry="5" fill="${C.k}"/><path d="M48 8h7l-7 7h7" stroke="${C.db}" stroke-width="2.4" fill="none" stroke-linejoin="round"/>`),
+ mal:`<g transform="rotate(-30 32 32)"><rect x="4" y="23" width="56" height="18" rx="9" fill="${C.lb}"/><rect x="22" y="23" width="20" height="18" fill="${C.cream}"/><g fill="${C.lb}"><circle cx="28" cy="29" r="1.6"/><circle cx="36" cy="29" r="1.6"/><circle cx="28" cy="35" r="1.6"/><circle cx="36" cy="35" r="1.6"/></g></g>`,
+ calme:yface(`<path d="M19 28q5 3 10 0M35 28q5 3 10 0" stroke="${C.k}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M26 42h12" stroke="${C.k}" stroke-width="3" stroke-linecap="round"/><rect x="30" y="34" width="5" height="16" rx="2.5" fill="${C.sk}"/>`,'#BFDCEF'),
+ /* objets des jeux */
+ singe:`<circle cx="14" cy="30" r="8" fill="${C.br}"/><circle cx="50" cy="30" r="8" fill="${C.br}"/><circle cx="14" cy="30" r="4" fill="${C.lb}"/><circle cx="50" cy="30" r="4" fill="${C.lb}"/><circle cx="32" cy="30" r="19" fill="${C.br}"/><path d="M19 30c0-7 6-9 13-5 7-4 13-2 13 5 0 10-6 15-13 15s-13-5-13-15z" fill="${C.lb}"/>${e2(26,38,28)}<path d="M28 38q4 3 8 0" stroke="${C.k}" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+ carotte:`<path d="M32 18c-4-8-10-10-12-8M32 18c0-8 2-12 6-14M32 18c4-6 10-8 12-6" stroke="${C.g}" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M22 18h20l-8 42c-1 2-3 2-4 0z" fill="${C.o}"/><path d="M26 28h6M28 38h5M29 48h3" stroke="#D9862A" stroke-width="2" stroke-linecap="round"/>`,
+ os:`<g fill="${C.cream}" stroke="${C.lb}" stroke-width="2"><path d="M20 26l18 18" stroke-width="10" stroke="${C.cream}"/><circle cx="14" cy="24" r="7"/><circle cx="24" cy="14" r="7"/><circle cx="40" cy="50" r="7"/><circle cx="50" cy="40" r="7"/></g><path d="M20 22l22 22" stroke="${C.cream}" stroke-width="10"/>`,
+ boite:BOX,
+ boule:`<circle cx="32" cy="32" r="22" fill="${C.p}"/><circle cx="25" cy="24" r="6" fill="${C.w}" opacity=".35"/>`,
+ bateau:`<path d="M32 8v32" stroke="${C.br}" stroke-width="3"/><path d="M34 10l16 28H34z" fill="${C.w}" stroke="${C.gr}" stroke-width="1.5"/><path d="M30 16L16 38h14z" fill="${C.y}"/><path d="M8 42h48l-8 12H16z" fill="${C.r}"/><path d="M4 58q7-4 14 0t14 0 14 0 14 0" stroke="${C.b}" stroke-width="3" fill="none"/>`,
+ rat:`<path d="M10 40c-6 4-4 14 6 16" stroke="${C.pk}" stroke-width="2.5" fill="none" stroke-linecap="round"/><ellipse cx="28" cy="38" rx="18" ry="12" fill="${C.dgr}"/><circle cx="44" cy="31" r="10" fill="${C.dgr}"/><circle cx="41" cy="21" r="5" fill="${C.pk}"/><circle cx="55" cy="33" r="2.5" fill="${C.pk}"/><circle cx="46" cy="29" r="2" fill="${C.k}"/>`,
+ boisson:`<path d="M34 14l4-10h6" stroke="${C.y}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M18 18h28l-4 40H22z" fill="${C.r}"/><rect x="16" y="14" width="32" height="6" rx="2" fill="${C.w}" stroke="${C.gr}"/><path d="M22 34h20" stroke="${C.w}" stroke-width="3"/>`,
+ toit:`<rect x="14" y="30" width="36" height="26" fill="${C.cream}" stroke="${C.lb}" stroke-width="2"/><rect x="28" y="40" width="10" height="16" fill="${C.br}"/><path d="M6 32L32 8l26 24z" fill="${C.r}"/>`,
+ doigt:`<rect x="28" y="6" width="10" height="32" rx="5" fill="${C.sk}"/><rect x="16" y="30" width="32" height="26" rx="10" fill="${C.sk}"/><path d="M22 38h20M22 46h20" stroke="${C.br}" stroke-width="2" stroke-linecap="round" opacity=".6"/>`,
+ serpent:`<path d="M10 50c10 6 18-2 14-10s-12-14-2-20 22 4 30-6" stroke="${C.g}" stroke-width="9" fill="none" stroke-linecap="round"/><circle cx="51" cy="13" r="2" fill="${C.k}"/><path d="M56 12l5-4M56 12l6 0" stroke="${C.r}" stroke-width="2" stroke-linecap="round"/>`,
+ soleil:SUN,
+ sac:`<path d="M22 24a10 10 0 0 1 20 0" stroke="${C.br}" stroke-width="4" fill="none"/><rect x="10" y="22" width="44" height="34" rx="6" fill="${C.p}"/><rect x="28" y="30" width="8" height="6" rx="1" fill="${C.y}"/>`,
+ avion:`<g transform="rotate(-20 32 32)"><path d="M26 30L36 12h6l-4 18zM26 36l10 18h6l-4-18z" fill="${C.b}"/><path d="M10 30L6 20h5l6 10z" fill="${C.b}"/><rect x="8" y="28" width="48" height="10" rx="5" fill="${C.w}" stroke="${C.gr}" stroke-width="2"/><circle cx="48" cy="33" r="2" fill="${C.b}"/></g>`,
+ ananas:`<path d="M32 26l-8-18 8 8 0-14 4 14 8-8-6 18z" fill="${C.g}"/><ellipse cx="32" cy="42" rx="14" ry="18" fill="${C.y}"/><path d="M22 32l20 20M42 32L22 52M26 26l16 16M38 26L22 42" stroke="#C99B1E" stroke-width="1.5"/>`,
+ orange:`<circle cx="32" cy="36" r="20" fill="${C.o}"/><path d="M32 16c2-6 8-8 12-6-2 4-8 6-12 6z" fill="${C.g}"/><ellipse cx="24" cy="28" rx="4" ry="6" fill="${C.w}" opacity=".35"/>`,
+ loup:`<path d="M12 30L14 6l16 14zM52 30L50 6 34 20z" fill="${C.dgr}"/><path d="M12 28c0-10 8-14 20-14s20 4 20 14c0 10-8 22-20 26-12-4-20-16-20-26z" fill="${C.dgr}"/><path d="M24 36c2 10 6 16 8 18 2-2 6-8 8-18-4 2-12 2-16 0z" fill="${C.gr}"/><circle cx="32" cy="46" r="3" fill="${C.k}"/>${e2(24,40,29,3,C.y)}`,
+ souris:`<circle cx="16" cy="20" r="11" fill="${C.gr}"/><circle cx="48" cy="20" r="11" fill="${C.gr}"/><circle cx="16" cy="20" r="6" fill="${C.pk}"/><circle cx="48" cy="20" r="6" fill="${C.pk}"/><circle cx="32" cy="38" r="17" fill="${C.gr}"/>${e2(26,38,35)}<circle cx="32" cy="43" r="3" fill="${C.pk}"/>`,
+ fleur:`<path d="M32 36v24" stroke="${C.g}" stroke-width="4"/><path d="M32 52c-8-6-14-2-14 2 6 2 10 0 14-2z" fill="${C.g}"/><g fill="${C.pk}"><circle cx="32" cy="14" r="8"/><circle cx="44" cy="23" r="8"/><circle cx="40" cy="37" r="8"/><circle cx="24" cy="37" r="8"/><circle cx="20" cy="23" r="8"/></g><circle cx="32" cy="26" r="7" fill="${C.y}"/>`,
+ feu:`<path d="M32 4c4 12 18 18 18 34a18 18 0 0 1-36 0c0-10 6-14 8-22 4 6 4 10 6 12 2-8 4-16 4-24z" fill="${C.o}"/><path d="M32 30c2 6 8 8 8 16a8 8 0 0 1-16 0c0-6 6-8 8-16z" fill="${C.y}"/>`,
+ mouche:`<ellipse cx="21" cy="22" rx="12" ry="7" fill="${C.b}" fill-opacity=".3" stroke="${C.b}" stroke-width="2" transform="rotate(-30 21 22)"/><ellipse cx="43" cy="22" rx="12" ry="7" fill="${C.b}" fill-opacity=".3" stroke="${C.b}" stroke-width="2" transform="rotate(30 43 22)"/><ellipse cx="32" cy="40" rx="10" ry="14" fill="${C.k}"/><circle cx="32" cy="25" r="7" fill="${C.k}"/><circle cx="28" cy="23" r="3" fill="${C.r}"/><circle cx="36" cy="23" r="3" fill="${C.r}"/>`,
+ /* scènes */
+ sc_ballon:`<path d="M32 43c-4 6 4 10 0 18" stroke="${C.dgr}" stroke-width="1.5" fill="none"/><ellipse cx="32" cy="22" rx="14" ry="17" fill="${C.r}"/><path d="M32 39l-3 4h6z" fill="${C.r}"/><ellipse cx="26" cy="15" rx="3" ry="6" fill="${C.w}" opacity=".4"/>`,
+ sc_orage:`<path d="M30 34l-6 14h8l-4 14 14-20h-8l4-8z" fill="${C.y}"/><path d="M14 34a10 10 0 0 1 2-20 14 14 0 0 1 26-2 10 10 0 0 1 8 22z" fill="${C.dgr}"/><path d="M14 42l-2 6M48 42l-2 6" stroke="${C.b}" stroke-width="3" stroke-linecap="round"/>`,
+ sc_tour:`<rect x="6" y="44" width="16" height="14" rx="2" fill="${C.r}" transform="rotate(-15 14 51)"/><rect x="24" y="44" width="16" height="14" rx="2" fill="${C.y}" transform="rotate(10 32 51)"/><rect x="42" y="42" width="16" height="14" rx="2" fill="${C.b}" transform="rotate(-25 50 49)"/><rect x="28" y="22" width="16" height="14" rx="2" fill="${C.g}" transform="rotate(30 36 29)"/><path d="M14 30l-4-4M50 28l4-5M32 12v-5" stroke="${C.gr}" stroke-width="3" stroke-linecap="round"/>`,
+ sc_lune:`<path d="M30 10a22 22 0 1 0 22 30A18 18 0 0 1 30 10z" fill="${C.y}"/><path d="M50 10l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5zM12 12l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="${C.y}"/>`,
+ sc_q:`<circle cx="32" cy="32" r="26" fill="${C.p}" opacity=".2"/><path d="M22 24a10 10 0 1 1 14 9c-3 2-4 4-4 8" stroke="${C.p}" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="32" cy="50" r="4" fill="${C.p}"/>`,
+ pos_dans:`${BALL(32,30,9)}<rect x="12" y="34" width="40" height="22" rx="3" fill="${C.lb}"/><path d="M12 34h40" stroke="${C.br}" stroke-width="2"/>`,
+ pos_sur:`<rect x="12" y="34" width="40" height="22" rx="3" fill="${C.lb}"/>${BALL(32,24,10)}`,
+ pos_sous:`<rect x="12" y="8" width="40" height="22" rx="3" fill="${C.lb}"/><path d="M16 30v26M48 30v26" stroke="${C.br}" stroke-width="4"/>${BALL(32,46,10)}<path d="M6 58h52" stroke="${C.gr}" stroke-width="2"/>`
+};
+const artSVG=id=>ART[id]?`<svg class="art" viewBox="0 0 64 64" aria-hidden="true">${ART[id]}</svg>`:(SV[id]?`<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${SV[id]}</svg>`:'');
+const big=(id,elId='')=>`<span class="bigart"${elId?` id="${elId}"`:''}>${artSVG(id)}</span>`;
+
+/* ================= LES 100 MOTS ================= */
+const CATS = {base:'Petits mots utiles',lien:'Bonjour et merci',action:'Actions',food:'À manger, à boire',gens:'Les personnes',animal:'Animaux',jouet:'Jouets',maison:'La maison',habit:'Vêtements',corps:'Mon corps',emo:'Émotions'};
+const RAW = [
+ ['encore','Encore','base','','Encore des bulles !'],['aide','Aide','base','','Aide-moi, s\'il te plaît.'],['stop','Stop','base','','Stop ! On s\'arrête.'],['fini','Fini','base','🏁','C\'est fini, on range.'],
+ ['oui','Oui','base','','Oui, je veux bien.'],['non','Non','base','','Non, je ne veux pas.'],['jeveux','Je veux','base','','Je veux le ballon.'],['donne','Donne','base','🎁','Donne-moi la balle.'],
+ ['amoi','À moi','base','🙋','À moi de jouer !'],['atoi','À toi','base','🔁','À toi de jouer !'],['regarde','Regarde','base','🔍','Regarde, un oiseau !'],['viens','Viens','base','🚶','Viens jouer avec moi.'],
+ ['attends','Attends','base','⏳','Attends, j\'arrive.'],['ouvrir','Ouvrir','base','📦','On ouvre la boîte.'],['pasca','Pas ça','base','🙅','Pas ça, l\'autre.'],['la','Là','base','📍','Le chat est là.'],
+ ['bonjour','Bonjour','lien','☀️','Bonjour Mamie !'],['aurevoir','Au revoir','lien','👋','Au revoir, à demain !'],['merci','Merci','lien','🙏','Merci pour le gâteau.'],['stp','S\'il te plaît','lien','🤲','Encore, s\'il te plaît.'],['calin','Câlin','lien','🤗','Je veux un câlin.'],['bisou','Bisou','lien','😘','Un bisou pour Papa.'],
+ ['manger','Manger','action','','Je mange une pomme.'],['boire','Boire','action','','Je bois de l\'eau.'],['jouer','Jouer','action','','On joue au ballon.'],['dormir','Dormir','action','😴','Le bébé dort.'],['sortir','Sortir','action','🌳','On sort dehors.'],
+ ['laver','Laver','action','🧼','Je me lave les mains.'],['mettre','Mettre','action','🧤','Je mets mes gants.'],['sauter','Sauter','action','🦘','Je saute très haut !'],['courir','Courir','action','🏃','On court vite !'],['danser','Danser','action','💃','On danse ensemble.'],
+ ['chanter','Chanter','action','🎤','On chante une chanson.'],['lire','Lire','action','📖','On lit une histoire.'],['lancer','Lancer','action','🥏','Je lance la balle.'],['toilettes','Toilettes','action','🚽','Je vais aux toilettes.'],
+ ['eau','Eau','food','💧','Je bois de l\'eau.'],['lait','Lait','food','🥛','Un verre de lait.'],['jus','Jus','food','🧃','Du jus de pomme.'],['pain','Pain','food','🍞','Un morceau de pain.'],['gateau','Gâteau','food','🍰','Encore du gâteau !'],['pomme','Pomme','food','🍎','Une pomme rouge.'],
+ ['banane','Banane','food','🍌','Je mange une banane.'],['yaourt','Yaourt','food','🥣','Un yaourt à la cuillère.'],['pates','Pâtes','food','🍝','Des pâtes, miam !'],['riz','Riz','food','🍚','Du riz dans l\'assiette.'],['biscuit','Biscuit','food','🍪','Un biscuit pour le goûter.'],['fromage','Fromage','food','🧀','Un bout de fromage.'],
+ ['maman','Maman','gens','👩','Maman est là.'],['papa','Papa','gens','👨','Papa, viens !'],['bebe','Bébé','gens','👶','Le bébé pleure.'],['moi','Moi','gens','🧒','C\'est moi !'],['toi','Toi','gens','👉','C\'est toi !'],['papy','Papy','gens','👴','Bonjour Papy !'],['mamie','Mamie','gens','👵','Un câlin à Mamie.'],['copain','Copain','gens','👫','Je joue avec mon copain.'],
+ ['chat','Chat','animal','🐱','Le chat fait miaou.'],['chien','Chien','animal','🐶','Le chien fait ouaf.'],['vache','Vache','animal','🐮','La vache fait meuh.'],['canard','Canard','animal','🦆','Le canard fait coin coin.'],['poisson','Poisson','animal','🐟','Le poisson nage.'],
+ ['oiseau','Oiseau','animal','🐦','L\'oiseau vole.'],['cheval','Cheval','animal','🐴','Le cheval galope.'],['mouton','Mouton','animal','🐑','Le mouton fait bêê.'],['lapin','Lapin','animal','🐰','Le lapin saute.'],['poule','Poule','animal','🐔','La poule fait cot cot.'],
+ ['ballon','Ballon','jouet','⚽','Je lance le ballon.'],['bulles','Bulles','jouet','🫧','Des bulles, encore !'],['voiture','Voiture','jouet','🚗','La voiture roule.'],['poupee','Poupée','jouet','🪆','La poupée dort.'],['livre','Livre','jouet','📚','On lit un livre.'],['cubes','Cubes','jouet','🧱','On fait une tour.'],['train','Train','jouet','🚂','Le train fait tchou tchou.'],['doudou','Doudou','jouet','🧸','Je veux mon doudou.'],
+ ['lit','Lit','maison','🛏️','Au lit !'],['bain','Bain','maison','🛁','C\'est l\'heure du bain.'],['verre','Verre','maison','🥤','Le verre est vide.'],['cuillere','Cuillère','maison','🥄','Je mange avec la cuillère.'],['porte','Porte','maison','🚪','On ouvre la porte.'],['chaise','Chaise','maison','🪑','Assis sur la chaise.'],['telephone','Téléphone','maison','📱','Allô Papy ?'],['lumiere','Lumière','maison','💡','On allume la lumière.'],
+ ['chaussures','Chaussures','habit','👟','Je mets mes chaussures.'],['manteau','Manteau','habit','🧥','Il fait froid, le manteau !'],['pantalon','Pantalon','habit','👖','Je mets mon pantalon.'],['pull','Pull','habit','👕','Un pull tout doux.'],['chaussettes','Chaussettes','habit','🧦','Deux chaussettes.'],
+ ['main','Main','corps','✋','Je lave mes mains.'],['pied','Pied','corps','🦶','Je chatouille ton pied.'],['bouche','Bouche','corps','👄','J\'ouvre la bouche.'],['nez','Nez','corps','👃','Mouche ton nez.'],['yeux','Yeux','corps','👀','Je ferme les yeux.'],['oreilles','Oreilles','corps','👂','J\'écoute avec mes oreilles.'],
+ ['content','Content','emo','','Je suis content.'],['triste','Triste','emo','','Je suis triste.'],['peur','Peur','emo','😨','J\'ai peur.'],['colere','En colère','emo','😠','Je suis en colère.'],['fatigue','Fatigué','emo','🥱','Je suis fatigué.'],['mal','J\'ai mal','emo','','J\'ai mal.'],['calme','Au calme','emo','🤫','Je veux être seul, au calme.']
+];
+const WD = {}; RAW.forEach(([id,l,c,e,x])=>WD[id]={id,l,c,e,x});
+/* objets supplémentaires pour les jeux (hors liste des 100) */
+const EXTRA = {singe:{l:'Singe',e:'🐵'},carotte:{l:'Carotte',e:'🥕'},os:{l:'Os',e:'🦴'},boite:{l:'Boîte',e:'📦'},
+  boule:{l:'Boule',e:'🎱'},bateau:{l:'Bateau',e:'⛵'},rat:{l:'Rat',e:'🐀'},boisson:{l:'Boisson',e:'🥤'},toit:{l:'Toit',e:'🏠'},doigt:{l:'Doigt',e:'☝️'},
+  serpent:{l:'Serpent',e:'🐍'},soleil:{l:'Soleil',e:'☀️'},sac:{l:'Sac',e:'👜'},avion:{l:'Avion',e:'✈️'},ananas:{l:'Ananas',e:'🍍'},orange:{l:'Orange',e:'🍊'},
+  loup:{l:'Loup',e:'🐺'},souris:{l:'Souris',e:'🐭'},fleur:{l:'Fleur',e:'🌸'},feu:{l:'Feu',e:'🔥'},mouche:{l:'Mouche',e:'🪰'}};
+function W_(id){return WD[id]||EXTRA[id]}
+function pic(id,cls=''){
+  const c=WD[id]?'c-'+WD[id].c:''; const sv=artSVG(id);
+  if(sv) return `<span class="pic ${c} ${cls}">${sv}</span>`;
+  const w=W_(id); return `<span class="pic ${c} ${cls}"><span class="emo" aria-hidden="true">${w?w.e:''}</span></span>`;
+}
+const lbl=id=>W_(id).l;
+
+/* ================= MILO ================= */
+const miloSVG = () => `<svg class="milo" viewBox="0 0 200 230" aria-hidden="true">
+ <ellipse cx="100" cy="196" rx="54" ry="36" fill="var(--milo)"/>
+ <ellipse cx="100" cy="202" rx="32" ry="24" fill="var(--milo-light)"/>
+ <g class="arm"><ellipse cx="160" cy="180" rx="14" ry="24" fill="var(--milo)" transform="rotate(-25 160 180)"/></g>
+ <ellipse cx="40" cy="186" rx="14" ry="22" fill="var(--milo)" transform="rotate(25 40 186)"/>
+ <circle cx="52" cy="52" r="24" fill="var(--milo)"/><circle cx="52" cy="52" r="12" fill="var(--milo-light)"/>
+ <circle cx="148" cy="52" r="24" fill="var(--milo)"/><circle cx="148" cy="52" r="12" fill="var(--milo-light)"/>
+ <circle cx="100" cy="98" r="64" fill="var(--milo)"/>
+ <path d="M50 152c30 14 70 14 100 0l-4 16c-28 10-64 10-92 0z" fill="var(--scarf)"/>
+ <ellipse cx="100" cy="122" rx="32" ry="24" fill="var(--milo-light)"/>
+ <circle cx="70" cy="122" r="9" fill="#E59A8F" opacity=".55"/><circle cx="130" cy="122" r="9" fill="#E59A8F" opacity=".55"/>
+ <ellipse class="eye" cx="76" cy="90" rx="7" ry="8" fill="var(--milo-ink)"/><ellipse class="eye" cx="124" cy="90" rx="7" ry="8" fill="var(--milo-ink)"/>
+ <circle cx="78" cy="87" r="2.2" fill="#fff"/><circle cx="126" cy="87" r="2.2" fill="#fff"/>
+ <g class="lid" fill="var(--milo)"><rect x="66" y="78" width="20" height="10"/><rect x="114" y="78" width="20" height="10"/></g>
+ <g fill="none" stroke="var(--milo-ink)" stroke-width="4" stroke-linecap="round">
+  <path class="brow b-sad" d="M66 72l18-6M116 66l18 6"/>
+  <path class="brow b-angry" d="M66 68l18 7M116 75l18-7"/>
+  <path class="brow b-up" d="M66 68q10-8 20-2M114 66q10-6 20 2"/>
+ </g>
+ <ellipse cx="100" cy="110" rx="10" ry="7" fill="var(--milo-ink)"/>
+ <path class="mouth m-happy" d="M89 127q11 9 22 0" fill="none" stroke="var(--milo-ink)" stroke-width="4" stroke-linecap="round"/>
+ <path class="mouth m-sad" d="M89 133q11-9 22 0" fill="none" stroke="var(--milo-ink)" stroke-width="4" stroke-linecap="round"/>
+ <path class="mouth m-flat" d="M90 130h20" fill="none" stroke="var(--milo-ink)" stroke-width="4" stroke-linecap="round"/>
+ <ellipse class="mouth m-o" cx="100" cy="131" rx="6" ry="8" fill="#7A3B2E"/>
+ <ellipse class="open" cx="100" cy="130" rx="9" ry="8" fill="#7A3B2E" style="transform-origin:100px 126px"/>
+</svg>`;
+
+/* ================= DONNÉES (sur l'appareil) ================= */
+const KEY='mpv-v2';
+const DEF = {setup:false,name:'',profile:'A',events:[],victories:[],trials:[],emotions:[],vocab:{},lv:{},done:{},
+  settings:{calm:false,sound:true,wait:8000,style:'doux',voice:'',sess:6,sounds:['p','a'],board:['jeveux','encore','stop','aide','oui','non','manger','boire','jouer','mal','content','triste']}};
+let S = JSON.parse(JSON.stringify(DEF));
+try{const r=localStorage.getItem(KEY); if(r){const o=JSON.parse(r); S=Object.assign(S,o); S.settings=Object.assign({},DEF.settings,o.settings||{});}}catch(e){}
+const ORDER=['encore','aide','stop','boire','jouer'];
+ORDER.forEach(w=>S.done[w]=S.done[w]||{disc:false,mission:false});
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const childName=()=>S.name?S.name:'l\'enfant';
+
+/* ================= VOIX ================= */
+const $=id=>document.getElementById(id);
+let paused=false, pauseWaiters=[];
+/* La voix de Milo : la plus naturelle du téléphone, réglée en voix d'ourson */
+const STYLES={doux:{p:1.32,r:.8},rigolo:{p:1.62,r:.88},calme:{p:1.08,r:.7}};
+const ST=()=>STYLES[S.settings.style]||STYLES.doux;
+function frVoices(){try{return speechSynthesis.getVoices().filter(v=>/^fr/i.test(v.lang))}catch(e){return []}}
+function vScore(v){let n=0;if(/fr[-_]FR/i.test(v.lang))n+=3;if(/natural|neural|premium|enhanced|amélie|amelie|audrey|aurélie|aurelie|thomas|google|denise|eloise|vivienne|marie|julie/i.test(v.name))n+=2;if(v.localService)n+=1;return n}
+function pickVoice(){const v=frVoices();if(!v.length)return null;if(S.settings.voice){const f=v.find(x=>x.name===S.settings.voice);if(f)return f}return v.slice().sort((a,b)=>vScore(b)-vScore(a))[0]}
+/* Les petits sons de Milo (créés ici, sans fichier) */
+let actx=null;
+function tone(freqs,dur=.12,gap=.1,type='triangle',vol=.08){
+  if(!S.settings.sound)return;
+  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const t0=actx.currentTime+.02;
+    freqs.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=f;const st=t0+i*gap;
+      g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(S.settings.calm?vol*.5:vol,st+.02);g.gain.exponentialRampToValueAtTime(.0001,st+dur+.2);
+      o.connect(g);g.connect(actx.destination);o.start(st);o.stop(st+dur+.25)})}catch(e){}
+}
+const sfx={hello:()=>tone([523,659]),yay:()=>tone([523,659,784,1047],.1,.09),hint:()=>tone([440,392],.1,.12,'sine',.06)};
+function untilPlay(){return paused?new Promise(r=>pauseWaiters.push(r)):Promise.resolve()}
+function say(text,miloEl,bubble){
+  return untilPlay().then(()=>new Promise(res=>{
+    if(bubble) bubble.textContent=text;
+    if(miloEl) miloEl.classList.add('talking');
+    let done=false; const end=()=>{if(done)return;done=true;if(miloEl)miloEl.classList.remove('talking');res();};
+    const fallback=setTimeout(end,Math.max(1200,text.length*74/ST().r+700));
+    if(S.settings.sound && window.AndroidTTS){
+      try{const id='t'+(++ttsN);ttsCb[id]=()=>{clearTimeout(fallback);setTimeout(end,250)};window.AndroidTTS.speak(text,ST().r,ST().p,id)}catch(e){}
+    }
+    else if(S.settings.sound && 'speechSynthesis' in window){
+      try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=ST().r;u.pitch=ST().p;
+        const v=pickVoice(); if(v)u.voice=v; u.onend=()=>{clearTimeout(fallback);setTimeout(end,250)}; speechSynthesis.speak(u);}catch(e){}
+    }
+  }));
+}
+function stopVoice(){try{if(window.AndroidTTS)window.AndroidTTS.stop();else speechSynthesis.cancel()}catch(e){}}
+let ttsN=0; const ttsCb={}; window.__ttsDone=id=>{const f=ttsCb[id];delete ttsCb[id];if(f)f()};
+const wait=ms=>new Promise(r=>setTimeout(r,ms)).then(untilPlay);
+
+/* ================= UNIVERS ET JEUX ================= */
+const UNIV = [
+ {id:'u1',n:'Mes premiers sons',goal:'Écouter, imiter, faire des sons chacun son tour.',t:'honey',ic:'<path d="M14 40V24M24 46V18M34 40V24M44 50V14M54 40V24"/>',games:['sons']},
+ {id:'u2',n:'Mes premiers mots',goal:'Découvrir des mots utiles, avec une image et une phrase.',t:'sky',ic:'<path d="M32 16c-6-4-14-5-22-4v36c8-1 16 0 22 4 6-4 14-5 22-4V12c-8-1-16 0-22 4z"/><path d="M32 16v36"/>',games:['imagier']},
+ {id:'u3',n:'Je construis mes phrases',goal:'Mettre des mots ensemble : « encore gâteau », « je veux boire du jus ».',t:'sage',ic:'<rect x="6" y="24" width="14" height="16" rx="3"/><rect x="25" y="24" width="14" height="16" rx="3"/><rect x="44" y="24" width="14" height="16" rx="3"/><circle cx="13" cy="46" r="3"/><circle cx="32" cy="46" r="3"/><circle cx="51" cy="46" r="3"/>',games:['phrases']},
+ {id:'u4',n:'Je demande ce que je veux',goal:'Demander, choisir, dire non, dans des situations du quotidien.',t:'honey',ic:SV.aide,games:['path','choix']},
+ {id:'u5',n:'J\'écoute et je comprends',goal:'Comprendre un mot, une consigne, puis des consignes plus longues.',t:'sky',ic:'<path d="M22 44c0-12 4-26 16-26 8 0 12 6 12 12 0 8-8 10-8 18 0 4-3 8-8 8"/><path d="M30 32a4 4 0 0 1 8 0"/>',games:['comprendre']},
+ {id:'u6',n:'Les sons de ma bouche',goal:'Écouter les sons et regarder la bouche, avec les sons choisis par l\'orthophoniste.',t:'rose',ic:'<path d="M10 32c8-10 36-10 44 0-8 12-36 12-44 0z"/><path d="M10 32h44"/>',games:['paires','sondujour']},
+ {id:'u7',n:'Mes émotions',goal:'Reconnaître les émotions et dire ce que je ressens.',t:'rose',ic:'<path d="M32 52S10 38 10 24a11 11 0 0 1 22-3 11 11 0 0 1 22 3c0 14-22 28-22 28z"/>',games:['emomilo','emomoi']}
+];
+const GAMES = {
+ sons:{n:'Fais comme les animaux',sub:'Imiter et faire chacun son tour',max:3},
+ imagier:{n:'Mon imagier',sub:'Les 100 premiers mots'},
+ phrases:{n:'Le train des mots',sub:'Mettre les images dans les wagons',max:3},
+ path:{n:'Mes 5 premiers messages',sub:'Encore, aide, stop, boire, jouer'},
+ choix:{n:'Choisis !',sub:'Choisir entre deux, ou dire « pas ça »',max:1},
+ comprendre:{n:'Milo demande',sub:'Suivre une consigne',max:3},
+ paires:{n:'Écoute et trouve',sub:'Deux mots qui se ressemblent',max:1},
+ sondujour:{n:'Le son du jour',sub:'Regarder la bouche et écouter'},
+ emomilo:{n:'Que ressent Milo ?',sub:'Reconnaître une émotion',max:2},
+ emomoi:{n:'Et moi, ça va ?',sub:'Dire ce que je ressens'}
+};
+const REC = {A:['u4','u1','u7'],B:['u2','u4','u3'],C:['u3','u5','u2'],D:['u6','u1','u5']};
+const START = {A:{},B:{phrases:1},C:{phrases:2,comprendre:2},D:{}};
+const PROFILES = [
+ ['A','Ne parle pas encore','Communique par gestes, regards ou sons.'],
+ ['B','Dit quelques mots','Mots isolés, demande encore peu.'],
+ ['C','Fait des phrases courtes','Met 2 ou 3 mots ensemble.'],
+ ['D','Est difficile à comprendre','Certains sons sont difficiles. Suivi avec un ou une orthophoniste.']
+];
+const lvOf=g=>S.lv[g]||1;
+
+/* ===== Progression : 5 derniers essais du niveau ===== */
+function record(g,outcome,extra={}){
+  const lv=lvOf(g);
+  S.trials.push(Object.assign({g,lv,o:outcome,t:Date.now()},extra));
+  const max=GAMES[g].max||1;
+  const last=S.trials.filter(x=>x.g===g&&x.lv===lv).slice(-5);
+  let msg='';
+  if(last.length>=5){
+    const seul=last.filter(x=>x.o==='seul').length, ens=last.filter(x=>x.o==='ensemble').length;
+    if(seul>=4&&lv<max){S.lv[g]=lv+1;msg='up'}
+    else if(ens>=3&&lv>1){S.lv[g]=lv-1;msg='down'}
+  }
+  save(); return msg;
+}
+
+/* ================= NAVIGATION ================= */
+const screens=['setup','home','map','univ','path','act','board','gate','parent'];
+let run=0, cur='home', back=null, curUniv=null, sessionStart=0, sessionWarned=false;
+function show(name,opts={}){
+  if(name!=='act'){run++;stopVoice();pending=null;}
+  cur=name;
+  screens.forEach(s=>$('s-'+s).hidden=(s!==name));
+  $('homeBtn').hidden=(name==='home'||name==='setup');
+  back=opts.back||({univ:'map',path:'univ',act:null,map:null,board:null,parent:null,gate:null}[name]??null);
+  $('backBtn').hidden=!back;
+  $('pauseBtn').hidden=(name!=='act');
+  $('parentBtn').hidden=(name==='parent'||name==='gate'||name==='setup');
+  $('brand').textContent={setup:'Bienvenue',home:'Ma Petite Voix',map:'Les univers',univ:'Univers',path:'Les 5 messages',act:'Avec Milo',board:'Mes images',gate:'Parents',parent:'Parents'}[name];
+  $('main').scrollTop=0;
+  if(name==='map')renderMap();
+  if(name==='univ')renderUniv();
+  if(name==='path')renderPath();
+  if(name==='parent')renderParent();
+  if(name==='board')renderBoard();
+  if(name==='home')renderStickBtn();
+  if(name==='home')$('homeHint').textContent=S.name?`Touche Milo, ${S.name} ! Il te répond.`:'Touche Milo, fais un son ou un geste : il te répond.';
+}
+$('homeBtn').onclick=()=>show('home');
+$('backBtn').onclick=()=>{if(back==='univ'||back==='path')show(back,{back:back==='path'?'univ':'map'});else if(back)show(back)};
+$('goMap').onclick=()=>show('map');
+$('goBoard').onclick=()=>show('board');
+$('parentBtn').onclick=()=>show('gate');
+
+function syncSound(){$('soundBtn').setAttribute('aria-pressed',S.settings.sound);$('soundWave').style.display=S.settings.sound?'':'none'}
+$('soundBtn').onclick=()=>{S.settings.sound=!S.settings.sound;if(!S.settings.sound)stopVoice();save();syncSound()};
+function syncCalm(){document.body.classList.toggle('calm',S.settings.calm);$('calmToggle').checked=S.settings.calm}
+syncSound();syncCalm();
+
+function openOverlay(h){$('overlayCard').innerHTML=h;$('overlay').hidden=false}
+function closeOverlay(){$('overlay').hidden=true}
+
+/* ================= PREMIER LANCEMENT ================= */
+function profileButtons(el,onPick){
+  el.innerHTML=PROFILES.map(([k,t,d])=>`<button class="prof" data-p="${k}" aria-pressed="${S.profile===k}"><span class="letter">${k}</span><span><strong>${t}</strong><br><span class="note">${d}</span></span></button>`).join('');
+  el.querySelectorAll('.prof').forEach(b=>b.onclick=()=>{S.profile=b.dataset.p;el.querySelectorAll('.prof').forEach(x=>x.setAttribute('aria-pressed',x===b));onPick&&onPick()});
+}
+function applyStart(){Object.entries(START[S.profile]||{}).forEach(([g,l])=>{if(!S.trials.some(t=>t.g===g))S.lv[g]=l})}
+profileButtons($('setProfiles'));
+$('setOk').onchange=e=>$('setGo').disabled=!e.target.checked;
+$('setGo').onclick=()=>{S.name=$('setName').value.trim();S.setup=true;applyStart();save();show('home')};
+
+/* ================= ACCUEIL / MIROIR MAGIQUE ================= */
+$('homeMilo').innerHTML=miloSVG();
+const homeMilo=$('homeMilo').querySelector('.milo');
+let homeBusy=false;
+$('homeMilo').onclick=async()=>{
+  if(homeBusy)return; homeBusy=true;
+  homeMilo.classList.add('wave'); sfx.hello(); await wait(250);
+  const n=S.name?S.name+' ! ':'';
+  const lines=[`Coucou ${n}On joue ensemble !`,'Oh ! Tu me parles ! Coucou !','Oui ! À moi… coucou ! À toi !'];
+  await say(lines[Math.floor(Math.random()*lines.length)],homeMilo,$('homeSpeech'));
+  homeMilo.classList.remove('wave'); homeBusy=false;
+};
+
+/* ================= CARTE DES UNIVERS ================= */
+const UART={u1:'vache',u2:'livre',u3:'train',u4:'stp',u5:'oreilles',u6:'bouche',u7:'content'};
+const GART={sons:'canard',imagier:'livre',phrases:'train',path:'bulles',choix:'pomme',comprendre:'singe',paires:'bateau',sondujour:'chanter',emomilo:'triste',emomoi:'calin'};
+const starSVG=on=>`<svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z" fill="${on?'var(--honey)':'none'}" stroke="var(--honey)" stroke-width="2" stroke-linejoin="round"/></svg>`;
+function renderMap(){
+  const rec=REC[S.profile]||[];
+  $('mapEyebrow').textContent=S.name?`Les univers de ${S.name}`:'Les univers de Milo';
+  $('mapCards').innerHTML=UNIV.map((u,i)=>`<button class="ucard" data-u="${u.id}"><span class="ill t-${u.t}">${artSVG(UART[u.id])}</span><span class="num">${i+1}</span>
+    ${rec.includes(u.id)?'<span class="star">Pour toi</span>':''}<span class="nm">${u.n}</span><span class="sb">${u.games.map(g=>GAMES[g].n).join(' · ')}</span></button>`).join('');
+  $('mapCards').querySelectorAll('.ucard').forEach(b=>b.onclick=()=>{curUniv=UNIV.find(u=>u.id===b.dataset.u);show('univ')});
+}
+function renderUniv(){
+  const u=curUniv; const i=UNIV.indexOf(u);
+  $('univEyebrow').textContent=`Univers ${i+1}`;$('univTitle').textContent=u.n;$('univGoal').textContent=u.goal;
+  $('univList').innerHTML=u.games.map(g=>{
+    const G=GAMES[g]; const lv=G.max?`<span class="dots">${Array.from({length:G.max},(_,k)=>`<i class="dot ${k<lvOf(g)?'on':''}"></i>`).join('')}</span>`:'';
+    return `<button class="ucard" data-g="${g}"><span class="ill t-${u.t}">${artSVG(GART[g])}</span><span class="nm">${G.n}</span><span class="sb">${G.sub}</span>
+      ${G.max>1?`<span class="lvstars" aria-label="niveau ${lvOf(g)}">${Array.from({length:G.max},(_,k)=>starSVG(k<lvOf(g))).join('')}</span>`:''}</button>`}).join('');
+  $('univList').querySelectorAll('.ucard').forEach(b=>b.onclick=()=>launch(b.dataset.g));
+}
+function launch(g){
+  if(!sessionStart){sessionStart=Date.now();sessionWarned=false}
+  if(g==='path')return show('path',{back:'univ'});
+  ({sons:gSons,imagier:gImagier,phrases:gPhrases,choix:gChoix,comprendre:gComprendre,paires:gPaires,sondujour:gSonDuJour,emomilo:gEmoMilo,emomoi:gEmoMoi})[g]();
+}
+
+/* ================= FÊTE ET AUTOCOLLANTS ================= */
+function confetti(){
+  if(S.settings.calm||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const box=document.createElement('div');box.className='confetti';
+  const cols=['var(--honey)','var(--sage)','var(--rose)','var(--sky)','var(--sun)'];
+  for(let i=0;i<26;i++){const c=document.createElement('i');if(i%3===0)c.className='r';c.style.left=(Math.random()*100)+'%';c.style.background=cols[i%5];
+    c.style.animationDelay=(Math.random()*.4)+'s';c.style.animationDuration=(1.4+Math.random()*1)+'s';box.appendChild(c)}
+  document.body.appendChild(box);setTimeout(()=>box.remove(),3200);
+}
+const STICKERS=['chat','chien','vache','canard','poisson','oiseau','cheval','mouton','lapin','poule','singe','souris','ballon','bulles','voiture','train','doudou','cubes','pomme','banane','gateau','fleur','soleil','bateau','avion','ananas','lumiere','sc_lune','merci','bonjour'];
+function giveSticker(){
+  S.stickers=S.stickers||[];
+  const left=STICKERS.filter(x=>!S.stickers.includes(x));
+  const id=(left.length?left:STICKERS).at(Math.floor(Math.random()*(left.length||STICKERS.length)));
+  if(!S.stickers.includes(id))S.stickers.push(id); save(); return id;
+}
+function renderStickBtn(){const n=(S.stickers||[]).length;$('stickMini').innerHTML=artSVG(n?S.stickers.at(-1):'merci');$('stickTxt').textContent=n?`Mes autocollants (${n})`:'Mes autocollants'}
+$('stickBtn').onclick=()=>{const have=S.stickers||[];
+  openOverlay(`<h2>Mes autocollants</h2><p class="soft">${have.length?`${have.length} sur ${STICKERS.length}. Milo en donne un à la fin de chaque jeu.`:'Milo en donne un à la fin de chaque jeu.'}</p>
+   <div class="sticker-grid">${STICKERS.map(id=>have.includes(id)?`<span>${artSVG(id)}</span>`:'<span class="empty"></span>').join('')}</div><button class="btn" id="oClose">Fermer</button>`);
+  $('oClose').onclick=closeOverlay;};
+
+/* ================= CADRE COMMUN DES JEUX ================= */
+let pending=null, pendTimer=null, actMilo=null, curGame=null;
+function waitComm(ms){return new Promise(res=>{pending=res;clearTimeout(pendTimer);if(ms)pendTimer=setTimeout(()=>{if(pending===res){pending=null;res('timeout')}},ms)})}
+function comm(v){if(!pending)return false;const r=pending;pending=null;clearTimeout(pendTimer);r(v);return true}
+function setTurns(n,done){$('turns').innerHTML=n?Array.from({length:n},(_,i)=>`<i class="dot ${i<done?'on':''}"></i>`).join(''):''}
+const setHint=t=>$('adultHint').textContent=t;
+const setPhase=t=>$('phase').textContent=t;
+const sp=()=>$('actSpeech');
+function fiche(title,f){
+  $('fiche').open=false;
+  $('fiche').innerHTML=`<summary>Fiche pour l'adulte · ${title}</summary><dl>
+    <div><dt>Ce que l'enfant voit</dt><dd>${f.voit}</dd></div><div><dt>Ce qu'il entend</dt><dd>${f.entend}</dd></div>
+    <div><dt>Ce qu'il peut faire</dt><dd>${f.fait}</dd></div><div><dt>Ce que fait l'adulte</dt><dd>${f.adulte}</dd></div>
+    <div><dt>Comment l'appli réagit</dt><dd>${f.app}</dd></div><div><dt>Dans la vraie vie</dt><dd>${f.hors}</dd></div>
+    <div><dt>Ce qu'on observe</dt><dd>${f.progres}</dd></div></dl>`;
+}
+function setupAct(g,{stage='',zone='',turns=0,phase='Découvrir',hint='',adult=true}={}){
+  run++; const id=run; curGame=g; pending=null;
+  show('act',{back:g==='path5'?'path':'univ'});
+  $('stage').innerHTML=miloSVG()+stage; $('stage').hidden=false;
+  actMilo=$('stage').querySelector('.milo');
+  $('actZone').innerHTML=zone; setTurns(turns,0); setPhase(phase); setHint(hint);
+  $('adultBox').hidden=!adult; sp().textContent='';
+  return ()=>id===run;
+}
+function mood(m){if(!actMilo)return; if(m)actMilo.setAttribute('data-mood',m); else actMilo.removeAttribute('data-mood')}
+function joy(){if(!actMilo||!actMilo.isConnected)return;sfx.yay();confetti();actMilo.classList.remove('happy');void actMilo.getBoundingClientRect();actMilo.classList.add('happy')}
+const Msay=t=>say(t,actMilo,sp());
+function bindChoices(){ $('actZone').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{ if(!comm({k:'choice',v:b.dataset.v})) say(lbl(b.dataset.v)) }); }
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{
+  if(!comm({k:'mode',v:b.dataset.mode})){const t=b.textContent;b.textContent='Noté';setTimeout(()=>b.textContent=t,900);
+    if(curGame&&curGame.startsWith('path5:'))S.events.push({w:curGame.slice(6),mode:b.dataset.mode,prompted:true,t:Date.now()});save()}});
+$('stage').addEventListener('click',e=>{if(e.target.closest('.obj'))comm({k:'mode',v:'geste'})});
+async function endGame(alive,{title='Bien joué !',text='',mission='',again,next}){
+  if(!alive())return;
+  setPhase('Bravo'); mood(null);
+  await Msay('On a bien joué ensemble !'); if(!alive())return;
+  const tooLong=sessionStart&&!sessionWarned&&(Date.now()-sessionStart)>S.settings.sess*60000;
+  if(tooLong)sessionWarned=true;
+  const st=giveSticker(); confetti(); sfx.yay();
+  openOverlay(`<span class="sticker-big">${artSVG(st)}</span><p style="text-align:center;font-family:var(--display);font-size:1.2rem">Un autocollant pour toi${S.name?', '+esc(S.name):''} !</p><h2>${tooLong?'On fait une pause ?':title}</h2>
+    ${tooLong?`<p>Vous jouez depuis ${S.settings.sess} minutes. C'est le bon moment pour continuer loin de l'écran.</p>`:(text?`<p>${text}</p>`:'')}
+    ${mission?`<div class="panel" style="background:var(--bg)"><p class="eyebrow">Dans la vraie vie</p><p>${mission}</p></div>`:''}
+    <div class="row">${tooLong?'<button class="btn ghost" id="oStop">Arrêter</button>':''}<button class="btn ghost" id="oAgain">Rejouer</button>${next?`<button class="btn" id="oNext">${next.label}</button>`:'<button class="btn" id="oBack">Autre jeu</button>'}</div>`);
+  $('oAgain').onclick=()=>{closeOverlay();again()};
+  if($('oStop'))$('oStop').onclick=()=>{closeOverlay();sessionStart=0;show('home')};
+  if(next)$('oNext').onclick=()=>{closeOverlay();next.go()};
+  if($('oBack'))$('oBack').onclick=()=>{closeOverlay();show('univ')};
+}
+$('pauseBtn').onclick=()=>{
+  paused=true; stopVoice();
+  openOverlay(`<h2>Pause</h2><p class="soft">On fait une pause. On peut reprendre ou s'arrêter.</p>
+   <div class="row"><button class="btn ghost" id="oStop">Arrêter</button><button class="btn" id="oGo">Continuer</button></div>`);
+  $('oGo').onclick=()=>{closeOverlay();resume()};
+  $('oStop').onclick=()=>{closeOverlay();resume();show('home')};
+};
+function resume(){paused=false;const w=pauseWaiters;pauseWaiters=[];w.forEach(r=>r())}
+const shuffle=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+const pickN=(a,n)=>shuffle(a).slice(0,n);
+const choiceBtns=ids=>`<div class="choices">${ids.map(id=>`<button class="choice" data-v="${id}">${pic(id)}<span>${lbl(id)}</span></button>`).join('')}</div>`;
+
+/* Choix « sans erreur » : indice, puis on le fait ensemble */
+async function errorless(alive,target,prompt){
+  let tries=0, hinted=false;
+  while(alive()){
+    const r=await waitComm(S.settings.wait);
+    if(!alive())return null;
+    if(r!=='timeout'&&r.k==='choice'&&r.v===target){$('actZone').querySelector(`[data-v="${target}"]`)?.classList.add('picked');return hinted?'aide':'seul'}
+    if(r!=='timeout'&&r.k==='mode'){return hinted?'aide':'seul'} // l'adulte a vu l'enfant montrer la bonne réponse
+    tries++;
+    const el=$('actZone').querySelector(`[data-v="${target}"]`);
+    if(tries===1){hinted=true; sfx.hint(); el&&el.classList.add('hl'); await Msay(r==='timeout'?prompt:`Regarde… ${lbl(target)} !`);}
+    else{ el&&el.classList.add('picked'); await Msay(`On le fait ensemble : ${lbl(target).toLowerCase()} !`); return 'ensemble'}
+  }
+  return null;
+}
+
+/* ================= U4 : LES 5 MESSAGES ================= */
+const M5 = {
+ encore:{scene:'bulles', expand:'Encore des bulles !', prompt:'Encore ?',
+  intro:[['act'],['say','Des bulles !'],['wait',1200],['say','Oh… fini.'],['model'],['act'],['say','Encore des bulles !']],
+  fiche:{voit:"Milo fait des bulles. Les bulles s'arrêtent. La grande image « Encore » brille.",entend:"« Des bulles ! » puis « Oh… fini. » puis « Encore ! Encore des bulles ! »",
+   fait:"Toucher l'image Encore, toucher la scène, regarder l'adulte, faire un son, un geste, ou dire « encore ».",
+   adulte:"S'asseoir à côté de l'enfant. Dire « encore » avec Milo, en faisant le geste (le bout des doigts qui se touchent). Puis attendre en silence. Noter avec les boutons ce que l'enfant a fait.",
+   app:"Chaque essai relance les bulles. Milo redit le mot et l'agrandit. Sans réponse, Milo redonne le modèle, puis relance quand même.",
+   hors:"Au goûter, donner un petit morceau. Attendre avec un regard joyeux. Accueillir tout signe et dire « Encore ! Encore du gâteau ! ».",
+   progres:"Combien de fois l'enfant demande, et comment. Seul ou après un modèle. Où il le fait à la maison."},
+  mission:"Pendant le goûter ou un jeu, crée une occasion de demander « encore ». Donne un petit morceau, attends, et accueille le moindre signe. Ne retiens jamais la nourriture pour forcer."},
+ aide:{scene:'boite', expand:'Je t\'aide. La boîte est ouverte !', prompt:'Aide ?',
+  intro:[['reset'],['say','Oh, un jouet dans la boîte !'],['shake'],['say',"Je n'y arrive pas…"],['model'],['act'],['say','La boîte est ouverte !']],
+  fiche:{voit:"Une boîte fermée avec un jouet dedans. Milo essaie de l'ouvrir, la boîte tremble.",entend:"« Oh, un jouet dans la boîte ! » puis « Je n'y arrive pas… » puis « Aide ! »",
+   fait:"Toucher l'image Aide, toucher la boîte, tendre la main, regarder l'adulte, faire un son.",
+   adulte:"Montrer le geste « aide » (une main posée sur l'autre, qu'on soulève un peu). Dire « aide ». Attendre.",
+   app:"Dès que l'enfant communique, la boîte s'ouvre et un jouet sort. Milo dit : « Aide ! Je t'aide. »",
+   hors:"Mettre un jouet aimé dans un bocal bien fermé. Quand l'enfant vous le tend ou vous regarde : « Aide ! Je t'aide » et ouvrir tout de suite.",
+   progres:"L'enfant vient-il chercher l'adulte quand il est coincé, plutôt que de pleurer ou d'abandonner ?"},
+  mission:"Mets un jouet que ton enfant aime dans un pot difficile à ouvrir. Dès qu'il te le tend ou te regarde, dis « Aide ! Je t'aide » et ouvre tout de suite."},
+ stop:{scene:'voiture', expand:'La voiture s\'arrête.', prompt:'Stop ?',
+  intro:[['reset'],['say','La voiture roule !'],['wait',1600],['model'],['act'],['say',"La voiture s'arrête."]],
+  fiche:{voit:"Une petite voiture roule. Quand on dit stop, elle s'arrête net.",entend:"« La voiture roule ! » puis « Stop ! La voiture s'arrête. »",
+   fait:"Toucher l'image Stop, toucher la voiture, lever la main, faire un son.",adulte:"Faire le geste « stop » : main ouverte devant soi. Dire « stop » joyeusement. Attendre.",
+   app:"Chaque signe arrête la voiture tout de suite. Puis elle repart pour un nouveau tour.",
+   hors:"Pendant les chatouilles ou une course, s'arrêter dès que l'enfant fait stop. Toujours respecter son stop.",
+   progres:"L'enfant arrête-t-il un jeu ou refuse-t-il par un signe clair, plutôt qu'en criant ou en partant ?"},
+  mission:"Pendant les chatouilles ou un jeu de course, arrête-toi dès que ton enfant fait un signe de stop. Dis « Stop ! On s'arrête ». Son stop doit toujours marcher."},
+ boire:{scene:'verre', expand:'Milo veut boire. Glou glou !', prompt:'Boire ?',
+  intro:[['reset'],['say','Milo a soif.'],['model'],['act'],['say','Glou glou ! Milo boit.']],
+  fiche:{voit:"Milo et un verre de jus.",entend:"« Milo a soif. » puis « Boire ! » puis « Glou glou ! »",fait:"Toucher l'image Boire, toucher le verre, faire un son.",
+   adulte:"Faire le geste « boire » : la main en forme de verre vers la bouche. Dire « boire ». Attendre.",app:"Chaque essai fait boire Milo.",
+   hors:"Au repas, proposer deux boissons et attendre un choix. Ne jamais priver l'enfant d'eau pour le faire demander.",progres:"L'enfant montre-t-il qu'il a soif ? Choisit-il entre deux boissons ?"},
+  mission:"Au repas, montre deux boissons. Attends que ton enfant choisisse. Dis le mot : « Boire ! Tu veux de l'eau ». Donne tout de suite."},
+ jouer:{scene:'ballon', expand:'On joue au ballon !', prompt:'Jouer ?',
+  intro:[['reset'],['say','Un ballon !'],['say','Milo veut jouer avec toi.'],['model'],['act'],['say','On joue au ballon !']],
+  fiche:{voit:"Milo tient un ballon et regarde l'enfant.",entend:"« Un ballon ! Milo veut jouer avec toi. » puis « Jouer ! »",fait:"Toucher l'image Jouer, toucher le ballon, sourire, faire un son, un geste.",
+   adulte:"Se mettre à la hauteur de l'enfant. Faire le geste « jouer » (les deux mains qui bougent). Dire « jouer ». Attendre.",app:"Chaque essai fait lancer le ballon.",
+   hors:"S'asseoir face à l'enfant avec un jouet qu'il aime. Tout signe = « Jouer ! On joue ! » et jouer tout de suite.",progres:"L'enfant vient-il chercher l'adulte pour jouer ?"},
+  mission:"Assieds-toi face à ton enfant avec un jouet qu'il aime. Attends. Dès qu'il te regarde ou tend la main, dis « Jouer ! On joue ! » et joue avec lui."}
+};
+function renderPath(){
+  $('pathList').innerHTML=ORDER.map(w=>{
+    const d=S.done[w], alone=S.events.some(e=>e.w===w&&!e.prompted), real=S.victories.some(v=>v.w===w)||d.mission;
+    return `<button class="step" data-w="${w}">${pic(w)}<span class="txt"><span class="word">${lbl(w)}</span>
+      <span class="dots"><i class="dot ${d.disc?'on':''}"></i><i class="dot ${alone?'on':''}"></i><i class="dot ${real?'on':''}"></i></span></span>
+      <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>`;
+  }).join('');
+  $('pathList').querySelectorAll('.step').forEach(b=>b.onclick=()=>{if(!sessionStart)sessionStart=Date.now();start5(b.dataset.w)});
+}
+function scene5(type){
+  const g='<div class="ground"></div>';
+  if(type==='bulles') return `<div class="obj" id="obj"><svg width="70" height="90" viewBox="0 0 70 90"><circle cx="35" cy="22" r="16" fill="none" stroke="var(--honey)" stroke-width="5"/><path d="M35 38v48" stroke="var(--honey-deep)" stroke-width="6" stroke-linecap="round"/></svg></div>${g}`;
+  if(type==='boite') return `<div class="obj"><svg class="box" id="obj" width="130" height="120" viewBox="0 0 130 120"><g class="toy"><path d="M65 30l8 16 18 2-13 12 4 18-17-9-17 9 4-18-13-12 18-2z" fill="var(--honey)"/></g><rect x="12" y="44" width="106" height="72" rx="10" fill="var(--rose)"/><g class="lid"><rect x="6" y="32" width="118" height="16" rx="6" fill="var(--rose)" stroke="var(--milo-ink)" stroke-opacity=".25" stroke-width="3"/></g></svg></div>${g}`;
+  if(type==='voiture') return `<div class="obj"><svg class="car" id="obj" width="120" height="70" viewBox="0 0 120 70"><path d="M10 44l10-20h50l20 20h18v16H10z" fill="var(--sage)"/><rect x="30" y="28" width="16" height="14" rx="3" fill="var(--surface)"/><rect x="52" y="28" width="16" height="14" rx="3" fill="var(--surface)"/><circle cx="34" cy="60" r="10" fill="var(--milo-ink)"/><circle cx="90" cy="60" r="10" fill="var(--milo-ink)"/></svg></div>${g}`;
+  if(type==='verre') return `<div class="obj"><svg class="cup" id="obj" width="80" height="100" viewBox="0 0 80 100"><rect class="juice" x="17" y="34" width="46" height="58" fill="var(--honey)"/><path d="M10 14h60l-7 82H17z" fill="none" stroke="var(--soft)" stroke-width="5" stroke-linejoin="round"/><path d="M48 14l10-12h12" fill="none" stroke="var(--rose)" stroke-width="5" stroke-linecap="round"/></svg></div>${g}`;
+  if(type==='ballon') return `<div class="obj"><svg class="ball" id="obj" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="var(--rose)"/><path d="M6 40h68M40 6c13 10 13 58 0 68M40 6c-13 10-13 58 0 68" fill="none" stroke="var(--surface)" stroke-width="5"/></svg></div>${g}`;
+}
+function act5(w){const o=$('obj');if(!o)return;const t=M5[w].scene;
+  if(t==='bulles'){const n=S.settings.calm?3:7;for(let i=0;i<n;i++){const b=document.createElement('i');b.className='bub';b.style.left=(15+Math.random()*65)+'%';b.style.animationDelay=(i*.18)+'s';o.appendChild(b);setTimeout(()=>b.remove(),5000)}}
+  if(t==='boite')o.classList.add('open'); if(t==='voiture')o.classList.remove('go'); if(t==='verre')o.classList.add('drink');
+  if(t==='ballon'){o.classList.remove('throw');void o.getBoundingClientRect();o.classList.add('throw')}}
+function reset5(w){const o=$('obj');if(!o)return;const t=M5[w].scene;
+  if(t==='boite')o.classList.remove('open'); if(t==='voiture')o.classList.add('go'); if(t==='verre')o.classList.remove('drink'); if(t==='ballon')o.classList.remove('throw')}
+async function start5(w){
+  const d=M5[w];
+  const alive=setupAct('path5:'+w,{stage:scene5(d.scene),zone:`<button class="main-picto" data-v="${w}" id="mainPicto">${pic(w)}<span>${lbl(w)}</span></button>`,turns:3,hint:"Regarde avec l'enfant. Dis le mot en même temps que Milo, avec le geste."});
+  $('backBtn').hidden=false; back='path';
+  fiche(lbl(w),d.fiche);
+  $('mainPicto').onclick=()=>{if(!comm({k:'choice',v:w}))say(lbl(w)+' !',actMilo,sp())};
+  const model=async()=>{$('mainPicto').classList.add('pulse');await Msay(lbl(w)+' !')};
+  for(const s of d.intro){ if(!alive())return;
+    if(s[0]==='say')await Msay(s[1]); if(s[0]==='act'){act5(w);await wait(300)} if(s[0]==='reset')reset5(w);
+    if(s[0]==='wait')await wait(s[1]); if(s[0]==='shake'){const o=$('obj');o.classList.add('shake');await wait(1100);o.classList.remove('shake')}
+    if(s[0]==='model')await model(); }
+  $('mainPicto').classList.remove('pulse'); S.done[w].disc=true; save();
+  await wait(1000);
+  for(let t=0;t<3;t++){ if(!alive())return;
+    reset5(w); setPhase('À toi !'); sp().textContent=''; setHint("Attends en silence, avec un regard qui invite. Toute réponse compte.");
+    let prompted=false; let r=await waitComm(S.settings.wait); if(!alive())return;
+    if(r==='timeout'){prompted=true;setHint("Montre encore le geste et dis le mot. Puis attends.");await Msay(d.prompt);await model();r=await waitComm(S.settings.wait);if(!alive())return}
+    $('mainPicto').classList.remove('pulse');
+    if(r==='timeout'){await Msay('On le fait ensemble : '+lbl(w).toLowerCase()+' !');act5(w);await wait(1800);record('path','ensemble',{w})}
+    else{const mode=r.k==='choice'?'picto':r.v; S.events.push({w,mode,prompted,t:Date.now()}); record('path',prompted?'aide':'seul',{w});
+      joy(); act5(w);
+      const lead={picto:'Oui !',mot:'Oui ! Tu le dis !',son:'Oh, tu me parles !',geste:'Tu me montres !',regard:'Tu me regardes !'}[mode];
+      setHint("Redis le mot à ton tour, en ajoutant un petit mot. Ne demande pas de répéter.");
+      await Msay(`${lead} ${lbl(w)} ! ${d.expand}`); await wait(1200);}
+    setTurns(3,t+1);
+  }
+  const i=ORDER.indexOf(w);
+  endGame(alive,{text:`Maintenant, on essaie « ${lbl(w).toLowerCase()} » dans la vraie vie.`,mission:d.mission,again:()=>start5(w),
+    next:{label:i<4?'Mot suivant':'Les 5 messages',go:()=>i<4?start5(ORDER[i+1]):show('path',{back:'univ'})}});
+}
+
+/* ================= U4 : CHOISIS ! ================= */
+const PAIRS_CHOIX=[['jus','lait'],['pomme','banane'],['ballon','voiture'],['biscuit','yaourt'],['bulles','livre'],['doudou','train']];
+async function gChoix(){
+  const alive=setupAct('choix',{turns:4,phase:'Choisis !',hint:"Montre les deux objets du doigt en les nommant. Puis attends que l'enfant choisisse."});
+  fiche('Choisis !',{voit:"Milo tient deux objets, un dans chaque main. En dessous, les deux images et un bouton « Pas ça ».",entend:"« Tu veux le jus ou le lait ? »",
+    fait:"Toucher une image, montrer, regarder un objet, ou toucher « Pas ça » pour refuser.",adulte:"Nommer les deux objets en les montrant. Attendre. Si l'enfant regarde un objet, c'est un choix : le noter avec « Regard ».",
+    app:"L'objet choisi va vers Milo, qui redit le choix en phrase. « Pas ça » est toujours respecté : Milo propose autre chose.",
+    hors:"Au goûter, montrer deux choses dans tes mains. « Tu veux la pomme ou la banane ? » Attendre, puis donner ce qu'il a choisi.",
+    progres:"L'enfant choisit-il clairement ? Dit-il non autrement qu'en pleurant ?"});
+  const rounds=pickN(PAIRS_CHOIX,4);
+  for(let t=0;t<4;t++){ if(!alive())return;
+    let [a,b]=shuffle(rounds[t]);
+    $('stage').innerHTML=miloSVG()+`<div class="obj" style="gap:10px">${big(a,'oa')}${big(b,'ob')}</div><div class="ground"></div>`;
+    actMilo=$('stage').querySelector('.milo');
+    $('actZone').innerHTML=choiceBtns([a,b])+`<button class="btn ghost" data-v="pasca" style="align-self:center;min-width:180px">Pas ça</button>`;
+    bindChoices();
+    setPhase('Choisis !');
+    await Msay(`Tu veux ${art(a)} ou ${art(b)} ?`);
+    let r=await waitComm(S.settings.wait*1.5); if(!alive())return;
+    if(r==='timeout'){await Msay(`${lbl(a)} ? ${lbl(b)} ?`);r=await waitComm(S.settings.wait);if(!alive())return;
+      if(r==='timeout'){record('choix','ensemble');await Msay('On choisira plus tard.');setTurns(4,t+1);continue}}
+    if(r.k==='choice'&&r.v==='pasca'){record('choix','seul',{refus:true});mood('fear');await Msay("D'accord, pas ça. Tu ne veux pas. On range.");mood(null);
+      S.events.push({w:'non',mode:'picto',prompted:false,t:Date.now()});save();}
+    else if(r.k==='choice'){const c=r.v;record('choix','seul',{w:c});$(c===a?'oa':'ob')?.classList.add('fly');joy();await Msay(`${lbl(c)} ! Tu veux ${art(c)}. Voilà ${art(c)} !`);}
+    else{record('choix','aide');await Msay(`Tu me montres ! Lequel ? ${lbl(a)}, ou ${lbl(b)} ?`);}
+    setTurns(4,t+1); await wait(700);
+  }
+  endGame(alive,{mission:"Au goûter, montre deux choses, une dans chaque main. « Tu veux la pomme ou la banane ? » Attends. Donne ce qu'il choisit. S'il dit non, respecte-le.",again:gChoix});
+}
+const ARTS={eau:"de l'eau",lait:'du lait',jus:'du jus',pain:'du pain',gateau:'du gâteau',pomme:'une pomme',banane:'une banane',biscuit:'un biscuit',yaourt:'un yaourt',fromage:'du fromage',pates:'des pâtes',riz:'du riz',
+  ballon:'le ballon',vache:'la vache',poule:'la poule',bulles:'les bulles',voiture:'la voiture',livre:'le livre',doudou:'le doudou',train:'le train',cubes:'les cubes',poupee:'la poupée'};
+const art=id=>ARTS[id]||('le '+lbl(id).toLowerCase());
+
+/* ================= U1 : FAIS COMME LES ANIMAUX ================= */
+const ANIM=[['vache','Meuh !'],['chat','Miaou !'],['chien','Ouaf ouaf !'],['canard','Coin coin !'],['mouton','Bêê !'],['poule','Cot cot !'],['voiture','Vroum vroum !'],['train','Tchou tchou !']];
+const SYL=[['bébé','Ba ba ba !','bebe'],['maman','Ma ma ma !','maman'],['papa','Pa pa pa !','papa'],['bisou','Mmm… mmmh !','bisou'],['dodo','Do do do !','dormir'],['oui','Ou ou ou !','oui']];
+async function gSons(){
+  const lv=lvOf('sons');
+  const alive=setupAct('sons',{turns:5,phase:'Écoute',hint:lv<3?"Fais le son avec Milo, en exagérant un peu. Puis attends : à l'enfant !":"Laisse l'enfant écouter. Montre les images seulement si besoin."});
+  fiche('Fais comme les animaux',{voit:"Un animal ou un objet en grand, à côté de Milo.",entend:lv===2?"Des syllabes répétées : « ba ba ba ».":"Le cri de l'animal, deux fois.",
+    fait:lv===3?"Trouver qui fait le son parmi 2 ou 3 images.":"Faire le son, un geste, ou toucher l'animal. Chacun son tour.",
+    adulte:"Faire le son avec Milo. Puis se taire et regarder l'enfant, comme si c'était son tour de parler. Noter un son avec « Son ».",
+    app:"Toute tentative fait réagir l'animal. Milo dit « À moi ! » puis « À toi ! » pour marquer les tours.",
+    hors:"Avec un livre d'animaux ou des jouets : faire le cri, puis attendre. Chanter des comptines avec des sons d'animaux et faire des pauses.",
+    progres:"L'enfant fait-il un son à son tour ? Imite-t-il ? Reconnaît-il qui fait le son (niveau 3) ?"});
+  for(let t=0;t<5;t++){ if(!alive())return;
+    if(lv===3){
+      const items=pickN(ANIM,3); const [tid,snd]=items[0];
+      $('stage').innerHTML=miloSVG()+'<div class="obj">'+big('sc_q')+'</div><div class="ground"></div>'; actMilo=$('stage').querySelector('.milo');
+      $('actZone').innerHTML=choiceBtns(shuffle(items.map(x=>x[0]))); bindChoices();
+      setPhase('Qui fait ça ?'); await Msay(`Qui fait ${snd.replace(' !','')} ?`);
+      const o=await errorless(alive,tid,`${snd} Qui fait ça ?`); if(!alive())return;
+      record('sons',o); joy(); await Msay(`${o==='seul'?'Oui ! ':''}${(['vache','poule','voiture'].includes(tid)?'La ':'Le ')+lbl(tid).toLowerCase()} fait ${snd}`);
+    }else{
+      const [name,snd,ic]=lv===1?ANIM.at(Math.floor(Math.random()*ANIM.length)):(()=>{const s=SYL.at(Math.floor(Math.random()*SYL.length));return [s[2],s[1],s[2]]})();
+      $('stage').innerHTML=miloSVG()+`<div class="obj" data-v="${name}">${big(lv===1?name:ic,'big')}</div><div class="ground"></div>`;
+      actMilo=$('stage').querySelector('.milo'); $('actZone').innerHTML='';
+      setPhase('Écoute'); await Msay(lv===1?`${lbl(name)} ! ${snd}`:snd); if(!alive())return; $('big').classList.add('bounce');
+      setPhase('À moi…'); await Msay(snd);
+      setPhase('À toi !'); setHint("Silence… c'est le tour de l'enfant. Note ce qu'il fait.");
+      let r=await waitComm(S.settings.wait); if(!alive())return; let o;
+      if(r==='timeout'){setHint("Refais le son avec Milo, puis attends encore.");await Msay(`À toi : ${snd}`);r=await waitComm(S.settings.wait);if(!alive())return;o=r==='timeout'?'ensemble':'aide'}else o='seul';
+      record('sons',o,{mode:r==='timeout'?null:r.v});
+      const bg=$('big'); if(bg){bg.classList.remove('bounce');void bg.getBoundingClientRect();bg.classList.add('bounce')} joy();
+      await Msay(o==='ensemble'?`On le fait ensemble : ${snd}`:`${r.v==='son'||r.v==='mot'?'Oui ! Tu fais ':'Tu me montres ! '}${snd}`);
+    }
+    setTurns(5,t+1); await wait(600);
+  }
+  endGame(alive,{mission:"Prends un livre d'animaux ou des jouets. Fais le cri de l'animal, puis tais-toi et regarde ton enfant, comme si c'était à lui. Un petit son, c'est gagné.",again:gSons});
+}
+
+/* ================= U2 : MON IMAGIER ================= */
+let imCat='base', imIdx=0;
+function gImagier(){
+  setupAct('imagier',{phase:'Imagier',hint:"Nomme ce que l'enfant regarde. Redis la phrase dans un vrai moment de la journée.",adult:false});
+  $('stage').hidden=true;
+  fiche('Mon imagier',{voit:"Une grande image, le mot écrit, et Milo qui dit une phrase.",entend:"Le mot, puis une phrase du quotidien : « Je bois de l'eau. »",
+    fait:"Toucher l'image pour entendre le mot. Passer à la suivante.",adulte:"Pointer l'image, dire le mot, attendre. Cocher « comprend » si l'enfant montre la bonne image quand on la nomme ; « utilise » s'il s'en sert seul dans la journée.",
+    app:"L'image s'anime et le mot est dit. Rien n'est noté sans l'adulte.",hors:"Utiliser le mot plusieurs fois dans la journée, dans de vraies situations.",progres:"Le nombre de mots compris et utilisés, dans le tableau de bord."});
+  renderImagier();
+}
+function renderImagier(){
+  const list=RAW.filter(r=>r[2]===imCat).map(r=>r[0]); imIdx=Math.min(imIdx,list.length-1);
+  const id=list.at(imIdx), v=S.vocab[id]||{};
+  $('actZone').innerHTML=`<div class="tabs" role="tablist">${Object.entries(CATS).map(([k,n])=>`<button class="tab" role="tab" data-c="${k}" aria-selected="${k===imCat}">${n}</button>`).join('')}</div>
+   <div class="wordcard"><button id="imPic" aria-label="Écouter ${lbl(id)}">${pic(id)}</button><span class="w">${lbl(id)}</span><span class="soft">${WD[id].x}</span>
+   <div class="marks"><button class="mark" data-m="comp" aria-pressed="${!!v.comp}">Comprend</button><button class="mark" data-m="use" aria-pressed="${!!v.use}">Utilise</button></div></div>
+   <div class="navrow"><button class="btn ghost" id="imPrev">Avant</button><span class="count">${imIdx+1} / ${list.length}</span><button class="btn" id="imNext">Après</button></div>`;
+  $('actZone').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{imCat=b.dataset.c;imIdx=0;renderImagier()});
+  $('imPic').onclick=async()=>{const p=$('imPic').querySelector('.pic');p.classList.add('pulse');await say(lbl(id));await say(WD[id].x,null,sp());p.classList.remove('pulse')};
+  $('imPrev').onclick=()=>{imIdx=(imIdx-1+list.length)%list.length;renderImagier()};
+  $('imNext').onclick=()=>{imIdx=(imIdx+1)%list.length;renderImagier();setTimeout(()=>say(lbl(list.at(imIdx))),50)};
+  $('actZone').querySelectorAll('.mark').forEach(b=>b.onclick=()=>{S.vocab[id]=S.vocab[id]||{};S.vocab[id][b.dataset.m]=!S.vocab[id][b.dataset.m];save();b.setAttribute('aria-pressed',S.vocab[id][b.dataset.m])});
+  sp().textContent=WD[id].x;
+}
+
+/* ================= U3 : LE TRAIN DES MOTS ================= */
+const PIVOTS=['jeveux','encore','donne'], VERBS={manger:['pomme','banane','biscuit','gateau','pain','fromage'],boire:['eau','lait','jus'],jouer:['ballon','bulles','voiture','train','cubes','doudou']};
+const OBJ_L1=['gateau','jus','ballon','bulles','pomme','doudou','eau','voiture','biscuit'];
+async function gPhrases(){
+  const lv=lvOf('phrases'), n=lv;
+  const alive=setupAct('phrases',{turns:4,phase:`Niveau ${lv}`,hint:"Laisse l'enfant choisir. Après la phrase de Milo, redis-la en jouant pour de vrai si tu peux."});
+  fiche('Le train des mots',{voit:`Un petit train de ${n} wagon${n>1?'s':''} vide${n>1?'s':''}, et des images en dessous.`,entend:"Chaque image touchée est dite. Quand le train est plein, la phrase complète : « Je veux du gâteau. »",
+    fait:"Mettre une image dans chaque wagon (toucher l'image). Toucher un wagon pour le vider. Toucher « Dire ».",
+    adulte:"Montrer l'exemple une fois. Ensuite, laisser construire. Ne pas corriger : redire la phrase juste, en plus long.",
+    app:"Milo dit toujours une phrase correcte et fait ce qui est demandé. Le niveau monte quand l'enfant remplit seul tous les wagons.",
+    hors:"À table : « Encore… ? » et attendre « gâteau ». Redire « Encore du gâteau ! ». Ajouter un mot à ce que dit l'enfant.",
+    progres:"Le nombre de mots que l'enfant met ensemble seul : 1, 2, puis 3."});
+  for(let t=0;t<4;t++){ if(!alive())return;
+    let slots=[]; let pool;
+    const zone=()=>{
+      if(lv===1)pool=pickN(OBJ_L1,6);
+      else if(lv===2)pool=slots.length===0?PIVOTS:pickN(OBJ_L1,6);
+      else pool=slots.length===0?['jeveux']:slots.length===1?Object.keys(VERBS):VERBS[slots[1]];
+      $('actZone').innerHTML=`<div class="slots">${Array.from({length:n},(_,i)=>`<button class="slot ${slots[i]?'full':''}" data-s="${i}">${slots[i]?`<span class="slotlbl">${pic(slots[i])}${lbl(slots[i])}</span>`:'wagon'}</button>`).join('')}</div>
+        <div class="grid g4">${pool.map(id=>`<button class="tile" data-p="${id}">${pic(id)}<span>${lbl(id)}</span></button>`).join('')}</div>
+        <button class="btn" id="sayBtn" ${slots.length<n?'disabled':''}>Dire</button>`;
+      $('actZone').querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{if(slots.length<n){slots.push(b.dataset.p);say(lbl(b.dataset.p));zone()}});
+      $('actZone').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{slots=slots.slice(0,+b.dataset.s);zone()});
+      $('sayBtn').onclick=()=>comm({k:'choice',v:'say'});
+    };
+    const prev=$('stage').querySelector('.obj'); if(prev)prev.remove();
+    zone(); setPhase('À toi !'); await Msay(t===0?(lv===1?'Qu\'est-ce que tu veux ?':'Remplis le train !'):'Encore un train !');
+    let r=await waitComm(S.settings.wait*3);
+    while(alive()&&r==='timeout'&&slots.length>0&&slots.length<n)r=await waitComm(S.settings.wait*3);
+    if(!alive())return;
+    if(r==='timeout'&&slots.length===n)r={k:'choice',v:'say'};
+    let o='seul';
+    if(r==='timeout'||r.k==='mode'){
+      if(r!=='timeout'&&r.v==='mot'){record('phrases','seul',{oral:true});await Msay('Tu le dis ! Bravo.');setTurns(4,t+1);continue}
+      o='aide'; setHint("Montre une image du doigt et nomme-la. Aide à remplir le premier wagon si besoin.");
+      await Msay('On remplit le train ensemble ?'); r=await waitComm(S.settings.wait*3); if(!alive())return;
+      if(r==='timeout'||r.k!=='choice'){o='ensemble';while(slots.length<n){slots.push(pool.at(0));zone()}}
+    }
+    record('phrases',o,{len:slots.length});
+    const obj=slots.at(-1); const s=sentence(slots,lv);
+    $('stage').insertAdjacentHTML('beforeend',`<div class="obj">${big(obj,'big')}</div>`);
+    joy(); await Msay(s); const bg=$('big'); if(bg)bg.classList.add('fly'); await wait(900);
+    setTurns(4,t+1);
+  }
+  endGame(alive,{mission:"Pendant le repas ou le jeu, ajoute un mot à ce que dit ton enfant. S'il dit « gâteau », réponds « Encore du gâteau ! ». Pas besoin qu'il répète.",again:gPhrases});
+}
+function sentence(sl,lv){
+  if(lv===1)return `${lbl(sl[0])} ! Je veux ${art(sl[0])}.`;
+  if(lv===2){const o=art(sl[1]);if(sl[0]==='jeveux')return `Je veux ${o}.`;if(sl[0]==='encore')return `Encore ${o} !`;return `Donne-moi ${o}, s'il te plaît.`}
+  const v=sl[1], o=art(sl[2]); return v==='jouer'?`Je veux jouer avec ${o}.`:`Je veux ${v} ${o}.`;
+}
+
+/* ================= U5 : MILO DEMANDE ================= */
+const L1_ITEMS=['chat','chien','vache','pomme','banane','ballon','voiture','bebe','lit','verre','doudou','livre','lapin'];
+async function gComprendre(){
+  const lv=lvOf('comprendre');
+  const alive=setupAct('comprendre',{turns:5,phase:`Niveau ${lv}`,hint:"Ne montre pas la réponse. Laisse l'enfant chercher. Milo aide s'il le faut."});
+  fiche('Milo demande',{voit:lv===1?"Trois images.":lv===2?"Deux aliments et deux animaux.":"Un ballon et une boîte, avec trois places : dans, sur, sous.",
+    entend:lv===1?"« Montre-moi le chat. »":lv===2?"« Donne la banane au singe. »":"« Mets le ballon sous la boîte. »",
+    fait:lv===2?"Toucher l'aliment, puis l'animal.":"Toucher la bonne image ou la bonne place.",
+    adulte:"Ne pas aider avec le regard ou le doigt. Si l'enfant montre la réponse sur un vrai objet, toucher « Geste ».",
+    app:"Si c'est juste, Milo le fait. Sinon, il montre la bonne image en douceur et redemande. À la deuxième fois, on le fait ensemble. Jamais de « faux ».",
+    hors:"Donner de petites consignes dans la journée : « Donne la cuillère à Papa », « Mets ton doudou sur le lit ».",
+    progres:"Consignes suivies seul, avec un indice, ou ensemble. Le niveau monte avec 4 réussites seul sur 5."});
+  for(let t=0;t<5;t++){ if(!alive())return;
+    let o;
+    if(lv===1){
+      const ids=pickN(L1_ITEMS,3), tgt=ids[0];
+      $('stage').innerHTML=miloSVG()+'<div class="ground"></div>'; actMilo=$('stage').querySelector('.milo');
+      $('actZone').innerHTML=choiceBtns(shuffle(ids)); bindChoices();
+      const q=`Montre-moi ${art(tgt).replace(/^(du|de l'|des|une|un) /,m=>({'du ':'le ','de l\'':'l\'','des ':'les ','une ':'la ','un ':'le '})[m])}.`;
+      await Msay(q); o=await errorless(alive,tgt,q); if(!alive())return;
+      joy(); await Msay(o==='seul'?`Oui ! ${lbl(tgt)} !`:`Voilà ${lbl(tgt).toLowerCase()} !`);
+    }else if(lv===2){
+      const food=pickN(['banane','carotte','os','pomme'],2), ani={banane:'singe',carotte:'lapin',os:'chien',pomme:'cheval'};
+      const f=food[0], a=ani[f], a2=ani[food[1]];
+      $('stage').innerHTML=miloSVG()+'<div class="ground"></div>'; actMilo=$('stage').querySelector('.milo');
+      $('actZone').innerHTML=`<p class="note" style="text-align:center">D'abord ce qu'on donne, puis à qui.</p>`+choiceBtns(shuffle(food))+choiceBtns(shuffle([a,a2])); bindChoices();
+      const q=`Donne ${f==='os'?"l'os":(f==='carotte'||f==='banane'||f==='pomme'?'la '+lbl(f).toLowerCase():'le '+lbl(f).toLowerCase())} ${a==='singe'?'au singe':a==='lapin'?'au lapin':a==='chien'?'au chien':'au cheval'}.`;
+      await Msay(q); const o1=await errorless(alive,f,q); if(!alive())return;
+      const o2=await errorless(alive,a,`Et maintenant… ${a==='singe'?'au singe':'au '+lbl(a).toLowerCase()} !`); if(!alive())return;
+      o=(o1==='seul'&&o2==='seul')?'seul':(o1==='ensemble'||o2==='ensemble')?'ensemble':'aide';
+      joy(); await Msay(`Miam ! ${lbl(a)} est content.`);
+    }else{
+      const pos=pickN(['dans','sur','sous'],1)[0];
+      $('stage').innerHTML=miloSVG()+'<div class="obj" style="gap:10px">'+big('ballon')+big('boite')+'</div><div class="ground"></div>'; actMilo=$('stage').querySelector('.milo');
+      const P3={dans:'📥',sur:'⬆️',sous:'⬇️'};
+      $('actZone').innerHTML=`<div class="choices">${['dans','sur','sous'].map(p=>`<button class="choice" data-v="${p}">${pic('pos_'+p)}<span>${p}</span></button>`).join('')}</div>`;
+      $('actZone').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{if(!comm({k:'choice',v:b.dataset.v}))say(b.dataset.v)});
+      const q=`Mets le ballon ${pos} la boîte.`; await Msay(q);
+      o=await errorlessRaw(alive,pos,q); if(!alive())return;
+      joy(); await Msay(`Le ballon est ${pos} la boîte !`);
+    }
+    const m=record('comprendre',o);
+    if(m==='up'){await Msay('Bravo ! On passe au jeu suivant, un peu plus grand.');}
+    setTurns(5,t+1); await wait(600);
+    if(m)return gComprendre();
+  }
+  endGame(alive,{mission:"Pendant la journée, donne une petite consigne sans montrer du doigt : « Donne la cuillère à Papa ». S'il hésite, montre-lui, puis dis « Merci ! »",again:gComprendre});
+}
+async function errorlessRaw(alive,target,prompt){ // même logique, libellés libres
+  let tries=0,hinted=false;
+  while(alive()){const r=await waitComm(S.settings.wait); if(!alive())return null;
+    if(r!=='timeout'&&((r.k==='choice'&&r.v===target)||r.k==='mode'))return hinted?'aide':'seul';
+    tries++; const el=$('actZone').querySelector(`[data-v="${target}"]`);
+    if(tries===1){hinted=true;el&&el.classList.add('hl');await Msay(r==='timeout'?prompt:`Regarde… ${target} !`)}
+    else{el&&el.classList.add('picked');await Msay(`On le fait ensemble : ${target} !`);return 'ensemble'}}
+  return null;
+}
+
+/* ================= U6 : ÉCOUTE ET TROUVE ================= */
+const MIN_PAIRS=[['pain','bain'],['poisson','boisson'],['gateau','bateau'],['chat','rat'],['poule','boule'],['toit','doigt'],['mouche','bouche'],['loup','fleur']].slice(0,7);
+async function gPaires(){
+  const alive=setupAct('paires',{turns:5,phase:'Écoute bien',hint:"Ne répète pas le mot à la place de Milo : l'enfant doit l'entendre, pas le voir sur tes lèvres."});
+  fiche('Écoute et trouve',{voit:"Deux images dont les mots se ressemblent : pain et bain.",entend:"Un seul des deux mots : « Montre le bain. »",
+    fait:"Toucher l'image entendue. Toucher une image pour l'entendre.",adulte:"Rester discret. Si l'enfant hésite, laisser Milo répéter.",
+    app:"Si c'est juste, Milo redit les deux mots pour faire entendre la différence. Sinon, indice puis on le fait ensemble.",
+    hors:"Jeu du « bain ou pain ? » avec de vrais objets. Exagérer un peu le premier son.",progres:"Paires réussies seul. À montrer à l'orthophoniste."});
+  for(let t=0;t<5;t++){ if(!alive())return;
+    const pr=MIN_PAIRS.at(Math.floor(Math.random()*MIN_PAIRS.length)); const tgt=pr.at(Math.floor(Math.random()*2));
+    $('stage').innerHTML=miloSVG()+'<div class="ground"></div>'; actMilo=$('stage').querySelector('.milo');
+    $('actZone').innerHTML=choiceBtns(shuffle(pr.slice())); bindChoices();
+    const q=`Montre : ${lbl(tgt).toLowerCase()}.`; await Msay(q);
+    const o=await errorless(alive,tgt,q); if(!alive())return; record('paires',o,{pair:pr.join('/')});
+    joy(); await Msay(`${lbl(pr[0])}… ${lbl(pr[1])}. C'était ${lbl(tgt).toLowerCase()} !`);
+    setTurns(5,t+1); await wait(500);
+  }
+  endGame(alive,{mission:"Avec deux vrais objets aux noms proches (ou deux images), demande « Donne-moi le… ». Dis-le clairement, une seule fois, sans montrer.",again:gPaires});
+}
+
+/* ================= U6 : LE SON DU JOUR ================= */
+const SOUNDS = {
+ p:{l:'p',syl:'pa, pa, pa',mouth:'closed',words:['pomme','pain','papa'],tip:'Les lèvres se ferment, puis s\'ouvrent d\'un coup.'},
+ b:{l:'b',syl:'ba, ba, ba',mouth:'closed',words:['bain','bebe','ballon'],tip:'Les lèvres se ferment, et la voix vibre.'},
+ m:{l:'m',syl:'mmm… ma, ma',mouth:'closed',words:['maman','main','mouton'],tip:'Lèvres fermées, ça chatouille le nez.'},
+ f:{l:'f',syl:'fff… fa, fa',mouth:'teeth',words:['fromage','feu','fleur'],tip:'Les dents du haut touchent la lèvre du bas.'},
+ s:{l:'s',syl:'sss… sa, sa',mouth:'smile',words:['serpent','soleil','sac'],tip:'Les dents se touchent presque, comme un sourire.'},
+ ch:{l:'ch',syl:'chhh… cha, cha',mouth:'round',words:['chat','chaussures','chien'],tip:'Les lèvres avancent en rond.'},
+ a:{l:'a',syl:'aaa',mouth:'open',words:['avion','ananas','papa'],tip:'La bouche s\'ouvre grand.'},
+ o:{l:'o',syl:'ooo',mouth:'round',words:['orange','os','dormir'],tip:'La bouche fait un rond.'},
+ ou:{l:'ou',syl:'ouuu',mouth:'small',words:['loup','poule','bouche'],tip:'Les lèvres font un petit rond.'},
+ i:{l:'i',syl:'iii',mouth:'smile',words:['lit','riz','souris'],tip:'On sourit grand.'}
+};
+function mouthSVG(t){
+  const lips={closed:'<path d="M28 52q32 10 64 0" stroke-width="6"/>',teeth:'<path d="M28 46q32-10 64 0q-32 18-64 0z" fill="#7A3B2E"/><rect x="44" y="44" width="32" height="7" rx="2" fill="#fff" stroke="none"/>',
+    smile:'<path d="M24 46q36 16 72 0q-36 8-72 0z" fill="#fff"/>',round:'<ellipse cx="60" cy="50" rx="14" ry="14" fill="#7A3B2E"/>',
+    open:'<ellipse cx="60" cy="52" rx="22" ry="18" fill="#7A3B2E"/>',small:'<ellipse cx="60" cy="50" rx="8" ry="8" fill="#7A3B2E"/>'}[t];
+  return `<svg viewBox="0 0 120 96" aria-hidden="true"><rect x="4" y="4" width="112" height="88" rx="40" fill="var(--milo-light)"/><g fill="none" stroke="#B5564A" stroke-width="5" stroke-linecap="round">${lips}</g></svg>`;
+}
+function gSonDuJour(){
+  const list=S.settings.sounds.length?S.settings.sounds:['a'];
+  let i=0;
+  const alive=setupAct('sondujour',{turns:0,phase:'Le son du jour',hint:"Mets-toi face à l'enfant, à sa hauteur, pour qu'il voie ta bouche aussi."});
+  $('stage').hidden=true;
+  fiche('Le son du jour',{voit:"Une bouche dessinée qui montre le son, et trois mots qui le contiennent.",entend:"Le son en syllabes, puis les mots.",
+    fait:"Écouter, regarder, essayer à son tour. Toucher un mot pour l'entendre.",adulte:"Faire le son face à l'enfant. Ne pas demander de répéter. Noter ses essais avec « Son » ou « Mot ».",
+    app:"Rien n'est jugé : la voix n'est pas analysée. Les sons proposés sont ceux choisis avec l'orthophoniste, dans l'espace parents.",
+    hors:"Jouer avec le son pendant le bain ou un trajet. Suivre les conseils précis de l'orthophoniste.",
+    progres:"Essais notés par l'adulte, à montrer à l'orthophoniste. Pas d'exercices de souffle : ils ne font pas venir la parole."});
+  const draw=()=>{
+    const k=list.at(i%list.length), s=SOUNDS[k];
+    $('actZone').innerHTML=`<div class="tabs">${list.map((x,j)=>`<button class="tab" data-i="${j}" aria-selected="${j===i%list.length}">« ${SOUNDS[x].l} »</button>`).join('')}</div>
+     <button class="mouthcard" id="mouthBtn">${mouthSVG(s.mouth)}<span style="text-align:left"><span class="w" style="font-family:var(--display);font-size:2rem;font-weight:600">${s.l}</span><br><span class="soft">${s.tip}</span></span></button>
+     ${choiceBtns(s.words)}
+     <div class="row"><button class="btn sage" id="tryBtn">L'enfant a essayé</button></div>`;
+    $('actZone').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{i=+b.dataset.i;draw()});
+    $('mouthBtn').onclick=()=>say(s.syl,null,sp());
+    $('actZone').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>say(lbl(b.dataset.v),null,sp()));
+    $('tryBtn').onclick=()=>{record('sondujour','seul',{son:k});$('tryBtn').textContent='Noté !';setTimeout(()=>{if($('tryBtn'))$('tryBtn').textContent="L'enfant a essayé"},900)};
+    sp().textContent=`Le son « ${s.l} » : ${s.syl}`;
+  };
+  draw();
+}
+
+/* ================= U7 : ÉMOTIONS ================= */
+const EMO_SC=[
+ {e:'triste',m:'sad',sc:'sc_ballon',txt:'Oh non… le ballon de Milo s\'envole.',why:'Son ballon est parti.'},
+ {e:'content',m:'happy',sc:'donne',txt:'Un cadeau pour Milo !',why:'Il a un cadeau.'},
+ {e:'peur',m:'fear',sc:'sc_orage',txt:'Boum ! Un gros orage.',why:'Le bruit est très fort.'},
+ {e:'colere',m:'angry',sc:'sc_tour',txt:'Quelqu\'un a cassé la tour de Milo.',why:'Sa tour est cassée.'},
+ {e:'fatigue',m:'tired',sc:'sc_lune',txt:'C\'est le soir. Milo a beaucoup joué.',why:'Il a besoin de dormir.'},
+ {e:'mal',m:'sad',sc:'mal',txt:'Aïe ! Milo est tombé.',why:'Il s\'est fait mal.'}
+];
+async function gEmoMilo(){
+  const lv=lvOf('emomilo');
+  const alive=setupAct('emomilo',{turns:4,phase:'Que ressent Milo ?',hint:"Imite le visage de Milo. Nomme l'émotion avec ta voix et ton visage."});
+  fiche('Que ressent Milo ?',{voit:"Une petite scène (un ballon qui s'envole, un cadeau) et le visage de Milo qui change.",entend:"« Oh non… le ballon s'envole. Comment se sent Milo ? »",
+    fait:`Choisir parmi ${lv===1?2:3} émotions.`,adulte:"Faire la même tête que Milo. Dire « Il est triste » avec une voix triste.",
+    app:"Milo nomme toujours l'émotion et dit pourquoi. S'il y a erreur, il dit doucement « Regarde sa bouche… ».",
+    hors:"Nommer les émotions dans la journée, les siennes et celles de l'enfant : « Tu es en colère, la tour est tombée. »",progres:"Émotions reconnues seul."});
+  for(let t=0;t<4;t++){ if(!alive())return;
+    const sc=EMO_SC.at(Math.floor(Math.random()*EMO_SC.length));
+    const opts=shuffle([sc.e,...pickN(['content','triste','peur','colere','fatigue'].filter(x=>x!==sc.e&&!(sc.e==='mal'&&x==='triste')),lv===1?1:2)]);
+    $('stage').innerHTML=miloSVG()+`<div class="obj">${big(sc.sc)}</div><div class="ground"></div>`; actMilo=$('stage').querySelector('.milo');
+    mood(sc.m); $('actZone').innerHTML=choiceBtns(opts); bindChoices();
+    await Msay(sc.txt); await Msay('Comment se sent Milo ?');
+    const o=await errorless(alive,sc.e,'Regarde sa bouche… Comment il se sent ?'); if(!alive())return;
+    record('emomilo',o,{e:sc.e});
+    await Msay(`Milo ${sc.e==='mal'?'a mal':sc.e==='peur'?'a peur':'est '+lbl(sc.e).toLowerCase()}. ${sc.why}`);
+    mood(null); setTurns(4,t+1); await wait(600);
+  }
+  endGame(alive,{mission:"Aujourd'hui, nomme au moins une émotion de ton enfant au moment où elle arrive : « Tu es content ! Tu ris ! » ou « Tu es triste, le gâteau est fini. »",again:gEmoMilo});
+}
+const EMO_ANS={content:['Tu es content ! Moi aussi, ça me rend content.',null],triste:['Tu es triste. C\'est normal d\'être triste.',['calin','calme']],
+  peur:['Tu as peur. Je suis là. On regarde ensemble.',['calin','calme']],colere:['Tu es en colère. Tu as le droit. On respire doucement.',['calme','stop']],
+  fatigue:['Tu es fatigué. On peut se reposer.',['calme','calin']],mal:['Tu as mal. Montre à l\'adulte où tu as mal.',['aide','calin']],calme:['Tu veux être au calme. D\'accord, Milo attend tout doucement.',null]};
+function gEmoMoi(){
+  const alive=setupAct('emomoi',{turns:0,phase:'Et moi, ça va ?',hint:"Accueille l'émotion choisie sans la discuter. Propose ce que l'enfant a choisi."});
+  fiche('Et moi, ça va ?',{voit:"Sept visages d'émotion.",entend:"« Et toi, comment tu te sens ? » puis une phrase qui accueille l'émotion.",
+    fait:"Toucher l'émotion. Puis choisir : câlin, coin calme, aide ou stop.",adulte:"Accueillir sans corriger (« Mais non, tu n'es pas triste ! » est à éviter). Proposer ce que l'enfant a choisi.",
+    app:"Milo accueille chaque émotion avec des mots simples et propose des solutions. L'émotion est notée pour le parent, sur ce téléphone.",
+    hors:"Laisser le tableau d'images avec les émotions à portée de main. Montrer ses propres émotions avec les images.",progres:"Les émotions exprimées, dans le tableau de bord."});
+  const ask=async()=>{
+    mood(null);
+    $('actZone').innerHTML=`<div class="grid g4">${['content','triste','peur','colere','fatigue','mal','calme'].map(id=>`<button class="tile" data-v="${id}">${pic(id)}<span>${lbl(id)}</span></button>`).join('')}</div>`;
+    $('actZone').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>pick(b.dataset.v));
+    await Msay(`Et toi${S.name?', '+S.name:''}, comment tu te sens ?`);
+  };
+  const pick=async(e)=>{ if(!alive())return;
+    S.emotions.push({e,t:Date.now()});save();
+    mood({content:'happy',triste:'sad',peur:'fear',colere:'angry',fatigue:'tired',mal:'sad',calme:'tired'}[e]);
+    const [txt,opts]=EMO_ANS[e];
+    $('actZone').innerHTML=opts?`${choiceBtns(opts)}<button class="btn ghost" id="again">Changer d'émotion</button>`:'<button class="btn ghost" id="again">Changer d\'émotion</button>';
+    $('again').onclick=ask;
+    $('actZone').querySelectorAll('[data-v]').forEach(b=>b.onclick=async()=>{const v=b.dataset.v; S.events.push({w:v,mode:'picto',prompted:false,t:Date.now()});save();
+      await Msay({calin:'Un câlin ! Va voir ton adulte pour un gros câlin.',calme:'Le coin calme. On respire doucement, avec Milo.',stop:'Stop. On arrête tout. Tu as le droit.',aide:'Aide ! On va chercher l\'adulte.'}[v]);
+      if(v==='calme')mood('tired');});
+    await Msay(txt);
+  };
+  ask();
+}
+
+/* ================= TABLEAU DE COMMUNICATION ================= */
+let strip=[], boardCat='mine';
+function renderBoard(){
+  $('boardTabs').innerHTML=`<button class="tab" data-c="mine" aria-selected="${boardCat==='mine'}">Mes images</button>`+Object.entries(CATS).map(([k,n])=>`<button class="tab" data-c="${k}" aria-selected="${k===boardCat}">${n}</button>`).join('');
+  $('boardTabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{boardCat=b.dataset.c;renderBoard()});
+  const ids=boardCat==='mine'?S.settings.board:RAW.filter(r=>r[2]===boardCat).map(r=>r[0]);
+  $('boardGrid').className='grid'+(ids.length>12?' g4':'');
+  $('boardGrid').innerHTML=ids.map(id=>`<button class="tile" data-id="${id}">${pic(id)}<span>${lbl(id)}</span></button>`).join('');
+  $('boardGrid').querySelectorAll('.tile').forEach(b=>b.onclick=()=>{
+    const id=b.dataset.id; if(strip.length<4)strip.push(id); renderStrip(); say(lbl(id));
+    if(ORDER.includes(id)){S.events.push({w:id,mode:'picto',prompted:false,t:Date.now(),board:true});save()}
+  });
+  renderStrip();
+}
+function renderStrip(){$('chips').innerHTML=strip.length?strip.map(id=>`<span class="chip">${pic(id)}${lbl(id)}</span>`).join(''):'<span class="empty">Touche des images…</span>'}
+function boardSentence(){
+  const ids=strip.slice(); let out=[];
+  for(let i=0;i<ids.length;i++){const id=ids[i], prev=ids[i-1];
+    if(['food','jouet'].includes(WD[id]?.c)&&(prev==='jeveux'||prev==='encore'||prev==='donne'||['manger','boire'].includes(prev)))out.push(art(id));
+    else if(prev==='jouer'&&WD[id]?.c==='jouet')out.push('avec '+art(id));
+    else if(id==='donne'&&i===0)out.push('donne-moi');
+    else out.push(lbl(id).toLowerCase());}
+  const s=out.join(' '); return s.charAt(0).toUpperCase()+s.slice(1);
+}
+$('sayStrip').onclick=()=>{if(strip.length)say(boardSentence())};
+$('clearStrip').onclick=()=>{strip=[];renderStrip()};
+
+/* ================= PORTE PARENTS ================= */
+let holdT=null; const hb=$('holdBtn');
+hb.addEventListener('pointerdown',e=>{e.preventDefault();hb.classList.add('holding');holdT=setTimeout(()=>{hb.classList.remove('holding');show('parent')},2000)});
+['pointerup','pointerleave','pointercancel'].forEach(ev=>hb.addEventListener(ev,()=>{hb.classList.remove('holding');clearTimeout(holdT)}));
+hb.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')show('parent')});
+
+/* ================= MES PETITES VICTOIRES ================= */
+const MODES=['regard','geste','son','picto','mot'];
+const ML={regard:'Regard',geste:'Geste',son:'Son',picto:'Image',mot:'Mot',phrase:'Plusieurs mots'};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function nextStep(){
+  const rec=REC[S.profile]||REC.A;
+  if(S.profile==='A'){const w=ORDER.find(w=>!S.done[w].disc);if(w)return `Découvrir « ${lbl(w)} » dans Mes 5 premiers messages (univers 4).`;
+    const w2=ORDER.find(w=>!S.events.some(e=>e.w===w&&!e.prompted));if(w2)return `Rejouer « ${lbl(w2)} » : l'enfant ne l'a pas encore demandé seul.`;}
+  for(const uid of rec){const u=UNIV.find(x=>x.id===uid);for(const g of u.games){if(g==='path'||g==='imagier'||g==='sondujour'||g==='emomoi')continue;
+    if(!S.trials.some(t=>t.g===g))return `Essayer « ${GAMES[g].n} » (univers ${UNIV.indexOf(u)+1}).`;}}
+  const g=Object.keys(GAMES).filter(g=>GAMES[g].max).sort((a,b)=>S.trials.filter(t=>t.g===a).length-S.trials.filter(t=>t.g===b).length)[0];
+  return `Continuer « ${GAMES[g].n} », au niveau ${lvOf(g)}. Et surtout, les missions de la vraie vie.`;
+}
+function renderParent(){
+  $('parEyebrow').textContent=S.name?`Mode parents · ${S.name} · profil ${S.profile}`:`Mode parents · profil ${S.profile}`;
+  $('nextPanel').innerHTML=`<p class="eyebrow">Prochaine étape conseillée</p><p class="next">${nextStep()}</p>`;
+  const nextW=ORDER.find(w=>!S.done[w].mission)||ORDER[0];
+  $('missionPanel').innerHTML=`<p class="eyebrow">Mission du jour · ${lbl(nextW)}</p><p>${M5[nextW].mission}</p>
+   <ol class="steps"><li>Montre le mot et le geste.</li><li>Attends quelques secondes, en silence.</li><li>Accueille toute tentative : regard, son, geste.</li><li>Redis le mot, en plus long.</li><li>Réutilise-le dans d'autres moments.</li></ol>
+   <label class="check"><input type="checkbox" id="mDone" ${S.done[nextW].mission?'checked':''}> On l'a fait aujourd'hui</label>`;
+  $('mDone').onchange=e=>{S.done[nextW].mission=e.target.checked;save();renderParent()};
+  $('statTable').innerHTML=`<thead><tr><th>Message</th>${MODES.map(m=>`<th class="n">${ML[m]}</th>`).join('')}<th class="n">Seul</th><th class="n">Vraie vie</th></tr></thead><tbody>`+
+   ORDER.map(w=>{const e=S.events.filter(x=>x.w===w);const vv=S.victories.filter(v=>v.w===w).length;
+     return `<tr><td><strong>${lbl(w)}</strong></td>${MODES.map(m=>`<td class="n">${e.filter(x=>x.mode===m).length||'·'}</td>`).join('')}<td class="n">${e.filter(x=>!x.prompted).length||'·'}</td><td class="n">${vv||'·'}</td></tr>`}).join('')+'</tbody>';
+  $('gameTable').innerHTML=`<thead><tr><th>Jeu</th><th>Niveau</th><th>5 derniers</th></tr></thead><tbody>`+
+   Object.entries(GAMES).filter(([g])=>g!=='imagier'&&g!=='emomoi').map(([g,G])=>{const last=S.trials.filter(t=>t.g===g).slice(-5);
+     return `<tr><td>${G.n}</td><td>${G.max>1?`<select data-lv="${g}" style="width:auto;padding:6px">${Array.from({length:G.max},(_,k)=>`<option ${k+1===lvOf(g)?'selected':''}>${k+1}</option>`).join('')}</select>`:'—'}</td>
+       <td><span class="outs">${last.length?last.map(t=>`<i class="out ${t.o}"></i>`).join(''):'<span class="note">pas encore</span>'}</span></td></tr>`}).join('')+'</tbody>';
+  $('gameTable').querySelectorAll('[data-lv]').forEach(s=>s.onchange=()=>{S.lv[s.dataset.lv]=+s.value;save()});
+  const comp=Object.values(S.vocab).filter(v=>v.comp).length, use=Object.values(S.vocab).filter(v=>v.use).length;
+  $('wordSum').innerHTML=`<div><strong>${comp}</strong>mots compris</div><div><strong>${use}</strong>mots utilisés</div><div><strong>${RAW.length}</strong>mots dans l'imagier</div>`;
+  const used=Object.entries(S.vocab).filter(([,v])=>v.use).map(([k])=>lbl(k));
+  $('wordUsed').textContent=used.length?'Utilisés : '+used.join(', ')+'.':'';
+  $('vWord').innerHTML=ORDER.map(w=>`<option value="${w}">${lbl(w)}</option>`).join('')+RAW.filter(r=>!ORDER.includes(r[0])).map(r=>`<option value="${r[0]}">${r[1]}</option>`).join('');
+  $('vList').innerHTML=S.victories.length?S.victories.slice().reverse().slice(0,12).map(v=>{const dt=new Date(v.t).toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
+    return `<div class="vitem"><strong>${W_(v.w)?lbl(v.w):'Autre'}</strong> · ${ML[v.mode]} · ${v.where}${v.alone?' · tout seul':''}${v.text?`<br>${esc(v.text)}`:''}<small>${dt}</small></div>`}).join('')
+    :'<p class="note">Aucune victoire notée pour l\'instant. Le premier regard qui demande, c\'est déjà une victoire.</p>';
+  $('emoList').innerHTML=S.emotions.length?S.emotions.slice().reverse().slice(0,8).map(e=>`<div class="vitem">${lbl(e.e)}<small>${new Date(e.t).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</small></div>`).join(''):'<p class="note">Rien pour l\'instant. Voir « Et moi, ça va ? » dans l\'univers 7.</p>';
+  $('pName').value=S.name;
+  profileButtons($('parProfiles'),()=>{save();renderParent()});
+  $('soundPick').innerHTML=Object.keys(SOUNDS).map(k=>`<button class="mark" data-s="${k}" aria-pressed="${S.settings.sounds.includes(k)}">${SOUNDS[k].l}</button>`).join('');
+  $('soundPick').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const k=b.dataset.s;const a=S.settings.sounds;S.settings.sounds=a.includes(k)?a.filter(x=>x!==k):[...a,k];save();b.setAttribute('aria-pressed',S.settings.sounds.includes(k))});
+  $('waitSel').value=String(S.settings.wait);$('styleSel').value=S.settings.style;$('sessSel').value=String(S.settings.sess);fillVoices();
+  $('boardPicker').innerHTML=RAW.map(r=>`<label><input type="checkbox" data-b="${r[0]}" ${S.settings.board.includes(r[0])?'checked':''}> ${r[1]}</label>`).join('');
+  $('boardPicker').querySelectorAll('[data-b]').forEach(c=>c.onchange=()=>{const k=c.dataset.b;S.settings.board=c.checked?[...S.settings.board,k]:S.settings.board.filter(x=>x!==k);save()});
+}
+$('pName').onchange=e=>{S.name=e.target.value.trim();save();renderParent()};
+$('calmToggle').onchange=e=>{S.settings.calm=e.target.checked;save();syncCalm()};
+$('waitSel').onchange=e=>{S.settings.wait=+e.target.value;save()};
+$('styleSel').onchange=e=>{S.settings.style=e.target.value;save()};
+function fillVoices(){const v=frVoices();const best=pickVoice();
+  $('voiceSel').innerHTML=`<option value="">Automatique${best?' ('+esc(best.name)+')':''}</option>`+v.map(x=>`<option value="${esc(x.name)}" ${x.name===S.settings.voice?'selected':''}>${esc(x.name)}</option>`).join('');}
+$('voiceSel').onchange=e=>{S.settings.voice=e.target.value;save()};
+$('testVoice').onclick=()=>{sfx.hello();setTimeout(()=>say(`Coucou${S.name?' '+S.name:''} ! Je suis Milo, le petit ourson. On joue ensemble ?`),300)};
+try{speechSynthesis.onvoiceschanged=()=>{if(cur==='parent')fillVoices()}}catch(e){}
+$('sessSel').onchange=e=>{S.settings.sess=+e.target.value;save()};
+$('vAdd').onclick=()=>{S.victories.push({w:$('vWord').value,mode:$('vMode').value,where:$('vWhere').value,alone:$('vAlone').value==='1',text:$('vText').value.trim(),t:Date.now()});
+  if(['picto','mot','phrase'].includes($('vMode').value)){const w=$('vWord').value;S.vocab[w]=S.vocab[w]||{};S.vocab[w].use=true}
+  $('vText').value='';save();renderParent()};
+$('exportBtn').onclick=()=>{
+  const data=JSON.stringify({exporte_le:new Date().toISOString(),profil:S.profile,prenom:S.name,niveaux:S.lv,essais:S.trials,messages:S.events,victoires:S.victories,mots:S.vocab,emotions:S.emotions},null,1);
+  openOverlay(`<h2>Mes données</h2><p class="note">Tout ce que l'appli garde, en texte. Copie-le pour le montrer à l'orthophoniste.</p><textarea id="expTxt" readonly>${esc(data)}</textarea>
+    <div class="row"><button class="btn ghost" id="oClose">Fermer</button><button class="btn" id="oCopy">Copier</button></div>`);
+  $('oClose').onclick=closeOverlay;
+  $('oCopy').onclick=()=>{const t=$('expTxt');navigator.clipboard?.writeText(data).then(()=>$('oCopy').textContent='Copié !').catch(()=>{t.select()})||t.select()};
+};
+$('wipeBtn').onclick=()=>{
+  openOverlay(`<h2>Tout effacer ?</h2><p class="soft">Les notes, les progrès et les réglages seront supprimés de ce téléphone.</p>
+   <div class="row"><button class="btn ghost" id="oNo">Garder</button><button class="btn danger" id="oYes">Effacer</button></div>`);
+  $('oNo').onclick=closeOverlay;
+  $('oYes').onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){};S=JSON.parse(JSON.stringify(DEF));ORDER.forEach(w=>S.done[w]={disc:false,mission:false});closeOverlay();syncCalm();syncSound();profileButtons($('setProfiles'));$('setOk').checked=false;$('setGo').disabled=true;show('setup')};
+};
+
+/* ================= DÉMARRAGE ================= */
+$('playArt').innerHTML=artSVG('jouer'); $('boardArt').innerHTML=artSVG('stp');
+if(document.documentElement.requestFullscreen&&!window.AndroidTTS){$('fsBtn').hidden=false;
+  $('fsBtn').onclick=()=>{try{(document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()).catch(()=>{})}catch(e){}}}
+try{speechSynthesis.getVoices()}catch(e){}
+show(S.setup?'home':'setup');
+</script>
+
+</body>
+</html>

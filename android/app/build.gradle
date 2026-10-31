@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'fr.mapetitevoix'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'fr.mapetitevoix.milo'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    signingConfigs {
+        milo {
+            storeFile file('milo.keystore')
+            storePassword 'milo-ourson'
+            keyAlias 'milo'
+            keyPassword 'milo-ourson'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.milo
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
