@@ -26,7 +26,8 @@ jobs:
       - name: Fabriquer l'APK
         run: |
           echo "sdk.dir=$ANDROID_HOME" > android/local.properties
-          gradle -p android assembleRelease --no-daemon --stacktrace
+          set -o pipefail
+          gradle -p android assembleRelease --no-daemon --stacktrace 2>&1 | tee build.log
 
       - name: Renommer
         run: cp android/app/build/outputs/apk/release/app-release.apk MaPetiteVoix.apk
@@ -38,3 +39,13 @@ jobs:
           name: Ma Petite Voix ${{ github.run_number }}
           files: MaPetiteVoix.apk
           make_latest: true
+
+      - name: Journal en cas de problème
+        if: failure()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: journal-${{ github.run_number }}
+          name: Journal ${{ github.run_number }}
+          files: build.log
+          prerelease: true
+          make_latest: false
